@@ -21,7 +21,7 @@ function viewStart(){
   <div class="users">${names.map(n=>`<button class="user" data-act="pick-user" data-n="${esc(n)}"><span>${esc(DB.users[n].avatar)}</span>${esc(n)}</button>`).join('')||'<p class="meta">Noch niemand angelegt.</p>'}</div>
   <div class="panel"><h3>Neu anlegen</h3><label>Name</label><input id="nn" maxlength="20" autocomplete="off"><label>Symbol</label><div class="avs">${AVATARS.map((a,i)=>`<button class="av ${i===0?'sel':''}" data-act="pick-av" data-a="${a}">${a}</button>`).join('')}</div>
   <div class="actions"><button class="btn primary" data-act="add-user">Anlegen ▸</button></div></div>
-  <p class="meta" id="syncstat">${syncStatus}${STORAGE_OK?'':' · Speicher im Browser gesperrt!'}</p>`);
+  <p class="meta"><span id="syncstat">${syncStatus}${STORAGE_OK?'':' · Speicher im Browser gesperrt!'}</span> · <span id="appver">Version ${APP_VERSION}</span></p>`);
 }
 /* ---------- Home ---------- */
 const mins=s=>Math.round((s||0)/60);
@@ -36,7 +36,7 @@ function viewHome(){
   <h2 class="h2">Kapitel</h2>
   <div class="grid">${KAPITEL.map(c=>`<button class="tile" data-act="kap" data-k="${c.id}">${c.icon}<b>${c.id}. ${esc(c.name)}</b><small>${kapDone(u,c.id)} von ${tasksOf(c.id).length} gemeistert${kapOpen(u,c.id)?'':' · später'}</small>${bar(kapMastery(u,c.id))}</button>`).join('')}</div>
   <div class="actions"><button class="btn" data-act="spick">📒 Spickzettel</button></div>
-  <p class="meta" id="pystat">Python wird geladen …</p><p class="meta" id="syncstat">${syncStatus}</p>`);
+  <p class="meta" id="pystat">Python wird geladen …</p><p class="meta"><span id="syncstat">${syncStatus}</span> · <span id="appver">Version ${APP_VERSION}</span></p>`);
   pyStatus();
 }
 function viewKap(id){
