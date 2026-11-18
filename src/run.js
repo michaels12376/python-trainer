@@ -109,7 +109,7 @@ function deErr(e){
     case 'ZeroDivisionError':m='ZeroDivisionError: Durch 0 kann man nicht teilen.';break;
     case 'EOFError':m=msg;break;
     case 'Timeout':return msg;
-    case 'RuntimeError':m=msg;break;
+    case 'RuntimeError':m=/Zu viel Ausgabe/.test(msg)?'Dein Programm gibt viel zu viel aus – wahrscheinlich läuft eine Endlosschleife (die Bedingung wird nie falsch oder die Variable wird nicht verändert).':msg;break;
     default:m=typ+': '+msg;
   }
   return m+at;
