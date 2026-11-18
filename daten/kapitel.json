@@ -1,0 +1,7 @@
+{"kapitel":[
+{"id":1,"name":"Ausgabe mit print","icon":"🖨️","info":"Text ausgeben, mehrere Zeilen, Zeilenumbruch, sep und end."},
+{"id":2,"name":"Variablen und Rechnen","icon":"🧮","info":"Werte speichern, rechnen (+ - * / // % **), f-Strings."},
+{"id":3,"name":"Eingabe und Datentypen","icon":"⌨️","info":"input(), int/float/str, Text und Zahl unterscheiden, runden."},
+{"id":4,"name":"Bedingungen","icon":"🔀","info":"if, elif, else, Vergleiche, and/or, gerade/ungerade."},
+{"id":5,"name":"Schleifen","icon":"🔁","info":"for mit range, while, Summen, Zählen, Muster."}
+]}

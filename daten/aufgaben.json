@@ -1,0 +1,1831 @@
+[
+{
+"id": "a001",
+"kap": 1,
+"typ": "predict",
+"lvl": 1,
+"titel": "print mit Text",
+"code": "print(\"Hallo <<n>>!\")",
+"hints": [
+"print gibt den Text zwischen den Anführungszeichen aus.",
+"Die Anführungszeichen selbst werden nicht mit ausgegeben."
+],
+"vars": {
+"n": [
+"Welt",
+"Felix",
+"Sophia",
+"Python"
+]
+}
+},
+{
+"id": "a002",
+"kap": 1,
+"typ": "predict",
+"lvl": 1,
+"titel": "Mehrere print-Zeilen",
+"code": "print(\"<<a>>\")\nprint(\"<<b>>\")\nprint(\"<<c>>\")",
+"hints": [
+"Jedes print beginnt in einer neuen Zeile."
+],
+"vars": {
+"a": [
+"Eins",
+"Rot",
+"Montag"
+],
+"b": [
+"Zwei",
+"Gelb",
+"Dienstag"
+],
+"c": [
+"Drei",
+"Blau",
+"Mittwoch"
+]
+}
+},
+{
+"id": "a003",
+"kap": 1,
+"typ": "predict",
+"lvl": 2,
+"titel": "print mit Komma",
+"code": "print(\"Ich bin\", <<z>>, \"Jahre alt\")",
+"hints": [
+"Zwischen den durch Komma getrennten Teilen setzt print automatisch ein Leerzeichen.",
+"Zahlen brauchen keine Anführungszeichen."
+],
+"vars": {
+"z": [
+"12",
+"13",
+"11",
+"14"
+]
+}
+},
+{
+"id": "a004",
+"kap": 1,
+"typ": "predict",
+"lvl": 2,
+"titel": "Zeilenumbruch und sep",
+"code": "print(\"<<a>>\\n<<b>>\")\nprint(\"x\", \"y\", \"z\", sep=\"<<s>>\")",
+"hints": [
+"\\n ist ein Zeilenumbruch.",
+"sep legt fest, was zwischen den Teilen steht (normal: ein Leerzeichen)."
+],
+"vars": {
+"a": [
+"Hallo",
+"Oben",
+"Eins"
+],
+"b": [
+"Welt",
+"Unten",
+"Zwei"
+],
+"s": [
+"-",
+"+",
+"/"
+]
+}
+},
+{
+"id": "a005",
+"kap": 1,
+"typ": "predict",
+"lvl": 3,
+"titel": "print mit end",
+"code": "print(\"Eins\", end=\" \")\nprint(\"Zwei\", end=\" \")\nprint(\"Drei\")\nprint(\"Vier\")",
+"hints": [
+"end legt fest, was am Ende der Ausgabe steht (normal: ein Zeilenumbruch).",
+"Hier steht nach \"Eins\" und \"Zwei\" nur ein Leerzeichen – die nächste Ausgabe geht in derselben Zeile weiter."
+]
+},
+{
+"id": "a006",
+"kap": 1,
+"typ": "gap",
+"lvl": 1,
+"titel": "print-Befehl",
+"code": "___(\"Python macht Spaß!\")",
+"ans": [
+"print"
+],
+"hints": [
+"Welcher Befehl gibt Text aus?"
+],
+"text": "Ergänze den fehlenden Befehl, damit der Text ausgegeben wird."
+},
+{
+"id": "a007",
+"kap": 1,
+"typ": "gap",
+"lvl": 2,
+"titel": "sep ergänzen",
+"code": "print(\"a\", \"b\", \"c\", ___=\"-\")",
+"ans": [
+"sep"
+],
+"hints": [
+"Das Wort steht zwischen den Teilen der Ausgabe.",
+"Es hat drei Buchstaben und beginnt mit s."
+],
+"text": "Ergänze den Namen des Parameters, damit zwischen den Buchstaben ein Strich steht."
+},
+{
+"id": "a008",
+"kap": 1,
+"typ": "bug",
+"lvl": 1,
+"titel": "Groß- und Kleinschreibung",
+"text": "Das Programm soll „Guten Morgen“ ausgeben.",
+"code": "Print(\"Guten Morgen\")",
+"ref": "print(\"Guten Morgen\")",
+"hints": [
+"Python unterscheidet Groß- und Kleinschreibung.",
+"Der Befehl heißt print – komplett klein geschrieben."
+]
+},
+{
+"id": "a009",
+"kap": 1,
+"typ": "bug",
+"lvl": 2,
+"titel": "Anführungszeichen fehlt",
+"text": "Das Programm soll zwei Zeilen ausgeben.",
+"code": "print(\"Das ist ein Test)\nprint(\"Zweite Zeile\")",
+"ref": "print(\"Das ist ein Test\")\nprint(\"Zweite Zeile\")",
+"hints": [
+"Jeder Text braucht Anführungszeichen am Anfang UND am Ende.",
+"Schau dir die erste Zeile genau an."
+]
+},
+{
+"id": "a010",
+"kap": 1,
+"typ": "puzzle",
+"lvl": 1,
+"titel": "Countdown",
+"text": "Bringe die Zeilen in die richtige Reihenfolge: Das Programm zählt herunter.",
+"lines": [
+"print(\"3\")",
+"print(\"2\")",
+"print(\"1\")",
+"print(\"Los!\")"
+],
+"hints": [
+"Der Countdown beginnt bei der größten Zahl."
+]
+},
+{
+"id": "a011",
+"kap": 1,
+"typ": "puzzle",
+"lvl": 2,
+"titel": "Gruß und Abschied",
+"text": "Bringe die Zeilen in die richtige Reihenfolge.",
+"lines": [
+"print(\"Hallo <<a>>!\")",
+"print(\"Hallo <<b>>!\")",
+"print(\"Tschüss!\")"
+],
+"hints": [
+"Die Ausgabe soll genau in dieser Reihenfolge erscheinen (siehe Erwartete Ausgabe)."
+],
+"vars": {
+"a": [
+"Felix",
+"Anna",
+"Max"
+],
+"b": [
+"Sophia",
+"Ben",
+"Lena"
+]
+}
+},
+{
+"id": "a012",
+"kap": 1,
+"typ": "code",
+"lvl": 1,
+"titel": "Einen Satz ausgeben",
+"text": "Schreibe ein Programm, das den Satz **<<satz>>** ausgibt.",
+"ref": "print(\"<<satz>>\")",
+"hints": [
+"Benutze print und setze den Satz in Anführungszeichen."
+],
+"vars": {
+"satz": [
+"Ich lerne Python",
+"Heute ist ein guter Tag",
+"Python ist cool",
+"Hallo Welt"
+]
+}
+},
+{
+"id": "a013",
+"kap": 1,
+"typ": "code",
+"lvl": 2,
+"titel": "Zwei Zeilen mit einem print",
+"text": "Gib mit **nur einem** `print`-Befehl zwei Zeilen aus: zuerst `<<a>>`, in der nächsten Zeile `<<b>>`.",
+"ref": "print(\"<<a>>\\n<<b>>\")",
+"hints": [
+"Ein Zeilenumbruch wird im Text mit \\n geschrieben."
+],
+"vars": {
+"a": [
+"Hallo",
+"Guten Tag",
+"Eins"
+],
+"b": [
+"Welt",
+"Python",
+"Zwei"
+]
+},
+"need": [
+{
+"re": "^(?![\\s\\S]*print[\\s\\S]*print)",
+"msg": "Benutze nur einen einzigen print-Befehl."
+}
+]
+},
+{
+"id": "a014",
+"kap": 1,
+"typ": "code",
+"lvl": 3,
+"titel": "Muster ausgeben",
+"text": "Gib dieses Muster aus:\n```\n*****\n*   *\n*****\n```",
+"ref": "print(\"*****\")\nprint(\"*   *\")\nprint(\"*****\")",
+"hints": [
+"Drei Zeilen, also drei print-Befehle.",
+"In der mittleren Zeile stehen drei Leerzeichen."
+]
+},
+{
+"id": "a015",
+"kap": 2,
+"typ": "predict",
+"lvl": 1,
+"titel": "Variablen addieren",
+"code": "x = <<a>>\ny = <<b>>\nprint(x + y)",
+"hints": [
+"Eine Variable speichert einen Wert.",
+"x + y rechnet mit den gespeicherten Werten."
+],
+"vars": {
+"a": [
+"3",
+"10",
+"25",
+"7"
+],
+"b": [
+"4",
+"5",
+"17",
+"8"
+]
+}
+},
+{
+"id": "a016",
+"kap": 2,
+"typ": "predict",
+"lvl": 1,
+"titel": "Variable verändern",
+"code": "zahl = <<a>>\nzahl = zahl + <<b>>\nprint(zahl)",
+"hints": [
+"Die rechte Seite wird zuerst berechnet, dann wird das Ergebnis in der Variablen gespeichert."
+],
+"vars": {
+"a": [
+"5",
+"10",
+"2"
+],
+"b": [
+"3",
+"7",
+"20"
+]
+}
+},
+{
+"id": "a017",
+"kap": 2,
+"typ": "predict",
+"lvl": 2,
+"titel": "Ganzzahldivision und Rest",
+"code": "print(<<n>> // <<d>>, <<n>> % <<d>>)",
+"hints": [
+"// teilt und lässt den Rest weg (ganzzahlige Division).",
+"% liefert den Rest der Division."
+],
+"vars": {
+"n": [
+"17",
+"23",
+"29",
+"50"
+],
+"d": [
+"5",
+"4",
+"6",
+"7"
+]
+}
+},
+{
+"id": "a018",
+"kap": 2,
+"typ": "predict",
+"lvl": 2,
+"titel": "Division mit /",
+"code": "print(<<a>> / 4)",
+"hints": [
+"/ liefert immer eine Kommazahl, in Python mit Punkt geschrieben."
+],
+"vars": {
+"a": [
+"10",
+"7",
+"9",
+"20"
+]
+}
+},
+{
+"id": "a019",
+"kap": 2,
+"typ": "predict",
+"lvl": 3,
+"titel": "Punkt vor Strich",
+"code": "print(2 + 3 * <<a>>)\nprint((2 + 3) * <<a>>)\nprint(<<b>> - 4 - 3)",
+"hints": [
+"Punkt vor Strich gilt auch in Python.",
+"Klammern werden zuerst berechnet."
+],
+"vars": {
+"a": [
+"4",
+"5",
+"6"
+],
+"b": [
+"10",
+"12",
+"20"
+]
+}
+},
+{
+"id": "a020",
+"kap": 2,
+"typ": "predict",
+"lvl": 3,
+"titel": "f-String",
+"code": "name = \"<<n>>\"\nalter = <<a>>\nprint(f\"{name} ist {alter} Jahre alt\")",
+"hints": [
+"Im f-String werden Variablen in { } durch ihren Wert ersetzt."
+],
+"vars": {
+"n": [
+"Felix",
+"Sophia",
+"Anna"
+],
+"a": [
+"13",
+"11",
+"12"
+]
+}
+},
+{
+"id": "a021",
+"kap": 2,
+"typ": "gap",
+"lvl": 1,
+"titel": "Malnehmen",
+"code": "preis = 4\nmenge = 3\nprint(preis ___ menge)",
+"ans": [
+"*"
+],
+"hints": [
+"Welches Zeichen steht in Python für „mal“?"
+],
+"text": "Ergänze das Rechenzeichen: Die Ausgabe soll den Gesamtpreis zeigen."
+},
+{
+"id": "a022",
+"kap": 2,
+"typ": "gap",
+"lvl": 2,
+"titel": "Rest berechnen",
+"code": "print(17 ___ 5)",
+"ans": [
+"%"
+],
+"hints": [
+"Gesucht ist der Rest der Division 17 : 5."
+],
+"text": "Ergänze das Rechenzeichen, damit der Rest der Division ausgegeben wird."
+},
+{
+"id": "a023",
+"kap": 2,
+"typ": "gap",
+"lvl": 3,
+"titel": "Variable im f-String",
+"code": "name = \"Sophia\"\nprint(f\"Hallo, ___!\")",
+"ans": [
+"{name}"
+],
+"hints": [
+"Variablen stehen im f-String in geschweiften Klammern."
+],
+"text": "Ergänze den Platzhalter im f-String, sodass der Name ausgegeben wird."
+},
+{
+"id": "a024",
+"kap": 2,
+"typ": "bug",
+"lvl": 1,
+"titel": "Falscher Variablenname",
+"text": "Das Programm soll die Summe von x und y ausgeben.",
+"code": "x = 5\ny = 7\nprint(x + z)",
+"ref": "x = 5\ny = 7\nprint(x + y)",
+"hints": [
+"NameError heißt: Python kennt diesen Namen nicht.",
+"Welche Variablen wurden angelegt?"
+]
+},
+{
+"id": "a025",
+"kap": 2,
+"typ": "bug",
+"lvl": 2,
+"titel": "Text und Zahl",
+"text": "Das Programm soll „Das Ergebnis ist 10“ ausgeben.",
+"code": "print(\"Das Ergebnis ist\" + 5 * 2)",
+"ref": "print(\"Das Ergebnis ist\", 5 * 2)",
+"hints": [
+"Mit + kann man Text und Zahl nicht verbinden (TypeError).",
+"Mit einem Komma in print geht es."
+]
+},
+{
+"id": "a026",
+"kap": 2,
+"typ": "bug",
+"lvl": 3,
+"titel": "Mittelwert",
+"text": "Das Programm soll den Mittelwert der beiden Zahlen berechnen.",
+"code": "a = <<a>>\nb = <<b>>\nmittelwert = a + b / 2\nprint(mittelwert)",
+"ref": "a = <<a>>\nb = <<b>>\nmittelwert = (a + b) / 2\nprint(mittelwert)",
+"hints": [
+"Das Programm läuft, aber das Ergebnis stimmt nicht.",
+"Punkt vor Strich: Was wird zuerst gerechnet?"
+],
+"vars": {
+"a": [
+"4",
+"10",
+"7"
+],
+"b": [
+"8",
+"20",
+"9"
+]
+}
+},
+{
+"id": "a027",
+"kap": 2,
+"typ": "puzzle",
+"lvl": 1,
+"titel": "Älter werden",
+"text": "Bringe die Zeilen in die richtige Reihenfolge: Das Programm soll das Alter um 1 erhöhen und ausgeben.",
+"lines": [
+"alter = <<a>>",
+"alter = alter + 1",
+"print(alter)"
+],
+"hints": [
+"Erst muss die Variable existieren, dann wird sie verändert, dann ausgegeben."
+],
+"vars": {
+"a": [
+"12",
+"10",
+"15"
+]
+}
+},
+{
+"id": "a028",
+"kap": 2,
+"typ": "puzzle",
+"lvl": 2,
+"titel": "Rechteckfläche",
+"text": "Bringe die Zeilen in die richtige Reihenfolge.",
+"lines": [
+"laenge = <<l>>",
+"breite = <<b>>",
+"flaeche = laenge * breite",
+"print(\"Fläche:\", flaeche)"
+],
+"hints": [
+"Die Variablen müssen vor der Rechnung stehen.",
+"Das Ergebnis wird erst berechnet und dann ausgegeben."
+],
+"vars": {
+"l": [
+"8",
+"12",
+"5"
+],
+"b": [
+"3",
+"4",
+"9"
+]
+}
+},
+{
+"id": "a029",
+"kap": 2,
+"typ": "code",
+"lvl": 1,
+"titel": "Variable doppelt",
+"text": "Lege eine Variable `zahl` mit dem Wert <<z>> an und gib `zahl * 2` aus.",
+"ref": "zahl = <<z>>\nprint(zahl * 2)",
+"hints": [
+"Erst zahl = ... schreiben, dann print."
+],
+"vars": {
+"z": [
+"7",
+"12",
+"25"
+]
+},
+"need": [
+{
+"re": "zahl",
+"msg": "Benutze die Variable zahl."
+}
+]
+},
+{
+"id": "a030",
+"kap": 2,
+"typ": "code",
+"lvl": 2,
+"titel": "Umfang",
+"text": "Ein Rechteck ist <<l>> cm lang und <<b>> cm breit. Berechne den Umfang und gib ihn aus.",
+"ref": "print(2 * (<<l>> + <<b>>))",
+"hints": [
+"Umfang = 2 · (Länge + Breite). Denke an die Klammern."
+],
+"vars": {
+"l": [
+"8",
+"12",
+"5"
+],
+"b": [
+"3",
+"4",
+"9"
+]
+}
+},
+{
+"id": "a031",
+"kap": 2,
+"typ": "code",
+"lvl": 2,
+"titel": "Stunden in Minuten",
+"text": "Wie viele Minuten haben <<h>> Stunden? Berechne es in Python und gib das Ergebnis aus.",
+"ref": "print(<<h>> * 60)",
+"hints": [
+"1 Stunde hat 60 Minuten."
+],
+"vars": {
+"h": [
+"3",
+"5",
+"12"
+]
+}
+},
+{
+"id": "a032",
+"kap": 2,
+"typ": "code",
+"lvl": 3,
+"titel": "Rest mit Text",
+"text": "Berechne den Rest bei der Division von <<n>> durch <<d>> und gib ihn in der Form `Rest: 2` aus (hier ist 2 nur ein Beispiel).",
+"ref": "print(\"Rest:\", <<n>> % <<d>>)",
+"hints": [
+"Der Rest wird mit % berechnet.",
+"print(\"Rest:\", ...) setzt zwischen Text und Zahl ein Leerzeichen."
+],
+"vars": {
+"n": [
+"47",
+"100",
+"83"
+],
+"d": [
+"6",
+"7",
+"9"
+]
+}
+},
+{
+"id": "a033",
+"kap": 3,
+"typ": "predict",
+"lvl": 1,
+"titel": "input verwenden",
+"code": "name = input()\nprint(\"Hallo\", name)",
+"hints": [
+"input() wartet auf eine Eingabe und speichert sie."
+],
+"stdin": [
+"<<n>>"
+],
+"vars": {
+"n": [
+"Felix",
+"Sophia",
+"Anna",
+"Max"
+]
+}
+},
+{
+"id": "a034",
+"kap": 3,
+"typ": "predict",
+"lvl": 2,
+"titel": "Eingabe ist Text",
+"code": "a = input()\nb = input()\nprint(a + b)",
+"hints": [
+"input() liefert immer Text (String).",
+"Texte werden mit + aneinandergehängt, nicht addiert."
+],
+"stdin": [
+"<<a>>",
+"<<b>>"
+],
+"vars": {
+"a": [
+"3",
+"12",
+"7"
+],
+"b": [
+"4",
+"5",
+"25"
+]
+}
+},
+{
+"id": "a035",
+"kap": 3,
+"typ": "predict",
+"lvl": 2,
+"titel": "int umwandeln",
+"code": "a = int(input())\nprint(a * 2)",
+"hints": [
+"int() wandelt Text in eine ganze Zahl um."
+],
+"stdin": [
+"<<a>>"
+],
+"vars": {
+"a": [
+"21",
+"8",
+"15"
+]
+}
+},
+{
+"id": "a036",
+"kap": 3,
+"typ": "predict",
+"lvl": 3,
+"titel": "Datentypen",
+"code": "print(type(5))\nprint(type(5.0))\nprint(type(\"5\"))",
+"hints": [
+"5 ist eine ganze Zahl (int), 5.0 eine Kommazahl (float), \"5\" ist Text (str).",
+"type() zeigt den Typ als <class '...'> an."
+]
+},
+{
+"id": "a037",
+"kap": 3,
+"typ": "predict",
+"lvl": 3,
+"titel": "Umwandeln und runden",
+"code": "print(int(\"7\") + float(\"2.5\"))\nprint(round(3.14159, 2))",
+"hints": [
+"int + float ergibt einen float.",
+"round(x, 2) rundet auf zwei Nachkommastellen."
+]
+},
+{
+"id": "a038",
+"kap": 3,
+"typ": "gap",
+"lvl": 1,
+"titel": "Umwandeln",
+"code": "zahl = ___(input())\nprint(zahl + 1)",
+"ans": [
+"int"
+],
+"hints": [
+"Aus Text soll eine ganze Zahl werden."
+],
+"tests": [
+[
+"5"
+],
+[
+"41"
+]
+],
+"text": "Ergänze die Funktion, die den eingegebenen Text in eine ganze Zahl umwandelt."
+},
+{
+"id": "a039",
+"kap": 3,
+"typ": "gap",
+"lvl": 2,
+"titel": "Eingabe",
+"code": "name = ___()\nprint(\"Hallo\", name)",
+"ans": [
+"input"
+],
+"hints": [
+"Welche Funktion liest etwas ein?"
+],
+"tests": [
+[
+"Felix"
+],
+[
+"Sophia"
+]
+],
+"text": "Ergänze die Funktion, die eine Eingabe einliest."
+},
+{
+"id": "a040",
+"kap": 3,
+"typ": "gap",
+"lvl": 3,
+"titel": "Runden",
+"code": "x = float(input())\nprint(___(x, 1))",
+"ans": [
+"round"
+],
+"hints": [
+"Eine Funktion mit zwei Angaben: die Zahl und die Anzahl der Nachkommastellen."
+],
+"tests": [
+[
+"3.14159"
+],
+[
+"2.76"
+],
+[
+"10.04"
+]
+],
+"text": "Ergänze die Funktion, die auf eine Nachkommastelle rundet."
+},
+{
+"id": "a041",
+"kap": 3,
+"typ": "bug",
+"lvl": 1,
+"titel": "Eingabe addieren",
+"text": "Das Programm soll eine Zahl einlesen und 1 dazuzählen.",
+"code": "zahl = input()\nprint(zahl + 1)",
+"ref": "zahl = int(input())\nprint(zahl + 1)",
+"hints": [
+"Text + Zahl geht nicht (TypeError).",
+"Wandle die Eingabe mit int() in eine Zahl um."
+],
+"tests": [
+[
+"5"
+],
+[
+"41"
+]
+]
+},
+{
+"id": "a042",
+"kap": 3,
+"typ": "bug",
+"lvl": 2,
+"titel": "Plus vergessen",
+"text": "Das Programm soll „Hallo, Felix“ ausgeben (bei Eingabe Felix).",
+"code": "name = input()\nprint(\"Hallo, \" name)",
+"ref": "name = input()\nprint(\"Hallo, \" + name)",
+"hints": [
+"Syntaxfehler: Zwischen den beiden Teilen fehlt etwas.",
+"Texte verbindet man mit + oder man benutzt ein Komma."
+],
+"tests": [
+[
+"Felix"
+],
+[
+"Sophia"
+]
+]
+},
+{
+"id": "a043",
+"kap": 3,
+"typ": "bug",
+"lvl": 3,
+"titel": "Zahlen addieren",
+"text": "Das Programm soll die beiden eingegebenen Zahlen **addieren** (bei 3 und 4 soll 7 herauskommen).",
+"code": "a = input()\nb = input()\nprint(a + b)",
+"ref": "a = int(input())\nb = int(input())\nprint(a + b)",
+"hints": [
+"Das Programm läuft, aber 3 und 4 ergeben „34“.",
+"Beide Eingaben müssen in Zahlen umgewandelt werden."
+],
+"tests": [
+[
+"3",
+"4"
+],
+[
+"10",
+"25"
+],
+[
+"7",
+"0"
+]
+]
+},
+{
+"id": "a044",
+"kap": 3,
+"typ": "puzzle",
+"lvl": 2,
+"titel": "Nächstes Jahr",
+"text": "Bringe die Zeilen in die richtige Reihenfolge.",
+"lines": [
+"alter = int(input())",
+"neu = alter + 1",
+"print(\"Nächstes Jahr bist du\", neu)"
+],
+"hints": [
+"Erst einlesen, dann rechnen, dann ausgeben."
+],
+"tests": [
+[
+"12"
+],
+[
+"9"
+]
+]
+},
+{
+"id": "a045",
+"kap": 3,
+"typ": "code",
+"lvl": 1,
+"titel": "Begrüßung",
+"text": "Lies einen Namen ein und gib `Hallo <Name>!` aus (bei Felix: `Hallo Felix!`).",
+"ref": "name = input()\nprint(\"Hallo \" + name + \"!\")",
+"hints": [
+"Lies den Namen mit input() ein.",
+"Setze den Ausgabetext mit + zusammen."
+],
+"tests": [
+[
+"Felix"
+],
+[
+"Sophia"
+],
+[
+"Anna"
+]
+]
+},
+{
+"id": "a046",
+"kap": 3,
+"typ": "code",
+"lvl": 2,
+"titel": "Summe",
+"text": "Lies zwei ganze Zahlen ein (jede in einer eigenen Zeile) und gib ihre Summe aus.",
+"ref": "a = int(input())\nb = int(input())\nprint(a + b)",
+"hints": [
+"Zwei input()-Aufrufe, beide mit int() umwandeln."
+],
+"tests": [
+[
+"3",
+"4"
+],
+[
+"10",
+"25"
+],
+[
+"-2",
+"8"
+]
+]
+},
+{
+"id": "a047",
+"kap": 3,
+"typ": "code",
+"lvl": 2,
+"titel": "Doppelt",
+"text": "Lies eine ganze Zahl ein und gib das Doppelte aus.",
+"ref": "zahl = int(input())\nprint(zahl * 2)",
+"hints": [
+"Wandle die Eingabe in eine Zahl um, bevor du rechnest."
+],
+"tests": [
+[
+"7"
+],
+[
+"50"
+],
+[
+"-3"
+]
+]
+},
+{
+"id": "a048",
+"kap": 3,
+"typ": "code",
+"lvl": 3,
+"titel": "Fläche mit Text",
+"text": "Lies die Länge und die Breite eines Rechtecks ein (ganze Zahlen) und gib `Fläche: ...` aus (bei 3 und 4: `Fläche: 12`).",
+"ref": "l = int(input())\nb = int(input())\nprint(\"Fläche:\", l * b)",
+"hints": [
+"Zwei Eingaben, beide in Zahlen umwandeln.",
+"print(\"Fläche:\", ...) mit Komma."
+],
+"tests": [
+[
+"3",
+"4"
+],
+[
+"5",
+"10"
+],
+[
+"7",
+"7"
+]
+]
+},
+{
+"id": "a049",
+"kap": 3,
+"typ": "code",
+"lvl": 3,
+"titel": "Preis für mehrere Stück",
+"text": "Lies den Preis eines Stücks als Kommazahl ein (z. B. `1.99`). Gib den Preis für <<m>> Stück aus, auf 2 Nachkommastellen gerundet.",
+"ref": "p = float(input())\nprint(round(p * <<m>>, 2))",
+"hints": [
+"float() wandelt Text in eine Kommazahl um.",
+"round(wert, 2) rundet auf zwei Stellen."
+],
+"tests": [
+[
+"1.99"
+],
+[
+"0.5"
+],
+[
+"2.25"
+]
+],
+"vars": {
+"m": [
+"3",
+"4",
+"6"
+]
+}
+},
+{
+"id": "a050",
+"kap": 4,
+"typ": "predict",
+"lvl": 1,
+"titel": "if und else",
+"code": "x = <<x>>\nif x > 10:\n    print(\"groß\")\nelse:\n    print(\"klein\")",
+"hints": [
+"Der Block unter if läuft nur, wenn die Bedingung stimmt, sonst der Block unter else.",
+"x > 10 ist bei genau 10 nicht erfüllt."
+],
+"vars": {
+"x": [
+"5",
+"15",
+"10",
+"12"
+]
+}
+},
+{
+"id": "a051",
+"kap": 4,
+"typ": "predict",
+"lvl": 1,
+"titel": "Gleichheit prüfen",
+"code": "farbe = \"<<f>>\"\nif farbe == \"rot\":\n    print(\"Stopp\")\nelse:\n    print(\"Weiter\")",
+"hints": [
+"== prüft, ob zwei Werte gleich sind."
+],
+"vars": {
+"f": [
+"rot",
+"gelb",
+"blau",
+"rot"
+]
+}
+},
+{
+"id": "a052",
+"kap": 4,
+"typ": "predict",
+"lvl": 2,
+"titel": "elif",
+"code": "note = <<n>>\nif note == 1:\n    print(\"sehr gut\")\nelif note <= 3:\n    print(\"gut\")\nelse:\n    print(\"naja\")",
+"hints": [
+"Es läuft nur der erste passende Zweig.",
+"elif wird nur geprüft, wenn die vorherigen Bedingungen nicht gestimmt haben."
+],
+"vars": {
+"n": [
+"1",
+"2",
+"3",
+"5"
+]
+}
+},
+{
+"id": "a053",
+"kap": 4,
+"typ": "predict",
+"lvl": 2,
+"titel": "gerade oder ungerade",
+"code": "zahl = <<z>>\nif zahl % 2 == 0:\n    print(\"gerade\")\nelse:\n    print(\"ungerade\")",
+"hints": [
+"zahl % 2 ist der Rest bei Division durch 2."
+],
+"vars": {
+"z": [
+"8",
+"15",
+"22",
+"7"
+]
+}
+},
+{
+"id": "a054",
+"kap": 4,
+"typ": "predict",
+"lvl": 3,
+"titel": "and und or",
+"code": "a = <<a>>\nif a > 5 and a < 10:\n    print(\"A\")\nif a <= 5 or a >= 20:\n    print(\"B\")\nprint(\"Ende\")",
+"hints": [
+"and: beide Bedingungen müssen stimmen. or: mindestens eine.",
+"Beide if-Anweisungen werden unabhängig voneinander geprüft."
+],
+"vars": {
+"a": [
+"7",
+"3",
+"25",
+"10"
+]
+}
+},
+{
+"id": "a055",
+"kap": 4,
+"typ": "gap",
+"lvl": 1,
+"titel": "Vergleich",
+"code": "zahl = int(input())\nif zahl ___ 0:\n    print(\"positiv\")\nelse:\n    print(\"nicht positiv\")",
+"ans": [
+">"
+],
+"hints": [
+"Eine Zahl ist positiv, wenn sie größer als 0 ist.",
+"Teste auch die 0: Sie ist nicht positiv."
+],
+"tests": [
+[
+"5"
+],
+[
+"-3"
+],
+[
+"0"
+]
+],
+"text": "Ergänze den Vergleich."
+},
+{
+"id": "a056",
+"kap": 4,
+"typ": "gap",
+"lvl": 2,
+"titel": "else",
+"code": "note = int(input())\nif note < 5:\n    print(\"bestanden\")\n___:\n    print(\"nicht bestanden\")",
+"ans": [
+"else"
+],
+"hints": [
+"Was steht, wenn die Bedingung nicht stimmt?"
+],
+"tests": [
+[
+"2"
+],
+[
+"4"
+],
+[
+"5"
+],
+[
+"6"
+]
+],
+"text": "Ergänze das fehlende Schlüsselwort."
+},
+{
+"id": "a057",
+"kap": 4,
+"typ": "gap",
+"lvl": 3,
+"titel": "Rest prüfen",
+"code": "zahl = int(input())\nif zahl % 2 ___ 0:\n    print(\"gerade\")\nelse:\n    print(\"ungerade\")",
+"ans": [
+"=="
+],
+"hints": [
+"Gleichheit prüft man mit zwei Gleichheitszeichen."
+],
+"tests": [
+[
+"4"
+],
+[
+"7"
+],
+[
+"0"
+]
+],
+"text": "Ergänze das fehlende Zeichen."
+},
+{
+"id": "a058",
+"kap": 4,
+"typ": "bug",
+"lvl": 1,
+"titel": "Doppelpunkt fehlt",
+"text": "Das Programm soll „groß“ ausgeben, wenn die Zahl über 3 liegt.",
+"code": "x = 5\nif x > 3\n    print(\"groß\")",
+"ref": "x = 5\nif x > 3:\n    print(\"groß\")",
+"hints": [
+"Nach der Bedingung gehört ein Doppelpunkt."
+]
+},
+{
+"id": "a059",
+"kap": 4,
+"typ": "bug",
+"lvl": 2,
+"titel": "Vergleich mit ==",
+"text": "Das Programm soll „fünf“ ausgeben, wenn x gleich 5 ist.",
+"code": "x = 5\nif x = 5:\n    print(\"fünf\")\nelse:\n    print(\"nicht fünf\")",
+"ref": "x = 5\nif x == 5:\n    print(\"fünf\")\nelse:\n    print(\"nicht fünf\")",
+"hints": [
+"= weist einen Wert zu, == vergleicht."
+]
+},
+{
+"id": "a060",
+"kap": 4,
+"typ": "bug",
+"lvl": 3,
+"titel": "Einrückung beim else",
+"text": "Das Programm soll bei Alter ab 18 „volljährig“ ausgeben, sonst „minderjährig“ – aber nur eines von beidem.",
+"code": "alter = int(input())\nif alter >= 18:\n    print(\"volljährig\")\nprint(\"minderjährig\")",
+"ref": "alter = int(input())\nif alter >= 18:\n    print(\"volljährig\")\nelse:\n    print(\"minderjährig\")",
+"hints": [
+"Das zweite print steht nicht in einem else-Zweig und läuft deshalb immer.",
+"Ergänze else: und rücke die Zeile ein."
+],
+"tests": [
+[
+"20"
+],
+[
+"15"
+],
+[
+"18"
+]
+]
+},
+{
+"id": "a061",
+"kap": 4,
+"typ": "puzzle",
+"lvl": 2,
+"titel": "gerade oder ungerade",
+"text": "Bringe die Zeilen in die richtige Reihenfolge (auf die Einrückung achten).",
+"lines": [
+"zahl = int(input())",
+"if zahl % 2 == 0:",
+"    print(\"gerade\")",
+"else:",
+"    print(\"ungerade\")"
+],
+"hints": [
+"Erst einlesen, dann prüfen.",
+"else steht auf derselben Höhe wie if."
+],
+"tests": [
+[
+"4"
+],
+[
+"7"
+]
+]
+},
+{
+"id": "a062",
+"kap": 4,
+"typ": "code",
+"lvl": 1,
+"titel": "positiv oder nicht",
+"text": "Lies eine Zahl ein. Gib `positiv` aus, wenn sie größer als 0 ist, sonst `nicht positiv`.",
+"ref": "zahl = int(input())\nif zahl > 0:\n    print(\"positiv\")\nelse:\n    print(\"nicht positiv\")",
+"hints": [
+"Nutze if und else."
+],
+"tests": [
+[
+"5"
+],
+[
+"-2"
+],
+[
+"0"
+]
+]
+},
+{
+"id": "a063",
+"kap": 4,
+"typ": "code",
+"lvl": 2,
+"titel": "Altersgruppen",
+"text": "Lies das Alter ein. Gib `Kind` aus, wenn es unter 12 ist, `Jugendlicher` bei 12 bis 17 und `Erwachsener` ab 18.",
+"ref": "alter = int(input())\nif alter < 12:\n    print(\"Kind\")\nelif alter < 18:\n    print(\"Jugendlicher\")\nelse:\n    print(\"Erwachsener\")",
+"hints": [
+"Du brauchst if, elif und else.",
+"Prüfe von klein nach groß."
+],
+"tests": [
+[
+"5"
+],
+[
+"12"
+],
+[
+"17"
+],
+[
+"18"
+],
+[
+"40"
+]
+]
+},
+{
+"id": "a064",
+"kap": 4,
+"typ": "code",
+"lvl": 3,
+"titel": "Größte von drei",
+"text": "Lies drei ganze Zahlen ein (jede in einer eigenen Zeile) und gib die größte aus. Benutze **nicht** `max`.",
+"ref": "a = int(input())\nb = int(input())\nc = int(input())\nif a >= b and a >= c:\n    print(a)\nelif b >= c:\n    print(b)\nelse:\n    print(c)",
+"hints": [
+"Vergleiche mit and, zum Beispiel: a ist größer als b und größer als c.",
+"Der Fall „alle gleich“ soll auch funktionieren."
+],
+"tests": [
+[
+"1",
+"5",
+"3"
+],
+[
+"9",
+"2",
+"4"
+],
+[
+"3",
+"3",
+"3"
+],
+[
+"-1",
+"-5",
+"-3"
+]
+],
+"need": [
+{
+"re": "max\\s*\\(",
+"not": true,
+"msg": "Benutze nicht max(), sondern if/elif/else."
+}
+]
+},
+{
+"id": "a065",
+"kap": 4,
+"typ": "code",
+"lvl": 3,
+"titel": "Schaltjahr",
+"text": "Lies eine Jahreszahl ein. Gib `Schaltjahr` aus, wenn das Jahr durch 4 teilbar ist, **außer** es ist durch 100 teilbar – es sei denn, es ist durch 400 teilbar. Sonst gib `kein Schaltjahr` aus.",
+"ref": "j = int(input())\nif j % 400 == 0 or (j % 4 == 0 and j % 100 != 0):\n    print(\"Schaltjahr\")\nelse:\n    print(\"kein Schaltjahr\")",
+"hints": [
+"Teste: 2024 ist ein Schaltjahr, 1900 nicht, 2000 wieder schon.",
+"Mit and, or und Klammern lässt sich alles in einer Bedingung ausdrücken."
+],
+"tests": [
+[
+"2024"
+],
+[
+"1900"
+],
+[
+"2000"
+],
+[
+"2023"
+],
+[
+"2100"
+]
+]
+},
+{
+"id": "a066",
+"kap": 5,
+"typ": "predict",
+"lvl": 1,
+"titel": "for mit range",
+"code": "for i in range(<<n>>):\n    print(i)",
+"hints": [
+"range(n) beginnt bei 0 und hört vor n auf."
+],
+"vars": {
+"n": [
+"3",
+"4",
+"5"
+]
+}
+},
+{
+"id": "a067",
+"kap": 5,
+"typ": "predict",
+"lvl": 1,
+"titel": "range mit Start",
+"code": "for i in range(1, <<n>>):\n    print(i)",
+"hints": [
+"range(1, n) beginnt bei 1 und hört vor n auf.",
+"Der Endwert wird nicht mit ausgegeben."
+],
+"vars": {
+"n": [
+"4",
+"5",
+"6"
+]
+}
+},
+{
+"id": "a068",
+"kap": 5,
+"typ": "predict",
+"lvl": 2,
+"titel": "while-Schleife",
+"code": "x = 1\nwhile x < <<n>>:\n    print(x)\n    x = x * 2",
+"hints": [
+"Die Schleife läuft, solange die Bedingung stimmt.",
+"x wird in jeder Runde verdoppelt."
+],
+"vars": {
+"n": [
+"20",
+"50",
+"10"
+]
+}
+},
+{
+"id": "a069",
+"kap": 5,
+"typ": "predict",
+"lvl": 2,
+"titel": "Summe berechnen",
+"code": "summe = 0\nfor i in range(1, <<n>> + 1):\n    summe = summe + i\nprint(summe)",
+"hints": [
+"Die Schleife läuft von 1 bis n (n + 1 wird nicht mehr erreicht).",
+"summe sammelt alle Zahlen auf."
+],
+"vars": {
+"n": [
+"4",
+"5",
+"6"
+]
+}
+},
+{
+"id": "a070",
+"kap": 5,
+"typ": "predict",
+"lvl": 3,
+"titel": "range mit Schrittweite",
+"code": "for i in range(<<a>>, 0, -<<s>>):\n    print(i)",
+"hints": [
+"range(start, stop, schritt): Mit negativem Schritt wird rückwärts gezählt.",
+"Der Endwert 0 selbst wird nicht erreicht."
+],
+"vars": {
+"a": [
+"10",
+"12",
+"9"
+],
+"s": [
+"3",
+"4",
+"2"
+]
+}
+},
+{
+"id": "a071",
+"kap": 5,
+"typ": "predict",
+"lvl": 3,
+"titel": "if in der Schleife",
+"code": "for i in range(1, 8):\n    if i % 3 == 0:\n        print(i, \"Fizz\")",
+"hints": [
+"Der print-Befehl gehört zum if und läuft nur, wenn i durch 3 teilbar ist."
+]
+},
+{
+"id": "a072",
+"kap": 5,
+"typ": "gap",
+"lvl": 1,
+"titel": "range",
+"code": "for i in ___(5):\n    print(i)",
+"ans": [
+"range"
+],
+"hints": [
+"Welche Funktion erzeugt eine Zahlenfolge?"
+],
+"text": "Ergänze die Funktion."
+},
+{
+"id": "a073",
+"kap": 5,
+"typ": "gap",
+"lvl": 2,
+"titel": "while-Bedingung",
+"code": "zahl = 3\nwhile zahl ___ 0:\n    print(zahl)\n    zahl = zahl - 1",
+"ans": [
+">"
+],
+"hints": [
+"Es sollen 3, 2 und 1 ausgegeben werden, aber nicht 0."
+],
+"text": "Ergänze den Vergleich, damit 3, 2 und 1 ausgegeben werden."
+},
+{
+"id": "a074",
+"kap": 5,
+"typ": "gap",
+"lvl": 3,
+"titel": "Aufsummieren",
+"code": "summe = 0\nfor i in range(1, 6):\n    summe ___ i\nprint(summe)",
+"ans": [
+"+="
+],
+"hints": [
+"Das Zeichen addiert rechts etwas zur Variablen dazu."
+],
+"text": "Ergänze den Operator, damit die Summe von 1 bis 5 berechnet wird."
+},
+{
+"id": "a075",
+"kap": 5,
+"typ": "bug",
+"lvl": 1,
+"titel": "Einrückung",
+"text": "Das Programm soll 0, 1, 2 ausgeben.",
+"code": "for i in range(3):\nprint(i)",
+"ref": "for i in range(3):\n    print(i)",
+"hints": [
+"Alles, was zur Schleife gehört, wird eingerückt."
+]
+},
+{
+"id": "a076",
+"kap": 5,
+"typ": "bug",
+"lvl": 2,
+"titel": "Endlosschleife",
+"text": "Das Programm soll von 5 bis 1 herunterzählen und dann enden.",
+"code": "zahl = 5\nwhile zahl > 0:\n    print(zahl)",
+"ref": "zahl = 5\nwhile zahl > 0:\n    print(zahl)\n    zahl = zahl - 1",
+"hints": [
+"Die Bedingung zahl > 0 bleibt immer wahr.",
+"Die Variable muss in der Schleife verändert werden."
+]
+},
+{
+"id": "a077",
+"kap": 5,
+"typ": "bug",
+"lvl": 3,
+"titel": "Eins zu wenig",
+"text": "Das Programm soll die Summe von 1 bis n berechnen (bei 5 soll 15 herauskommen).",
+"code": "n = int(input())\nsumme = 0\nfor i in range(1, n):\n    summe = summe + i\nprint(summe)",
+"ref": "n = int(input())\nsumme = 0\nfor i in range(1, n + 1):\n    summe = summe + i\nprint(summe)",
+"hints": [
+"Das letzte n wird nicht mitgezählt.",
+"range(1, n) hört vor n auf."
+],
+"tests": [
+[
+"5"
+],
+[
+"10"
+],
+[
+"1"
+]
+]
+},
+{
+"id": "a078",
+"kap": 5,
+"typ": "puzzle",
+"lvl": 2,
+"titel": "Countdown mit while",
+"text": "Bringe die Zeilen in die richtige Reihenfolge (auf die Einrückung achten).",
+"lines": [
+"zahl = 3",
+"while zahl > 0:",
+"    print(zahl)",
+"    zahl = zahl - 1",
+"print(\"Start!\")"
+],
+"hints": [
+"Die Variable muss vor der Schleife angelegt werden.",
+"Das letzte print steht nicht eingerückt – es läuft erst nach der Schleife."
+]
+},
+{
+"id": "a079",
+"kap": 5,
+"typ": "puzzle",
+"lvl": 3,
+"titel": "Einmaleins",
+"text": "Bringe die Zeilen in die richtige Reihenfolge (auf die Einrückung achten).",
+"lines": [
+"n = int(input())",
+"for i in range(1, 4):",
+"    print(n, \"mal\", i, \"ist\", n * i)"
+],
+"hints": [
+"Erst einlesen, dann die Schleife."
+],
+"tests": [
+[
+"7"
+],
+[
+"12"
+]
+]
+},
+{
+"id": "a080",
+"kap": 5,
+"typ": "code",
+"lvl": 1,
+"titel": "Zahlen von 1 bis n",
+"text": "Gib die Zahlen von 1 bis <<n>> untereinander aus.",
+"ref": "for i in range(1, <<n>> + 1):\n    print(i)",
+"hints": [
+"for i in range(...) – der Endwert von range wird nicht erreicht."
+],
+"vars": {
+"n": [
+"5",
+"6",
+"8"
+]
+}
+},
+{
+"id": "a081",
+"kap": 5,
+"typ": "code",
+"lvl": 2,
+"titel": "Einmaleins",
+"text": "Gib die ersten zehn Vielfachen von <<n>> untereinander aus (also <<n>>, 2·<<n>>, … bis 10·<<n>>), nur die Ergebnisse.",
+"ref": "for i in range(1, 11):\n    print(i * <<n>>)",
+"hints": [
+"Eine Schleife von 1 bis 10 und i * <<n>>."
+],
+"vars": {
+"n": [
+"3",
+"7",
+"9"
+]
+}
+},
+{
+"id": "a082",
+"kap": 5,
+"typ": "code",
+"lvl": 2,
+"titel": "Summe bis n",
+"text": "Lies eine Zahl n ein und gib die Summe 1 + 2 + … + n aus. Benutze eine Schleife.",
+"ref": "n = int(input())\nsumme = 0\nfor i in range(1, n + 1):\n    summe = summe + i\nprint(summe)",
+"hints": [
+"Lege eine Variable summe mit 0 an.",
+"Zähle in der Schleife jede Zahl dazu."
+],
+"tests": [
+[
+"5"
+],
+[
+"10"
+],
+[
+"100"
+]
+],
+"need": [
+{
+"re": "(for|while)\\b",
+"msg": "Benutze eine Schleife (for oder while)."
+}
+]
+},
+{
+"id": "a083",
+"kap": 5,
+"typ": "code",
+"lvl": 3,
+"titel": "Teiler",
+"text": "Lies eine Zahl n ein und gib alle Teiler von n untereinander aus (von klein nach groß).",
+"ref": "n = int(input())\nfor i in range(1, n + 1):\n    if n % i == 0:\n        print(i)",
+"hints": [
+"Prüfe jede Zahl von 1 bis n.",
+"i ist ein Teiler, wenn n % i gleich 0 ist."
+],
+"tests": [
+[
+"12"
+],
+[
+"7"
+],
+[
+"20"
+]
+]
+},
+{
+"id": "a084",
+"kap": 5,
+"typ": "code",
+"lvl": 3,
+"titel": "Sternchen-Dreieck",
+"text": "Lies eine Zahl n ein und gib ein Dreieck aus Sternchen aus: In Zeile 1 steht ein `*`, in Zeile 2 stehen zwei `**`, … bis n Sternchen. (Bei n = 3: `*`, `**`, `***`.)",
+"ref": "n = int(input())\nfor i in range(1, n + 1):\n    print(\"*\" * i)",
+"hints": [
+"Text lässt sich mit einer Zahl malnehmen: \"ab\" * 3 ergibt \"ababab\"."
+],
+"tests": [
+[
+"3"
+],
+[
+"5"
+],
+[
+"1"
+]
+]
+},
+{
+"id": "a085",
+"kap": 5,
+"typ": "code",
+"lvl": 3,
+"titel": "Teilbare zählen",
+"text": "Zähle, wie viele Zahlen von 1 bis <<n>> durch <<d>> teilbar sind, und gib die Anzahl aus.",
+"ref": "anzahl = 0\nfor i in range(1, <<n>> + 1):\n    if i % <<d>> == 0:\n        anzahl = anzahl + 1\nprint(anzahl)",
+"hints": [
+"Lege einen Zähler mit 0 an.",
+"Erhöhe ihn nur, wenn die Zahl teilbar ist."
+],
+"vars": {
+"n": [
+"50",
+"100",
+"60"
+],
+"d": [
+"7",
+"12",
+"5"
+]
+}
+}
+]

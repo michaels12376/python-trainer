@@ -1,0 +1,32 @@
+[
+{
+"id": "s1",
+"kap": 1,
+"titel": "print – Ausgabe",
+"html": "<p><code>print()</code> gibt etwas auf dem Bildschirm aus. Text steht in Anführungszeichen, Zahlen nicht.</p>\n<pre>print(\"Hallo Welt\")\nprint(\"Ich bin\", 12, \"Jahre alt\")   # Komma: Leerzeichen dazwischen\nprint(\"a\", \"b\", sep=\"-\")           # a-b\nprint(\"Eins\", end=\" \")              # kein Zeilenumbruch\nprint(\"Zeile 1\\nZeile 2\")          # \\n = neue Zeile</pre>\n<p><b>Merke:</b> Python unterscheidet Groß- und Kleinschreibung: <code>print</code>, nicht <code>Print</code>. Alles nach <code>#</code> ist ein Kommentar.</p>"
+},
+{
+"id": "s2",
+"kap": 2,
+"titel": "Variablen und Rechnen",
+"html": "<p>Eine Variable speichert einen Wert: <code>name = Wert</code>. Die rechte Seite wird zuerst berechnet.</p>\n<pre>x = 5\nx = x + 2        # x ist jetzt 7\nprint(x * 3)     # 21</pre>\n<table class=\"gt\"><tr><td><code>+ - *</code></td><td>plus, minus, mal</td></tr><tr><td><code>/</code></td><td>Division (Kommazahl: 7 / 2 = 3.5)</td></tr><tr><td><code>//</code></td><td>ganzzahlige Division (7 // 2 = 3)</td></tr><tr><td><code>%</code></td><td>Rest (7 % 2 = 1)</td></tr><tr><td><code>**</code></td><td>Potenz (2 ** 3 = 8)</td></tr></table>\n<p>Punkt vor Strich gilt, Klammern zuerst. Mit <b>f-Strings</b> setzt man Variablen in Text ein:</p>\n<pre>name = \"Felix\"\nprint(f\"Hallo {name}!\")</pre>"
+},
+{
+"id": "s3",
+"kap": 3,
+"titel": "Eingabe und Datentypen",
+"html": "<p><code>input()</code> liest eine Eingabe ein – immer als <b>Text</b>. Für Rechnungen musst du umwandeln:</p>\n<pre>name = input()               # Text\nzahl = int(input())          # ganze Zahl\npreis = float(input())       # Kommazahl\nprint(round(preis * 3, 2))   # auf 2 Stellen runden</pre>\n<table class=\"gt\"><tr><td><code>int</code></td><td>ganze Zahl: 5</td></tr><tr><td><code>float</code></td><td>Kommazahl: 5.0 (mit Punkt!)</td></tr><tr><td><code>str</code></td><td>Text: \"5\"</td></tr></table>\n<p><b>Achtung:</b> <code>\"3\" + \"4\"</code> ergibt <code>\"34\"</code>, aber <code>3 + 4</code> ergibt <code>7</code>. Mit <code>type(x)</code> siehst du den Typ.</p>"
+},
+{
+"id": "s4",
+"kap": 4,
+"titel": "Bedingungen",
+"html": "<pre>if zahl > 0:\n    print(\"positiv\")\nelif zahl == 0:\n    print(\"null\")\nelse:\n    print(\"negativ\")</pre>\n<p>Vergleiche: <code>==</code> gleich, <code>!=</code> ungleich, <code>&lt; &gt; &lt;= &gt;=</code>. <b>Ein</b> Gleichheitszeichen weist zu, <b>zwei</b> vergleichen.</p>\n<p>Verknüpfen: <code>and</code> (beides), <code>or</code> (eins davon), <code>not</code> (Gegenteil). Gerade Zahl: <code>zahl % 2 == 0</code>.</p>\n<p><b>Merke:</b> Nach der Bedingung steht ein Doppelpunkt; was dazugehört, wird eingerückt (4 Leerzeichen).</p>"
+},
+{
+"id": "s5",
+"kap": 5,
+"titel": "Schleifen",
+"html": "<pre>for i in range(5):        # 0, 1, 2, 3, 4\n    print(i)\nfor i in range(1, 6):     # 1 bis 5\n    print(i)\nfor i in range(10, 0, -2):  # 10, 8, 6, 4, 2\n    print(i)\n\nzahl = 3\nwhile zahl > 0:           # läuft, solange die Bedingung stimmt\n    print(zahl)\n    zahl = zahl - 1       # sonst Endlosschleife!</pre>\n<p><b>Summe bilden:</b> <code>summe = 0</code>, in der Schleife <code>summe = summe + i</code> (oder kürzer <code>summe += i</code>).</p>\n<p>Das Ende von <code>range</code> wird <b>nicht</b> erreicht: <code>range(1, 6)</code> hört bei 5 auf.</p>"
+}
+]
