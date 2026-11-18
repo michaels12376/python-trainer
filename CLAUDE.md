@@ -9,4 +9,5 @@ Lern-App „Programmieren mit Python“ für Felix und Sophia (Einsteiger, Grund
 - **Farben:** „richtig“ = Blau, „falsch“ = Orange + Symbol.
 - **Eltern-Bereich:** Tipp auf das 🐍 im Kopf; Auswertung je Kind, Kind löschen (Name tippen).
 - **Release-Ablauf:** erst `dev`/TEST (`/python-test/`, `deploy-test.sh`, baut mit `--test`: eigener Speicherschlüssel + Banner), nach Michaels Freigabe: Sicherung `/opt/python-trainer` → `/opt/python-backup-pre-vX-<datum>`, Merge dev→main, `deploy.sh` (Prod `/opt/python-trainer`, Port 8050, `http://192.168.4.44/python/`; Test Port 8051). Dienste `python-trainer(.service)`, `python-trainer-test`; Benutzer `pytrainer`. Caddy: Einträge in `/etc/caddy/Caddyfile`, Änderungen per `systemctl restart caddy` (admin off).
-- **Offen (spätere Phasen):** Kapitel 6–10 (Listen, Funktionen, Strings, Dictionaries, Mini-Projekte), Erinnerungs-Mail wie beim Latein-Trainer, ggf. Schulaufgaben-Modus.
+- **Kapitel 1–10 fertig (176 Aufgaben):** 6 Listen, 7 Funktionen, 8 Texte, 9 Dictionaries, 10 Mini-Projekte. Aufgabenfeld `append` = Testaufrufe, die nach dem Schülercode laufen (Funktionsaufgaben; wird den Kindern angezeigt). Kapitel sind für die gemischte Runde „dran“, wenn im vorigen 6 Aufgaben gelöst sind (`kapOpen`); antippen kann man jedes.
+- **Offen:** Erinnerungs-Mail wie beim Latein-Trainer, ggf. Schulaufgaben-Modus.

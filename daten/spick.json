@@ -28,5 +28,35 @@
 "kap": 5,
 "titel": "Schleifen",
 "html": "<pre>for i in range(5):        # 0, 1, 2, 3, 4\n    print(i)\nfor i in range(1, 6):     # 1 bis 5\n    print(i)\nfor i in range(10, 0, -2):  # 10, 8, 6, 4, 2\n    print(i)\n\nzahl = 3\nwhile zahl > 0:           # läuft, solange die Bedingung stimmt\n    print(zahl)\n    zahl = zahl - 1       # sonst Endlosschleife!</pre>\n<p><b>Summe bilden:</b> <code>summe = 0</code>, in der Schleife <code>summe = summe + i</code> (oder kürzer <code>summe += i</code>).</p>\n<p>Das Ende von <code>range</code> wird <b>nicht</b> erreicht: <code>range(1, 6)</code> hört bei 5 auf.</p>"
+},
+{
+"id": "s6",
+"kap": 6,
+"titel": "Listen",
+"html": "<pre>zahlen = [4, 8, 15]\nzahlen.append(16)        # [4, 8, 15, 16]\nprint(zahlen[0])         # 4  (Index zählt ab 0)\nprint(zahlen[-1])        # 16 (letztes Element)\nprint(zahlen[1:3])       # [8, 15]  (Index 1 bis vor 3)\nprint(len(zahlen), sum(zahlen), max(zahlen))\nprint(8 in zahlen)       # True\nzahlen.sort()            # sortiert die Liste\nfor z in zahlen:         # jedes Element einzeln\n    print(z)</pre>\n<p><b>Leere Liste:</b> <code>liste = []</code>, dann in einer Schleife mit <code>append</code> füllen.</p>"
+},
+{
+"id": "s7",
+"kap": 7,
+"titel": "Funktionen",
+"html": "<pre>def quadrat(x):          # Funktion festlegen\n    return x * x         # Wert zurückgeben\n\nprint(quadrat(5))        # 25 – Funktion aufrufen\n\ndef gruss(name, text=\"Hallo\"):   # Standardwert\n    print(text, name)</pre>\n<p><b>return</b> gibt einen Wert zurück (damit kann man weiterrechnen); <b>print</b> zeigt nur etwas an. Ohne <code>return</code> ist das Ergebnis <code>None</code>. Variablen in einer Funktion sind <b>lokal</b> – außerhalb kennt man sie nicht.</p>"
+},
+{
+"id": "s8",
+"kap": 8,
+"titel": "Texte bearbeiten",
+"html": "<pre>wort = \"Python\"\nprint(wort[0], wort[-1])     # P n\nprint(wort[1:4])             # yth\nprint(len(wort))             # 6\nprint(wort.upper(), wort.lower())\nprint(\"Mississippi\".count(\"s\"))      # 4\nprint(\"Banane\".replace(\"a\", \"o\"))    # Bonone\nteile = \"ich lerne python\".split()   # ['ich', 'lerne', 'python']\nprint(\"-\".join(teile))               # ich-lerne-python\nfor b in wort:               # Buchstabe für Buchstabe\n    print(b)</pre>\n<p><b>Merke:</b> Einzelne Zeichen kann man nicht überschreiben – baue einen neuen Text. Umdrehen: <code>wort[::-1]</code>.</p>"
+},
+{
+"id": "s9",
+"kap": 9,
+"titel": "Dictionaries",
+"html": "<pre>alter = {\"Felix\": 13, \"Sophia\": 11}\nprint(alter[\"Felix\"])            # 13\nalter[\"Anna\"] = 12               # neuer Eintrag\nalter[\"Felix\"] = 14              # Wert ändern\nprint(\"Anna\" in alter)           # True (Schlüssel vorhanden?)\nprint(alter.get(\"Max\", 0))       # 0 statt Fehler\nfor name in alter:               # Schlüssel\n    print(name, alter[name])\nfor name, a in alter.items():    # Schlüssel und Wert\n    print(name, a)</pre>\n<p><b>Zählen:</b> <code>if b in z: z[b] += 1</code> sonst <code>z[b] = 1</code>. Ein fehlender Schlüssel führt zu einem <code>KeyError</code>.</p>"
+},
+{
+"id": "s10",
+"kap": 10,
+"titel": "Programme planen",
+"html": "<p>So gehst du bei einem größeren Programm vor:</p>\n<ol><li><b>Verstehen:</b> Was kommt rein (Eingabe), was soll rauskommen (Ausgabe)? Probiere ein Beispiel von Hand.</li>\n<li><b>Zerlegen:</b> Welche Schritte sind nötig? (einlesen, rechnen, Schleife, ausgeben …)</li>\n<li><b>Klein anfangen:</b> Erst einen Teil schreiben und mit <b>▶ Ausprobieren</b> testen.</li>\n<li><b>Randfälle prüfen:</b> 0, 1, sehr große Zahlen, leere Eingaben, Groß-/Kleinschreibung.</li></ol>\n<p><b>Nützliche Muster:</b> Zähler <code>anzahl = 0</code> … <code>anzahl += 1</code>; Merker <code>gefunden = False</code> … <code>gefunden = True</code>; Summe/Produkt mit Startwert 0 bzw. 1; <code>while</code>, wenn man nicht weiß, wie oft etwas passiert.</p>"
 }
 ]

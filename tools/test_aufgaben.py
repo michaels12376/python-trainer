@@ -33,6 +33,7 @@ for t in T:
         x = sub(t, i) if T_VARS else t
         tests = x.get('tests') or [[]]
         typ = x['typ']
+        app = '\n' + x['append'] if x.get('append') else ''
         tag = f'{where}[{i}]'
         if typ == 'predict':
             out, rc = run(x['code'], x.get('stdin') or [])
@@ -47,9 +48,9 @@ for t in T:
         elif typ == 'bug':
             diff = False
             for tl in tests:
-                ro, rrc = run(x['ref'], tl)
+                ro, rrc = run(x['ref'] + app, tl)
                 if rrc != 0 or not ro.strip(): err.append(f'{tag}: ref fehlerhaft {tl} ({rrc})')
-                bo, brc = run(x['code'], tl)
+                bo, brc = run(x['code'] + app, tl)
                 if brc != 0 or bo != ro: diff = True
             if not diff: err.append(f'{tag}: bug-Programm ist gar nicht fehlerhaft')
         elif typ == 'puzzle':
@@ -61,7 +62,7 @@ for t in T:
             if len(set(x['lines'])) != len(x['lines']): err.append(f'{tag}: Puzzle-Zeilen nicht eindeutig')
         elif typ == 'code':
             for tl in tests:
-                ro, rc = run(x['ref'], tl)
+                ro, rc = run(x['ref'] + app, tl)
                 if rc != 0 or not ro.strip(): err.append(f'{tag}: ref fehlerhaft {tl} ({rc})')
             for nd in x.get('need', []):
                 m = re.search(nd['re'], x['ref'])

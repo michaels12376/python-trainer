@@ -98,6 +98,9 @@ function recordAnswer(u,id,score){
 const taskMastery=(u,id)=>{const p=u.tasks[id];return p&&(p.r+p.w)?Math.min(1,p.box/4):0;};
 const kapMastery=(u,k)=>{const t=tasksOf(k);return t.reduce((a,x)=>a+taskMastery(u,x.id),0)/(t.length||1);};
 const kapDone=(u,k)=>tasksOf(k).filter(t=>(u.tasks[t.id]||{box:0}).box>=3).length;
+const kapSolved=(u,k)=>tasksOf(k).filter(t=>(u.tasks[t.id]||{box:0}).box>=1).length;
+/* Kapitel gelten für die gemischte Runde als „dran“, wenn das vorige geschafft ist (oder man darin schon geübt hat); antippen kann man jedes */
+const kapOpen=(u,k)=>k===1||kapSolved(u,k-1)>=6||tasksOf(k).some(t=>u.tasks[t.id]&&(u.tasks[t.id].r+u.tasks[t.id].w)>0);
 const isWeak=(u,id)=>{const p=u.tasks[id];return !!p&&p.w>0&&p.w>=p.r;};
 const isDue=(u,id)=>{const p=u.tasks[id];return !!p&&p.due&&p.due<=Date.now()&&(p.r+p.w)>0;};
 /* Schwierigkeitsstufen schalten sich frei: Stufe 2 nach 3 gelösten Aufgaben der Stufe 1 im Kapitel, Stufe 3 nach 3 der Stufe 2 */

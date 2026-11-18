@@ -1,7 +1,64 @@
-{"kapitel":[
-{"id":1,"name":"Ausgabe mit print","icon":"🖨️","info":"Text ausgeben, mehrere Zeilen, Zeilenumbruch, sep und end."},
-{"id":2,"name":"Variablen und Rechnen","icon":"🧮","info":"Werte speichern, rechnen (+ - * / // % **), f-Strings."},
-{"id":3,"name":"Eingabe und Datentypen","icon":"⌨️","info":"input(), int/float/str, Text und Zahl unterscheiden, runden."},
-{"id":4,"name":"Bedingungen","icon":"🔀","info":"if, elif, else, Vergleiche, and/or, gerade/ungerade."},
-{"id":5,"name":"Schleifen","icon":"🔁","info":"for mit range, while, Summen, Zählen, Muster."}
-]}
+{
+"kapitel": [
+{
+"id": 1,
+"name": "Ausgabe mit print",
+"icon": "🖨️",
+"info": "Text ausgeben, mehrere Zeilen, Zeilenumbruch, sep und end."
+},
+{
+"id": 2,
+"name": "Variablen und Rechnen",
+"icon": "🧮",
+"info": "Werte speichern, rechnen (+ - * / // % **), f-Strings."
+},
+{
+"id": 3,
+"name": "Eingabe und Datentypen",
+"icon": "⌨️",
+"info": "input(), int/float/str, Text und Zahl unterscheiden, runden."
+},
+{
+"id": 4,
+"name": "Bedingungen",
+"icon": "🔀",
+"info": "if, elif, else, Vergleiche, and/or, gerade/ungerade."
+},
+{
+"id": 5,
+"name": "Schleifen",
+"icon": "🔁",
+"info": "for mit range, while, Summen, Zählen, Muster."
+},
+{
+"id": 6,
+"name": "Listen",
+"icon": "📋",
+"info": "Listen anlegen, Index und Ausschnitte, append, len, sum/max, Schleifen über Listen."
+},
+{
+"id": 7,
+"name": "Funktionen",
+"icon": "⚙️",
+"info": "def, Parameter, return, Standardwerte, lokale Variablen, eigene Funktionen schreiben."
+},
+{
+"id": 8,
+"name": "Texte bearbeiten",
+"icon": "🔤",
+"info": "Zeichen und Ausschnitte, upper/lower/count/replace, split und join, Texte durchlaufen."
+},
+{
+"id": 9,
+"name": "Dictionaries",
+"icon": "📖",
+"info": "Schlüssel und Werte, nachschlagen, ergänzen, get, items, Häufigkeiten zählen."
+},
+{
+"id": 10,
+"name": "Mini-Projekte",
+"icon": "🚀",
+"info": "Kleine Programme: Zahlenraten, Taschenrechner, Primzahlen, FizzBuzz, Fibonacci und mehr."
+}
+]
+}

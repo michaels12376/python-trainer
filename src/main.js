@@ -34,7 +34,7 @@ function viewHome(){
    <label>Aufgaben pro Runde</label><div class="seg">${[6,10,15].map(n=>`<button class="${u.settings.len===n?'sel':''}" data-act="len" data-v="${n}">${n}</button>`).join('')}</div>
    <div class="actions"><button class="btn primary big-btn" data-act="train-all">▶ Üben (gemischt)</button>${weak?`<button class="btn" data-act="train-weak">🎯 Wackelaufgaben (${weak})</button>`:''}<button class="btn" data-act="play">🧪 Spielwiese</button></div></div>
   <h2 class="h2">Kapitel</h2>
-  <div class="grid">${KAPITEL.map(c=>`<button class="tile" data-act="kap" data-k="${c.id}">${c.icon}<b>${c.id}. ${esc(c.name)}</b><small>${kapDone(u,c.id)} von ${tasksOf(c.id).length} gemeistert</small>${bar(kapMastery(u,c.id))}</button>`).join('')}</div>
+  <div class="grid">${KAPITEL.map(c=>`<button class="tile" data-act="kap" data-k="${c.id}">${c.icon}<b>${c.id}. ${esc(c.name)}</b><small>${kapDone(u,c.id)} von ${tasksOf(c.id).length} gemeistert${kapOpen(u,c.id)?'':' · später'}</small>${bar(kapMastery(u,c.id))}</button>`).join('')}</div>
   <div class="actions"><button class="btn" data-act="spick">📒 Spickzettel</button></div>
   <p class="meta" id="pystat">Python wird geladen …</p><p class="meta" id="syncstat">${syncStatus}</p>`);
   pyStatus();
@@ -85,12 +85,13 @@ function inst(t){
 }
 const testsOf=x=>x.typ==='predict'?[x.stdin||[]]:(x.tests&&x.tests.length?x.tests:[[]]);
 const fillGap=(code,ans)=>{let c=code;ans.forEach(a=>{c=c.replace('___',()=>a);});return c;};
-function refCode(x){return x.typ==='predict'?x.code:x.typ==='gap'?fillGap(x.code,x.ans):x.typ==='puzzle'?x.lines.join('\n'):x.ref;}
+const withApp=(x,c)=>x.append?c+'\n'+x.append:c;   // Testaufrufe, die nach dem Schülercode laufen (z. B. bei Funktionen)
+function refCode(x){return withApp(x,x.typ==='predict'?x.code:x.typ==='gap'?fillGap(x.code,x.ans):x.typ==='puzzle'?x.lines.join('\n'):x.ref);}
 async function expectedOf(x){const code=refCode(x),o=[];for(const tl of testsOf(x))o.push(await pyRun(code,tl));return o;}
 async function evalCode(x,code,exp){
   const tests=testsOf(x);
   for(let i=0;i<tests.length;i++){
-    const r=await pyRun(code,tests[i]);
+    const r=await pyRun(withApp(x,code),tests[i]);
     if(r.err)return {ok:false,idx:i,input:tests[i],exp:exp[i].out,got:r.out,err:r.err};
     if(norm(r.out)!==norm(exp[i].out))return {ok:false,idx:i,input:tests[i],exp:exp[i].out,got:r.out};
   }
@@ -129,7 +130,7 @@ function renderTask(){
     body=`<div id="pzbox"></div><div id="expbox"></div>`;
   }else{
     const rows=Math.max(8,(x.typ==='bug'?x.code:x.start||'').split('\n').length+3);
-    body=`${edHtml('ed',x.typ==='bug'?x.code:(x.start||''),rows)}<div id="expbox"></div><div class="actions"><button class="btn small" data-act="try">▶ Ausprobieren</button></div><div id="tryout"></div>`;
+    body=`${edHtml('ed',x.typ==='bug'?x.code:(x.start||''),rows)}${x.append?`<div class="meta">Nach deinem Code wird automatisch ausgeführt:</div>${codeBlock(x.append)}`:''}<div id="expbox"></div><div class="actions"><button class="btn small" data-act="try">▶ Ausprobieren</button></div><div id="tryout"></div>`;
   }
   const hl=x.hints||[];
   setView(`${header(USER)}<div class="prog"><span>Aufgabe ${i+1} von ${n}</span><span><a href="#" data-act="quit">Runde beenden</a></span></div>${bar(i/n)}
@@ -269,7 +270,7 @@ let AVSEL=AVATARS[0];
 function runScope(kind,k){
   const u=USER,len=u.settings.len;let tasks;
   if(kind==='weak')tasks=TASKS.filter(t=>isWeak(u,t.id)||isDue(u,t.id)).sort(()=>Math.random()-0.5).slice(0,len);
-  else tasks=pickTasks(u,kind==='kap'?[k]:KAPITEL.map(c=>c.id),len);
+  else tasks=pickTasks(u,kind==='kap'?[k]:KAPITEL.map(c=>c.id).filter(id=>kapOpen(u,id)),len);
   startSession(tasks);if(SES)SES.lastScope={kind,k};
 }
 document.addEventListener('click',async e=>{
@@ -295,7 +296,7 @@ document.addEventListener('click',async e=>{
       const r=await pyRun(code,$('#pgin').value.split('\n').filter((l,i,arr)=>!(i===arr.length-1&&l==='')),{echo:true});
       $('#pgout').innerHTML=outHtml(r);break;}
     case 'try':{const code=$('#ed').value;$('#tryout').innerHTML='<div class="fb tip">Läuft …</div>';bumpTime(USER);
-      const r=await pyRun(code,testsOf(CUR.x)[0],{});$('#tryout').innerHTML=outHtml(r);break;}
+      const r=await pyRun(withApp(CUR.x,code),testsOf(CUR.x)[0],{});$('#tryout').innerHTML=outHtml(r);break;}
     case 'sym':{const s=SYMBY(+el.dataset.i);insertAt($('#'+el.dataset.ed),s[1],s[2]||0);break;}
     case 'check':doCheck();break;
     case 'hint':if(CUR&&CUR.hints<(CUR.x.hints||[]).length){const h=CUR.x.hints[CUR.hints];CUR.hints++;$('#tips').insertAdjacentHTML('beforeend',`<div class="tip">💡 ${md(h)}</div>`);const b=$('#hintbtn');if(b){b.textContent=`💡 Tipp (${CUR.hints}/${CUR.x.hints.length})`;if(CUR.hints>=CUR.x.hints.length)b.disabled=true;}}break;
