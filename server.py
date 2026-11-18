@@ -11,6 +11,7 @@ BACKUPS = os.path.join(HERE, 'backups')
 KEEP_DAYS = 30
 OK_PATHS = ('/', '/python-trainer.html', '/api/state')
 PYO_FILES = ('pyodide.js', 'pyodide.asm.js', 'pyodide.asm.wasm', 'python_stdlib.zip', 'pyodide-lock.json')
+FONT_FILES = ('nunito.woff2', 'inter.woff2', 'jetbrains-mono.woff2')   # Schriften lokal (kein Google)
 
 def daily_snapshot():
     """Legt pro Tag einmal eine Kopie der Lerndaten an (letzte 30 Tage bleiben erhalten)."""
@@ -27,7 +28,7 @@ class H(http.server.SimpleHTTPRequestHandler):
     def log_message(s, *a): pass
     def end_headers(s):
         pth = s.path.split('?')[0]
-        if pth.startswith('/pyodide/'): s.send_header('Cache-Control', 'public, max-age=604800')
+        if pth.startswith('/pyodide/') or pth.startswith('/fonts/'): s.send_header('Cache-Control', 'public, max-age=604800')
         elif not pth.startswith('/api/'): s.send_header('Cache-Control', 'no-cache')  # App-Datei immer auf Aktualität prüfen (sonst zeigen Browser alte Versionen)
         super().end_headers()
     def _json(s, code, obj):
@@ -47,6 +48,7 @@ class H(http.server.SimpleHTTPRequestHandler):
         if s.path in ('/', ''): s.path = '/python-trainer.html'
         pp = s.path.split('?')[0]
         if pp.startswith('/pyodide/') and pp[len('/pyodide/'):] in PYO_FILES: return super().do_GET()  # Python (Pyodide) für die Übungen, lokal ausgeliefert
+        if pp.startswith('/fonts/') and pp[len('/fonts/'):] in FONT_FILES: return super().do_GET()
         if pp not in OK_PATHS: return s._json(404, {})  # nur die App selbst ausliefern
         return super().do_GET()
     def do_POST(s):

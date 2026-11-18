@@ -7,4 +7,9 @@ mkdir -p releases
 [ -f /opt/python-trainer/python-trainer.html ] && cp /opt/python-trainer/python-trainer.html releases/python-trainer-$(date +%Y%m%d-%H%M%S).html
 cp python-trainer.html /opt/python-trainer/.python-trainer.html.new
 mv /opt/python-trainer/.python-trainer.html.new /opt/python-trainer/python-trainer.html
+# Schriften und Server-Skript im Laufzeitordner aktuell halten (Dienst nur bei geändertem server.py neu starten)
+mkdir -p /opt/python-trainer/fonts && cp fonts/*.woff2 /opt/python-trainer/fonts/
+if ! cmp -s server.py /opt/python-trainer/server.py; then cp server.py /opt/python-trainer/server.py; RESTART=1; fi
+chown -R pytrainer:pytrainer /opt/python-trainer/fonts /opt/python-trainer/server.py /opt/python-trainer/python-trainer.html
+[ -n "$RESTART" ] && systemctl restart python-trainer
 echo "live: http://192.168.4.44/python/"

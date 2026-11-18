@@ -30,7 +30,7 @@ async function pushServer(){
     const r=await fetch('api/state',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(DB)});
     syncStatus=r.ok?'Server ✓':'Server-Fehler';
   }catch(e){syncStatus='offline (lokal)';}
-  const el=$('#syncstat');if(el)el.textContent=syncStatus;
+  document.querySelectorAll('.syncstat').forEach(el=>{el.textContent=syncStatus;});
 }
 async function initServer(){
   try{const r=await fetch('api/state',{cache:'no-store'});if(r.ok){const rs=await r.json();SERVER=true;if(rs&&rs.users)mergeIntoLocal(rs);syncStatus='Server ✓';}}catch(e){}
@@ -86,6 +86,9 @@ function deleteUser(name){DB.deleted[name]=Date.now();delete DB.users[name];if(D
 /* ---------- Aktive Zeit, Zähler ---------- */
 let lastAct=0;
 function bumpTime(u){const t=Date.now();if(lastAct&&t-lastAct<120000){const k=todayKey();u.dtime[k]=(u.dtime[k]||0)+Math.round((t-lastAct)/1000);}lastAct=t;}
+/* Tage in Folge (heute oder gestern zählt als Anfang) und Tagesziel */
+function streakOf(u){let n=0,t=Date.now();if(!(u.days[todayKey(t)]>0))t-=DAY;while(u.days[todayKey(t)]>0){n++;t-=DAY;}return n;}
+const goalOf=u=>u.settings.goal||10;
 function bumpDay(u,right){const k=todayKey();u.days[k]=(u.days[k]||0)+1;if(right)u.dright[k]=(u.dright[k]||0)+1;}
 /* ---------- Lernstand je Aufgabe (Leitner) ---------- */
 const lessonRead=(u,id)=>!!(u.lessons&&u.lessons[id]);
