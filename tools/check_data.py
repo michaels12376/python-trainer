@@ -25,7 +25,20 @@ for k in kap:
 sp = J('spick.json')
 for s in sp:
     if s['kap'] not in kap: err.append(f'Spickzettel {s["id"]}: Kapitel unbekannt')
-cur = {'tasks': ids}
+LN = J('lernen.json'); lids = [l['id'] for l in LN]; zug = {}
+if len(lids) != len(set(lids)): err.append('Erklär-IDs doppelt')
+for l in LN:
+    if l['kap'] not in kap: err.append(f'{l["id"]}: Kapitel unbekannt')
+    if not l.get('blocks') or not l.get('quiz'): err.append(f'{l["id"]}: Inhalt/Quiz fehlt')
+    for q in l['quiz']:
+        if not 0 <= q['a'] < len(q['o']): err.append(f'{l["id"]}: Quiz-Antwort außerhalb')
+    for t in l['tasks']:
+        if t not in ids: err.append(f'{l["id"]}: Aufgabe {t} unbekannt')
+        if t in zug: err.append(f'Aufgabe {t} mehrfach zugeordnet')
+        zug[t] = l['id']
+for t in ids:
+    if t not in zug: err.append(f'Aufgabe {t} ohne Erklär-Abschnitt')
+cur = {'tasks': ids, 'lessons': lids}
 bp = os.path.join(H, 'daten', 'ids_baseline.json')
 if '--update-baseline' in sys.argv:
     json.dump(cur, open(bp, 'w', encoding='utf8'), ensure_ascii=False); print('Referenz gespeichert:', {k: len(v) for k, v in cur.items()})
@@ -33,6 +46,6 @@ elif os.path.exists(bp):
     for k, v in json.load(open(bp, encoding='utf8')).items():
         miss = [i for i in v if i not in cur.get(k, [])]
         if miss: err.append(f'{k}: IDs fehlen gegenüber der Referenz (Lernstände!): {miss[:5]}')
-print(f'Daten: {len(ids)} Aufgaben, {len(kap)} Kapitel, {len(sp)} Spickzettel')
+print(f'Daten: {len(ids)} Aufgaben, {len(kap)} Kapitel, {len(sp)} Spickzettel, {len(lids)} Erklär-Abschnitte')
 if err: print('\n'.join('FEHLER ' + e for e in err)); print(f'Datenprüfung: {len(err)} Fehler'); sys.exit(1)
 print('Datenprüfung: 0 Fehler')

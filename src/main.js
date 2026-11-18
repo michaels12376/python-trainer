@@ -25,6 +25,7 @@ function viewStart(){
 }
 /* ---------- Home ---------- */
 const mins=s=>Math.round((s||0)/60);
+const nextLesson=u=>LERNEN.find(l=>!lessonRead(u,l.id)&&kapOpen(u,l.kap))||null;
 function viewHome(){
   const u=USER,k=todayKey(),total=Object.values(u.tasks).filter(p=>p.r+p.w>0).length;
   const due=TASKS.filter(t=>isDue(u,t.id)).length,weak=TASKS.filter(t=>isWeak(u,t.id)).length;
@@ -32,9 +33,9 @@ function viewHome(){
   <div class="panel hero"><h2>Hallo ${esc(u.name)}! ${esc(u.avatar)}</h2>
    <div class="meta">Heute: ${u.days[k]||0} Aufgaben · ${mins(u.dtime[k])} Min. · insgesamt ${total} von ${TASKS.length} Aufgaben probiert${due?` · <b>${due} zur Wiederholung fällig</b>`:''}</div>
    <label>Aufgaben pro Runde</label><div class="seg">${[6,10,15].map(n=>`<button class="${u.settings.len===n?'sel':''}" data-act="len" data-v="${n}">${n}</button>`).join('')}</div>
-   <div class="actions"><button class="btn primary big-btn" data-act="train-all">▶ Üben (gemischt)</button>${weak?`<button class="btn" data-act="train-weak">🎯 Wackelaufgaben (${weak})</button>`:''}<button class="btn" data-act="play">🧪 Spielwiese</button></div></div>
+   <div class="actions"><button class="btn primary big-btn" data-act="train-all">▶ Üben (gemischt)</button>${weak?`<button class="btn" data-act="train-weak">🎯 Wackelaufgaben (${weak})</button>`:''}<button class="btn" data-act="play">🧪 Spielwiese</button>${nextLesson(u)?`<button class="btn" data-act="lesson" data-l="${nextLesson(u).id}">📖 Erklärung: ${esc(nextLesson(u).titel)}</button>`:''}</div></div>
   <h2 class="h2">Kapitel</h2>
-  <div class="grid">${KAPITEL.map(c=>`<button class="tile" data-act="kap" data-k="${c.id}">${c.icon}<b>${c.id}. ${esc(c.name)}</b><small>${kapDone(u,c.id)} von ${tasksOf(c.id).length} gemeistert${kapOpen(u,c.id)?'':' · später'}</small>${bar(kapMastery(u,c.id))}</button>`).join('')}</div>
+  <div class="grid">${KAPITEL.map(c=>`<button class="tile" data-act="kap" data-k="${c.id}">${c.icon}<b>${c.id}. ${esc(c.name)}</b><small>${kapDone(u,c.id)} von ${tasksOf(c.id).length} gemeistert · ${kapLessonsRead(u,c.id)}/${lessonsOf(c.id).length} Erklärungen${kapOpen(u,c.id)?'':' · später'}</small>${bar(kapMastery(u,c.id))}</button>`).join('')}</div>
   <div class="actions"><button class="btn" data-act="spick">📒 Spickzettel</button></div>
   <p class="meta" id="pystat">Python wird geladen …</p><p class="meta"><span id="syncstat">${syncStatus}</span> · <span id="appver">Version ${APP_VERSION}</span></p>`);
   pyStatus();
@@ -42,6 +43,7 @@ function viewHome(){
 function viewKap(id){
   const u=USER,c=KAPBY[id],ts=tasksOf(id);
   setView(`${header(u,'home')}<h2 class="h2">${c.icon} ${id}. ${esc(c.name)}</h2><p class="meta">${esc(c.info)}</p>
+  <div class="panel"><h3>📖 Erklärungen <small>${kapLessonsRead(u,id)} von ${lessonsOf(id).length} gelesen</small></h3>${lessonsOf(id).map(l=>`<button class="lrow ${lessonRead(u,l.id)?'read':''}" data-act="lesson" data-l="${l.id}"><span>${lessonRead(u,l.id)?'✓':'○'} ${esc(l.titel)}</span><small>${l.min} Min. · ${l.tasks.length} Aufgaben</small></button>`).join('')}<p class="meta">Tipp: Lies zuerst die Erklärungen – danach gehen die Aufgaben viel leichter.</p></div>
   <div class="actions"><button class="btn primary" data-act="train-kap" data-k="${id}">▶ Üben in diesem Kapitel</button><button class="btn" data-act="spick" data-k="${id}">📒 Spickzettel</button></div>
   <div class="panel">${[1,2,3].map(l=>{const open=lvlOpen(u,id,l),list=ts.filter(t=>t.lvl===l);if(!list.length)return '';
     return `<h3>Stufe ${l} <span class="dots">${dots(l)}</span>${open?'':' <small>(noch gesperrt – löse erst ein paar Aufgaben der Stufe davor)</small>'}</h3>${list.map(t=>{const p=u.tasks[t.id];const st=!p||!(p.r+p.w)?'neu':p.box>=3?'ok':isWeak(u,t.id)?'weak':'mid';
@@ -53,9 +55,9 @@ function viewSpick(k){
 }
 /* ---------- Editor ---------- */
 const SYMS=[['⇥','    '],['( )','()',1],['[ ]','[]',1],['{ }','{}',1],['" "','""',1],["' '","''",1],[':',':'],['=','='],['#','#'],['\\','\\']];
-function edHtml(id,code,rows){
+function edHtml(id,code,rows,nosyms){
   return `<div class="ed"><pre class="lnum" id="${id}-ln"></pre><textarea id="${id}" class="codein" rows="${rows}" wrap="off" spellcheck="false" autocapitalize="off" autocorrect="off" autocomplete="off">${esc(code)}</textarea></div>
-  <div class="syms">${SYMS.map((s,i)=>`<button class="sym" data-act="sym" data-ed="${id}" data-i="${i}">${esc(s[0])}</button>`).join('')}</div>`;
+  ${nosyms?'':`<div class="syms">${SYMS.map((s,i)=>`<button class="sym" data-act="sym" data-ed="${id}" data-i="${i}">${esc(s[0])}</button>`).join('')}</div>`}`;
 }
 function insertAt(ta,text,back){
   ta.focus();const s=ta.selectionStart,e=ta.selectionEnd;ta.setRangeText(text,s,e,'end');
@@ -76,6 +78,38 @@ function wireEd(id,rows){
   });
 }
 const SYMBY=i=>SYMS[i];
+/* ---------- Erklär-Abschnitte ---------- */
+const LEX={},LQ={};
+function lessonHtml(l,pre){
+  return l.blocks.map((b,i)=>{
+    if(b.t==='t')return `<div class="lt">${b.h}</div>`;
+    if(b.t==='tip')return `<div class="callout tip">💡 ${b.h}</div>`;
+    if(b.t==='warn')return `<div class="callout warn">⚠️ ${b.h}</div>`;
+    const id=`${pre}-${l.id}-${i}`;LEX[id]=b;const rows=Math.max(3,b.code.split('\n').length+1);
+    return `<div class="ex"><div class="exh">▶ Probier es aus${b.in.length?` <small>· Eingabe: ${b.in.map(v=>'<code>'+esc(v)+'</code>').join(' · ')}</small>`:''}${b.err?' <small>· enthält absichtlich einen Fehler</small>':''}</div>${edHtml(id,b.code,rows,true)}<div class="actions"><button class="btn small primary" data-act="exrun" data-id="${id}">▶ Ausführen</button><button class="btn small" data-act="exreset" data-id="${id}">↺ Zurücksetzen</button></div><div id="${id}-out"></div></div>`;
+  }).join('');
+}
+function wireLesson(l,pre){l.blocks.forEach((b,i)=>{if(b.t==='c')wireEd(`${pre}-${l.id}-${i}`,Math.max(3,b.code.split('\n').length+1));});}
+const quizHtml=l=>`<div class="panel"><h3>✅ Kurz-Check</h3>${l.quiz.map((q,qi)=>`<div class="quiz" id="q-${l.id}-${qi}"><div class="qq">${qi+1}. ${q.q}</div>${q.o.map((o,oi)=>`<button class="qopt" data-act="lq" data-l="${l.id}" data-q="${qi}" data-o="${oi}">${o}</button>`).join('')}<div class="qwhy"></div></div>`).join('')}<div id="q-${l.id}-res"></div></div>`;
+function viewLesson(id){
+  const l=LESSONBY[id],u=USER,c=KAPBY[l.kap],list=lessonsOf(l.kap),next=list[list.findIndex(x=>x.id===id)+1];
+  LQ[id]={};pyStart();
+  setView(`${header(u,'kap-'+l.kap)}<h2 class="h2">📖 ${esc(l.titel)}</h2><p class="meta">${c.icon} Kapitel ${l.kap} · ca. ${l.min} Min. · ${lessonRead(u,id)?'✓ schon gelesen':'noch nicht gelesen'}</p>
+  <div class="panel lesson">${lessonHtml(l,'ex')}</div>${quizHtml(l)}
+  <div class="actions"><button class="btn primary" data-act="ldone" data-l="${id}">✓ Verstanden${next?' – weiter ▸':''}</button><button class="btn" data-act="ltrain" data-l="${id}">🎯 Dazu üben (${l.tasks.length} Aufgaben)</button></div>`);
+  wireLesson(l,'ex');
+}
+function answerQuiz(el){
+  const l=LESSONBY[el.dataset.l],qi=+el.dataset.q,oi=+el.dataset.o,q=l.quiz[qi],box=$('#q-'+l.id+'-'+qi);
+  if(!box||box.dataset.done)return;box.dataset.done='1';
+  const right=oi===q.a;LQ[l.id][qi]=right;
+  $$('.qopt',box).forEach((b,i)=>{b.disabled=true;if(i===q.a)b.classList.add('right');else if(i===oi)b.classList.add('wrong');if(i===q.a)b.insertAdjacentText('afterbegin','✓ ');else if(i===oi)b.insertAdjacentText('afterbegin','✗ ');});
+  $('.qwhy',box).innerHTML=`<div class="tip">${right?'Richtig! ':'Nicht ganz. '}${q.why}</div>`;
+  if(Object.keys(LQ[l.id]).length===l.quiz.length){
+    const sc=Object.values(LQ[l.id]).filter(Boolean).length;markRead(USER,l.id,sc,l.quiz.length);persist();
+    $('#q-'+l.id+'-res').innerHTML=`<div class="fb ${sc===l.quiz.length?'ok':'no'}"><b>${sc===l.quiz.length?'✓ Alles richtig!':sc+' von '+l.quiz.length+' richtig'}</b> – ${sc===l.quiz.length?'du bist bereit für die Aufgaben.':'lies die Stellen oben noch einmal durch, dann klappt es.'}</div>`;
+  }
+}
 /* ---------- Aufgaben vorbereiten ---------- */
 function inst(t){
   const v=t.vars;if(!v)return JSON.parse(JSON.stringify(t));
@@ -138,6 +172,7 @@ function renderTask(){
   ${(x.typ==='bug'||x.typ==='predict')?'':`<h3>${esc(t.titel)}</h3>`}
   <div class="q">${md(x.text||(x.typ==='predict'?'Lies den Code genau. Was gibt dieses Programm aus?':''))}</div>
   ${body}
+  ${TASKLESSON[t.id]?`<details class="nl" id="nl"><summary>📖 Nachlesen: ${esc(LESSONBY[TASKLESSON[t.id]].titel)}${lessonRead(USER,TASKLESSON[t.id])?'':' <small>(noch nicht gelesen)</small>'}</summary><div id="nlbody"></div></details>`:''}
   <div id="tips"></div><div id="fb"></div>
   <div class="actions" id="btns"><button class="btn primary" data-act="check">Prüfen</button>${hl.length?`<button class="btn" data-act="hint" id="hintbtn">💡 Tipp (0/${hl.length})</button>`:''}</div></div>
   <p class="meta" id="pystat">Python wird geladen …</p>`);
@@ -259,7 +294,7 @@ function viewParentChild(n){
   const w=lastDays(u,14),mx=Math.max(60,...w.map(d=>d.s));
   const weak=TASKS.filter(t=>isWeak(u,t.id));
   setView(`<div class="top"><span class="logo">🐍</span><div class="ttl">${esc(u.avatar)} ${esc(n)} <small>Auswertung</small></div></div><button class="back" data-act="parents">‹ Zurück</button>
-  <div class="panel"><h3>Kapitel</h3>${KAPITEL.map(c=>`<div class="sk"><span>${c.icon} ${c.id}. ${esc(c.name)}</span><span>${kapDone(u,c.id)}/${tasksOf(c.id).length} sitzen</span></div>${bar(kapMastery(u,c.id))}`).join('')}</div>
+  <div class="panel"><h3>Kapitel</h3>${KAPITEL.map(c=>`<div class="sk"><span>${c.icon} ${c.id}. ${esc(c.name)}</span><span>${kapDone(u,c.id)}/${tasksOf(c.id).length} sitzen · ${kapLessonsRead(u,c.id)}/${lessonsOf(c.id).length} Erklärungen</span></div>${bar(kapMastery(u,c.id))}`).join('')}</div>
   <div class="panel"><h3>Übungszeit (14 Tage, Minuten)</h3><div class="days">${w.map(d=>`<div class="d"><small>${mins(d.s)}</small><i style="height:${Math.round(d.s/mx*60)}px"></i><small>${d.d.getDate()}.</small></div>`).join('')}</div></div>
   <div class="panel"><h3>Hier lohnt sich Nachfragen</h3>${weak.length?weak.map(t=>{const p=u.tasks[t.id];return `<div class="sk"><span>${TYPES[t.typ][0]} ${esc(t.titel)} <small>(Kap. ${t.kap})</small></span><span>${p.r} richtig · ${p.w} falsch</span></div>`;}).join(''):'<p class="meta">Keine auffälligen Aufgaben.</p>'}</div>
   <div class="panel"><h3>Letzte Runden</h3>${u.log.slice(-8).reverse().map(l=>`<div class="sk"><span>${fmtDate(l.t)} · ${l.n} Aufgaben</span><span>${l.pts} Punkte</span></div>`).join('')||'<p class="meta">Noch keine Runde.</p>'}</div>
@@ -285,6 +320,14 @@ document.addEventListener('click',async e=>{
     case 'home':viewHome();break;
     case 'len':USER.settings.len=+el.dataset.v;touch(USER);persist();viewHome();break;
     case 'kap':viewKap(+el.dataset.k);break;
+    case 'lesson':viewLesson(el.dataset.l);break;
+    case 'lq':answerQuiz(el);break;
+    case 'exrun':{const id=el.dataset.id,b=LEX[id],out=$('#'+id+'-out');out.innerHTML='<div class="fb tip">Läuft …</div>';bumpTime(USER);
+      const r=await pyRun($('#'+id).value,b.in,{echo:true});out.innerHTML=outHtml(r);break;}
+    case 'exreset':{const id=el.dataset.id,ta=$('#'+id);ta.value=LEX[id].code;ta.dispatchEvent(new Event('input'));$('#'+id+'-out').innerHTML='';break;}
+    case 'ldone':{const l=LESSONBY[el.dataset.l];markRead(USER,l.id,0,0);persist();const list=lessonsOf(l.kap),next=list[list.findIndex(x=>x.id===l.id)+1];if(next)viewLesson(next.id);else viewKap(l.kap);break;}
+    case 'ltrain':{const l=LESSONBY[el.dataset.l];markRead(USER,l.id,0,0);persist();startSession(l.tasks.map(id=>TASKBY[id]).sort(()=>Math.random()-0.5).slice(0,USER.settings.len));break;}
+    case 'nlread':{const id=el.dataset.l;markRead(USER,id,0,0);persist();el.outerHTML='<span class="meta">✓ als gelesen gespeichert</span>';break;}
     case 'spick':viewSpick(el.dataset.k?+el.dataset.k:0);break;
     case 'train-all':runScope('all');break;
     case 'train-weak':runScope('weak');break;
@@ -308,8 +351,14 @@ document.addEventListener('click',async e=>{
     case 'parents':viewParents();break;
     case 'pchild':viewParentChild(el.dataset.n);break;
     case 'pdel':{const n=el.dataset.n;if($('#delname').value.trim()!==n){alert('Name stimmt nicht überein.');return;}deleteUser(n);if(USER&&USER.name===n)USER=null;viewParents();break;}
+    default:if(/^kap-\d+$/.test(a))viewKap(+a.slice(4));
   }
 });
+document.addEventListener('toggle',e=>{
+  const d=e.target;if(!d||d.id!=='nl'||!d.open||!CUR)return;const body=$('#nlbody');if(!body||body.dataset.on)return;body.dataset.on='1';
+  const l=LESSONBY[TASKLESSON[CUR.t.id]];pyStart();
+  body.innerHTML=`<div class="lesson">${lessonHtml(l,'nl')}</div><div class="actions"><button class="btn small" data-act="nlread" data-l="${l.id}">✓ Habe ich gelesen</button></div>`;wireLesson(l,'nl');
+},true);
 /* ---------- Start ---------- */
 async function checkBuild(){
   try{const r=await fetch('api/build',{cache:'no-store'});if(!r.ok)return;const d=await r.json();

@@ -6,6 +6,8 @@ const INTERVALS=[0,1,2,4,8,16,32];
 const AVATARS=['🐍','🦉','🦊','🐼','🦁','🐯','🐸','🦄','🐙','🚀','⚽','🎸'];
 const TASKBY={};TASKS.forEach(t=>TASKBY[t.id]=t);
 const KAPBY={};KAPITEL.forEach(k=>KAPBY[k.id]=k);
+const LESSONBY={},TASKLESSON={};LERNEN.forEach(l=>{LESSONBY[l.id]=l;l.tasks.forEach(t=>TASKLESSON[t]=l.id);});
+const lessonsOf=k=>LERNEN.filter(l=>l.kap===k);
 const TYPES={predict:['🔮','Ausgabe vorhersagen'],gap:['🧩','Lückencode'],bug:['🐞','Fehler finden'],puzzle:['🧱','Zeilen ordnen'],code:['⌨️','Programmieren']};
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const $=(s,r)=>(r||document).querySelector(s);
@@ -54,6 +56,7 @@ function mergeUser(x,y){
   out.created=Math.min(x.created||Infinity,y.created||Infinity);if(!isFinite(out.created))out.created=newer.created;
   out.updated=Math.max(x.updated||0,y.updated||0);
   out.tasks=mergeMap(x.tasks,y.tasks,(a,b)=>lastOf(a)>=lastOf(b)?a:b);
+  out.lessons=mergeMap(x.lessons,y.lessons,(a,b)=>(a.t||0)>=(b.t||0)?(Object.assign({},a,{score:Math.max(a.score||0,b.score||0)})):(Object.assign({},b,{score:Math.max(a.score||0,b.score||0)})));
   out.days=mergeMap(x.days,y.days,Math.max);out.dtime=mergeMap(x.dtime,y.dtime,Math.max);out.dright=mergeMap(x.dright,y.dright,Math.max);
   const seen=new Set(),log=[];
   for(const l of[].concat(x.log||[],y.log||[]).sort((p,q)=>p.t-q.t)){const k=l.t+'|'+l.kap;if(seen.has(k))continue;seen.add(k);log.push(l);}
@@ -74,7 +77,7 @@ function mergeDB(a,b){
 function migrateUser(u){
   if(!u)return u;u.settings=u.settings||{};
   if(u.settings.len==null)u.settings.len=10;
-  ['tasks','days','dtime','dright'].forEach(k=>{if(!u[k])u[k]={};});
+  ['tasks','lessons','days','dtime','dright'].forEach(k=>{if(!u[k])u[k]={};});
   if(!u.log)u.log=[];
   return u;
 }
@@ -85,6 +88,9 @@ let lastAct=0;
 function bumpTime(u){const t=Date.now();if(lastAct&&t-lastAct<120000){const k=todayKey();u.dtime[k]=(u.dtime[k]||0)+Math.round((t-lastAct)/1000);}lastAct=t;}
 function bumpDay(u,right){const k=todayKey();u.days[k]=(u.days[k]||0)+1;if(right)u.dright[k]=(u.dright[k]||0)+1;}
 /* ---------- Lernstand je Aufgabe (Leitner) ---------- */
+const lessonRead=(u,id)=>!!(u.lessons&&u.lessons[id]);
+const kapLessonsRead=(u,k)=>lessonsOf(k).filter(l=>lessonRead(u,l.id)).length;
+function markRead(u,id,score,of){const p=u.lessons[id]||{};u.lessons[id]={t:Date.now(),score:Math.max(p.score||0,score||0),of:of||p.of||0};bumpTime(u);touch(u);}
 const taskState=(u,id)=>u.tasks[id]||(u.tasks[id]={box:0,r:0,w:0,last:0,due:0});
 /* score: 1 = auf Anhieb richtig, 0.5 = nach Fehlversuch richtig, 0 = falsch / Lösung angesehen */
 function recordAnswer(u,id,score){

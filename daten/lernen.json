@@ -1,0 +1,3091 @@
+[
+{
+"id": "l01",
+"kap": 1,
+"titel": "Dein erstes Programm",
+"min": 4,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Ein Programm ist eine Liste von Anweisungen, die der Computer <b>Zeile für Zeile von oben nach unten</b> ausführt. Die wichtigste Anweisung am Anfang heißt <code>print</code> – sie schreibt etwas auf den Bildschirm.</p>"
+},
+{
+"t": "c",
+"code": "print(\"Hallo Welt!\")",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Was du ausgeben willst, steht in <b>Klammern</b>. Ein Text braucht <b>Anführungszeichen</b> – am Anfang und am Ende. Die Anführungszeichen selbst werden nicht mit ausgegeben; sie zeigen Python nur, wo der Text anfängt und aufhört.</p>"
+},
+{
+"t": "c",
+"code": "print(\"Ich lerne Python\")\nprint(\"Das ist Zeile 2\")\nprint(\"Und das Zeile 3\")",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Jeder <code>print</code>-Befehl beginnt eine neue Zeile. Die Reihenfolge im Programm ist die Reihenfolge in der Ausgabe.</p>"
+},
+{
+"t": "t",
+"h": "<p><b>Kommentare:</b> Alles hinter einem <code>#</code> ignoriert Python. So kannst du dir Notizen in den Code schreiben.</p>"
+},
+{
+"t": "c",
+"code": "# Das hier liest Python nicht\nprint(\"Das schon\")   # und das hier auch nicht",
+"in": [],
+"err": false
+},
+{
+"t": "tip",
+"h": "<b>Merke:</b> <code>print(\"Text\")</code> – Text in Anführungszeichen, alles in Klammern. Ändere die Beispiele oben ruhig ab und drücke „Ausführen“: Probieren ist das beste Lernen!"
+}
+],
+"quiz": [
+{
+"q": "Was gibt <code>print(\"Hallo\")</code> aus?",
+"o": [
+"\"Hallo\" (mit Anführungszeichen)",
+"Hallo",
+"print Hallo"
+],
+"a": 1,
+"why": "Die Anführungszeichen markieren nur den Text und werden nicht mit ausgegeben."
+},
+{
+"q": "In welcher Reihenfolge führt Python die Zeilen eines Programms aus?",
+"o": [
+"von oben nach unten",
+"von unten nach oben",
+"in zufälliger Reihenfolge"
+],
+"a": 0,
+"why": "Python arbeitet ein Programm Zeile für Zeile von oben nach unten ab."
+},
+{
+"q": "Was bewirkt ein <code>#</code> in einer Zeile?",
+"o": [
+"Der Rest der Zeile wird ausgegeben",
+"Der Rest der Zeile ist ein Kommentar und wird ignoriert",
+"Das Programm wird beendet"
+],
+"a": 1,
+"why": "Alles hinter # ist ein Kommentar – nur für Menschen gedacht."
+}
+],
+"tasks": [
+"a001",
+"a002",
+"a006",
+"a010",
+"a011",
+"a012"
+]
+},
+{
+"id": "l02",
+"kap": 1,
+"titel": "Text und Zahlen ausgeben",
+"min": 4,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Mit <code>print</code> kannst du auch <b>Zahlen</b> ausgeben. Zahlen schreibst du <b>ohne</b> Anführungszeichen:</p>"
+},
+{
+"t": "c",
+"code": "print(42)\nprint(3 + 4)\nprint(\"3 + 4\")",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Schau dir die dritte Zeile an: <code>\"3 + 4\"</code> steht in Anführungszeichen, ist also nur ein <b>Text</b> – Python rechnet nicht, sondern gibt ihn einfach aus. Ohne Anführungszeichen rechnet Python erst aus (<code>3 + 4</code> wird zu <code>7</code>).</p>"
+},
+{
+"t": "t",
+"h": "<p><b>Mehrere Dinge in einer Zeile:</b> Trenne sie mit einem <b>Komma</b>. Python setzt dazwischen automatisch ein Leerzeichen.</p>"
+},
+{
+"t": "c",
+"code": "print(\"Ich bin\", 12, \"Jahre alt\")\nprint(\"Das Ergebnis ist\", 6 * 7)",
+"in": [],
+"err": false
+},
+{
+"t": "tip",
+"h": "<b>Merke:</b> Text → Anführungszeichen. Zahlen und Rechnungen → keine Anführungszeichen. Mit Komma verbindest du mehrere Teile in einer Ausgabe."
+},
+{
+"t": "t",
+"h": "<p>Du kannst einfache (<code>'</code>) oder doppelte (<code>\"</code>) Anführungszeichen benutzen – nur am Anfang und Ende müssen es dieselben sein.</p>"
+},
+{
+"t": "c",
+"code": "print('Das geht auch')\nprint(\"Und so: 'Hallo' in Anführungszeichen\")",
+"in": [],
+"err": false
+}
+],
+"quiz": [
+{
+"q": "Was gibt <code>print(\"2 + 3\")</code> aus?",
+"o": [
+"5",
+"2 + 3",
+"Fehler"
+],
+"a": 1,
+"why": "In Anführungszeichen ist es ein Text – er wird unverändert ausgegeben."
+},
+{
+"q": "Was gibt <code>print(\"a\", 5)</code> aus?",
+"o": [
+"a5",
+"a 5",
+"\"a\" 5"
+],
+"a": 1,
+"why": "Das Komma setzt in der Ausgabe ein Leerzeichen zwischen die Teile."
+},
+{
+"q": "Was gibt <code>print(2 * 4)</code> aus?",
+"o": [
+"2 * 4",
+"8",
+"24"
+],
+"a": 1,
+"why": "Ohne Anführungszeichen wird gerechnet."
+}
+],
+"tasks": [
+"a003"
+]
+},
+{
+"id": "l03",
+"kap": 1,
+"titel": "Zeilenumbruch, sep und end",
+"min": 5,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Manchmal willst du den Standard von <code>print</code> verändern. Dafür gibt es <b>Sonderzeichen</b> und <b>Zusatzangaben</b>.</p>"
+},
+{
+"t": "t",
+"h": "<p><b>Zeilenumbruch im Text:</b> Die Zeichenfolge <code>\\n</code> bedeutet „neue Zeile“.</p>"
+},
+{
+"t": "c",
+"code": "print(\"Erste Zeile\\nZweite Zeile\\nDritte Zeile\")",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p><b>sep</b> (englisch „separator“, Trenner) legt fest, was zwischen den Teilen steht – normalerweise ein Leerzeichen:</p>"
+},
+{
+"t": "c",
+"code": "print(\"a\", \"b\", \"c\")\nprint(\"a\", \"b\", \"c\", sep=\"-\")\nprint(\"a\", \"b\", \"c\", sep=\"\")",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p><b>end</b> legt fest, was <i>am Ende</i> der Ausgabe steht – normalerweise ein Zeilenumbruch. Wenn du etwas anderes angibst, geht die nächste Ausgabe in <b>derselben Zeile</b> weiter:</p>"
+},
+{
+"t": "c",
+"code": "print(\"Eins\", end=\" \")\nprint(\"Zwei\", end=\" \")\nprint(\"Drei\")\nprint(\"Vier\")",
+"in": [],
+"err": false
+},
+{
+"t": "warn",
+"h": "<b>Achtung:</b> <code>sep=</code> und <code>end=</code> stehen immer <b>hinter</b> den Dingen, die ausgegeben werden, und nach einem Komma. Der Wert ist ein Text, also in Anführungszeichen."
+},
+{
+"t": "tip",
+"h": "<b>Merke:</b> <code>\\n</code> = neue Zeile · <code>sep</code> = Trenner zwischen den Teilen · <code>end</code> = Ende der Ausgabe."
+}
+],
+"quiz": [
+{
+"q": "Wie viele Zeilen erzeugt <code>print(\"A\\nB\")</code>?",
+"o": [
+"1",
+"2",
+"3"
+],
+"a": 1,
+"why": "\\n ist ein Zeilenumbruch – es entstehen zwei Zeilen."
+},
+{
+"q": "Was gibt <code>print(\"x\", \"y\", sep=\"+\")</code> aus?",
+"o": [
+"x y",
+"x+y",
+"xy+"
+],
+"a": 1,
+"why": "sep ersetzt das Leerzeichen zwischen den Teilen durch +."
+},
+{
+"q": "Was passiert bei <code>print(\"Hallo\", end=\"\")</code> gefolgt von <code>print(\"Welt\")</code>?",
+"o": [
+"HalloWelt in einer Zeile",
+"Hallo und Welt in zwei Zeilen",
+"Fehler"
+],
+"a": 0,
+"why": "end=\"\" lässt den Zeilenumbruch weg – die nächste Ausgabe schließt direkt an."
+}
+],
+"tasks": [
+"a004",
+"a005",
+"a007",
+"a013",
+"a014"
+]
+},
+{
+"id": "l04",
+"kap": 1,
+"titel": "Fehlermeldungen lesen",
+"min": 4,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Fehler gehören zum Programmieren dazu – auch bei Profis! Wichtig ist, die <b>Fehlermeldung zu lesen</b>: Sie sagt dir, <b>was</b> falsch ist und in <b>welcher Zeile</b>.</p>"
+},
+{
+"t": "t",
+"h": "<p>Probiere es aus – dieses Programm hat einen Fehler (<code>Print</code> mit großem P):</p>"
+},
+{
+"t": "c",
+"code": "Print(\"Hallo\")",
+"in": [],
+"err": true
+},
+{
+"t": "t",
+"h": "<p>Python unterscheidet <b>Groß- und Kleinschreibung</b>: <code>print</code> kennt es, <code>Print</code> nicht. Noch ein typischer Fehler – das Anführungszeichen am Ende fehlt:</p>"
+},
+{
+"t": "c",
+"code": "print(\"Hallo)",
+"in": [],
+"err": true
+},
+{
+"t": "t",
+"h": "<p>Die häufigsten Anfängerfehler:</p><ul><li>Groß-/Kleinschreibung falsch (<code>Print</code> statt <code>print</code>)</li><li>Anführungszeichen oder Klammer vergessen</li><li>Tippfehler im Namen</li><li>Doppelpunkt oder Einrückung vergessen (kommt später)</li></ul>"
+},
+{
+"t": "tip",
+"h": "<b>So gehst du vor:</b> 1. Fehlermeldung und Zeilennummer lesen. 2. Genau diese Zeile (und die davor) anschauen. 3. Verbessern und nochmal ausführen. Ein Programm läuft nie auf Anhieb fehlerfrei – das ist normal!"
+}
+],
+"quiz": [
+{
+"q": "Python meldet einen Fehler in Zeile 3. Wo suchst du zuerst?",
+"o": [
+"In Zeile 3 (und der Zeile davor)",
+"Ganz am Anfang des Programms",
+"Gar nicht – das ist ein Computerfehler"
+],
+"a": 0,
+"why": "Die Zeilennummer zeigt dir, wo Python gestolpert ist. Oft liegt der Fehler dort oder direkt davor."
+},
+{
+"q": "Welcher Befehl ist richtig geschrieben?",
+"o": [
+"Print(\"Hi\")",
+"print(\"Hi\")",
+"PRINT(\"Hi\")"
+],
+"a": 1,
+"why": "Der Befehl heißt print – komplett klein."
+}
+],
+"tasks": [
+"a008",
+"a009"
+]
+},
+{
+"id": "l05",
+"kap": 2,
+"titel": "Variablen: Werte speichern",
+"min": 5,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Eine <b>Variable</b> ist wie eine beschriftete Schublade: Du legst einen Wert hinein und holst ihn später über den Namen wieder heraus. Mit <code>=</code> legst du den Wert hinein (<b>Zuweisung</b>).</p>"
+},
+{
+"t": "c",
+"code": "alter = 12\nname = \"Felix\"\nprint(name)\nprint(alter)\nprint(name, \"ist\", alter, \"Jahre alt\")",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Der Name steht <b>links</b>, der Wert <b>rechts</b>. Texte brauchen Anführungszeichen, Zahlen nicht. Beim <code>print</code> schreibst du den Variablennamen <b>ohne</b> Anführungszeichen – sonst würde der Name selbst als Text ausgegeben.</p>"
+},
+{
+"t": "c",
+"code": "farbe = \"blau\"\nprint(farbe)\nprint(\"farbe\")",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p><b>Variablen kann man verändern.</b> Rechts vom <code>=</code> wird zuerst gerechnet, dann wird das Ergebnis in der Variablen gespeichert:</p>"
+},
+{
+"t": "c",
+"code": "punkte = 10\npunkte = punkte + 5\nprint(punkte)\npunkte = punkte * 2\nprint(punkte)",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p><b>Namen:</b> Buchstaben, Ziffern und <code>_</code> sind erlaubt; der Name darf nicht mit einer Ziffer beginnen und keine Leerzeichen enthalten. Wähle sprechende Namen (<code>alter</code> statt <code>a</code>). Groß-/Kleinschreibung zählt: <code>Alter</code> und <code>alter</code> sind verschiedene Variablen.</p>"
+},
+{
+"t": "warn",
+"h": "<b>Achtung:</b> Das Gleichheitszeichen heißt hier „bekommt den Wert“, nicht „ist gleich“. <code>x = x + 1</code> ist in Mathe unmöglich, in Python normal: nimm den alten Wert von x, addiere 1 und speichere es wieder in x."
+}
+],
+"quiz": [
+{
+"q": "Was gibt <code>x = 4</code> und danach <code>print(x + 1)</code> aus?",
+"o": [
+"x + 1",
+"5",
+"41"
+],
+"a": 1,
+"why": "x steht für den Wert 4, also wird 4 + 1 = 5 ausgegeben."
+},
+{
+"q": "Was gibt <code>a = 3</code>, dann <code>a = a * 2</code>, dann <code>print(a)</code> aus?",
+"o": [
+"3",
+"6",
+"32"
+],
+"a": 1,
+"why": "Erst wird a * 2 = 6 berechnet, dann in a gespeichert."
+},
+{
+"q": "Welcher Variablenname ist erlaubt?",
+"o": [
+"2spieler",
+"mein alter",
+"mein_alter"
+],
+"a": 2,
+"why": "Keine Ziffer am Anfang, keine Leerzeichen – der Unterstrich ist erlaubt."
+}
+],
+"tasks": [
+"a015",
+"a016",
+"a024",
+"a027",
+"a029"
+]
+},
+{
+"id": "l06",
+"kap": 2,
+"titel": "Rechnen mit Python",
+"min": 6,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Python ist ein mächtiger Taschenrechner. Die Rechenzeichen:</p><table class=\"gt\"><tr><td><code>+</code></td><td>plus</td><td><code>7 + 2</code> → 9</td></tr><tr><td><code>-</code></td><td>minus</td><td><code>7 - 2</code> → 5</td></tr><tr><td><code>*</code></td><td>mal</td><td><code>7 * 2</code> → 14</td></tr><tr><td><code>/</code></td><td>geteilt (Kommazahl)</td><td><code>7 / 2</code> → 3.5</td></tr><tr><td><code>//</code></td><td>ganzzahlig geteilt</td><td><code>7 // 2</code> → 3</td></tr><tr><td><code>%</code></td><td>Rest der Division</td><td><code>7 % 2</code> → 1</td></tr><tr><td><code>**</code></td><td>Potenz</td><td><code>7 ** 2</code> → 49</td></tr></table>"
+},
+{
+"t": "c",
+"code": "print(7 + 2, 7 - 2, 7 * 2)\nprint(7 / 2)\nprint(7 // 2)\nprint(7 % 2)\nprint(2 ** 10)",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Die <b>Division</b> hat zwei Gesichter: <code>/</code> liefert immer eine Kommazahl (mit <b>Punkt</b> geschrieben: <code>3.5</code>). <code>//</code> schneidet den Rest ab, und <code>%</code> liefert genau diesen Rest. Beispiel: Die 5 passt dreimal in die 17 (3 · 5 = 15), übrig bleibt 2. Also ist <code>17 // 5</code> gleich 3 und <code>17 % 5</code> gleich 2.</p>"
+},
+{
+"t": "c",
+"code": "print(17 // 5)\nprint(17 % 5)\nprint(3 * 5 + 2)",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p><b>Punkt vor Strich</b> gilt auch in Python. Mit <b>Klammern</b> bestimmst du die Reihenfolge:</p>"
+},
+{
+"t": "c",
+"code": "print(2 + 3 * 4)\nprint((2 + 3) * 4)\nprint(10 - 4 - 3)",
+"in": [],
+"err": false
+},
+{
+"t": "tip",
+"h": "<b>Der %-Trick:</b> <code>zahl % 2 == 0</code> bedeutet „gerade“, <code>zahl % 10</code> ist die letzte Ziffer. Du wirst den Rest oft brauchen!"
+},
+{
+"t": "c",
+"code": "laenge = 8\nbreite = 3\nflaeche = laenge * breite\numfang = 2 * (laenge + breite)\nprint(\"Fläche:\", flaeche)\nprint(\"Umfang:\", umfang)",
+"in": [],
+"err": false
+}
+],
+"quiz": [
+{
+"q": "Was ist <code>20 // 6</code>?",
+"o": [
+"3",
+"3.33",
+"2"
+],
+"a": 0,
+"why": "Ganzzahldivision: 6 passt dreimal in 20."
+},
+{
+"q": "Was ist <code>20 % 6</code>?",
+"o": [
+"3",
+"2",
+"14"
+],
+"a": 1,
+"why": "20 = 3 · 6 + 2 – der Rest ist 2."
+},
+{
+"q": "Was ist <code>2 + 3 * 4</code>?",
+"o": [
+"20",
+"14",
+"24"
+],
+"a": 1,
+"why": "Punkt vor Strich: erst 3 * 4 = 12, dann 2 + 12."
+},
+{
+"q": "Was liefert <code>9 / 2</code>?",
+"o": [
+"4",
+"4.5",
+"5"
+],
+"a": 1,
+"why": "Der Schrägstrich / liefert immer eine Kommazahl."
+}
+],
+"tasks": [
+"a017",
+"a018",
+"a019",
+"a021",
+"a022",
+"a026",
+"a028",
+"a030",
+"a031"
+]
+},
+{
+"id": "l07",
+"kap": 2,
+"titel": "Text einsetzen mit f-Strings",
+"min": 4,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Oft willst du Variablen in einen Satz einbauen. Mit einem <b>f-String</b> (ein Text mit einem <code>f</code> vor dem ersten Anführungszeichen) setzt Python den Wert von Variablen ein, die du in <b>geschweifte Klammern</b> schreibst:</p>"
+},
+{
+"t": "c",
+"code": "name = \"Sophia\"\nalter = 11\nprint(f\"{name} ist {alter} Jahre alt.\")",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>In den Klammern darf auch eine Rechnung stehen:</p>"
+},
+{
+"t": "c",
+"code": "a = 6\nb = 7\nprint(f\"{a} mal {b} ist {a * b}\")",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Ohne das <code>f</code> würde Python die Klammern einfach als Text ausgeben. Eine Alternative ist das Komma im <code>print</code> – der f-String ist aber übersichtlicher, wenn der Satz länger wird.</p>"
+},
+{
+"t": "c",
+"code": "x = 5\nprint(\"x ist {x}\")\nprint(f\"x ist {x}\")\nprint(\"x ist\", x)",
+"in": [],
+"err": false
+},
+{
+"t": "warn",
+"h": "<b>Achtung:</b> Mit <code>+</code> kann man Text und Zahl <b>nicht</b> verbinden: <code>\"Alter: \" + 12</code> gibt einen TypeError. Nimm ein Komma, einen f-String oder wandle die Zahl mit <code>str(12)</code> um (mehr dazu in Kapitel 3)."
+}
+],
+"quiz": [
+{
+"q": "Was gibt <code>x = 3</code> und <code>print(f\"Wert: {x}\")</code> aus?",
+"o": [
+"Wert: {x}",
+"Wert: 3",
+"Wert: x"
+],
+"a": 1,
+"why": "Im f-String wird {x} durch den Wert von x ersetzt."
+},
+{
+"q": "Was fehlt, damit <code>print(\"Hallo {name}\")</code> den Namen einsetzt?",
+"o": [
+"Ein f vor dem Text",
+"Ein Komma",
+"Eckige Klammern"
+],
+"a": 0,
+"why": "Erst das f vor dem Anführungszeichen macht den Text zum f-String."
+}
+],
+"tasks": [
+"a020",
+"a023",
+"a025",
+"a032"
+]
+},
+{
+"id": "l08",
+"kap": 3,
+"titel": "Eingaben mit input()",
+"min": 4,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Bisher kennt dein Programm nur das, was im Code steht. Mit <code>input()</code> kann es etwas von der Person <b>fragen</b>, die es benutzt. Das Programm hält an, wartet auf die Eingabe und speichert sie in einer Variablen.</p>"
+},
+{
+"t": "c",
+"code": "name = input()\nprint(\"Hallo\", name)",
+"in": [
+"Felix"
+],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>In der Aufgaben-App bekommst du die Eingaben vorgegeben (hier „Felix“). In der <b>Spielwiese</b> trägst du sie unter dem Editor ein, eine pro Zeile. Du darfst in die Klammern einen Fragetext schreiben: <code>input(\"Wie heißt du? \")</code>.</p>"
+},
+{
+"t": "c",
+"code": "name = input(\"Wie heißt du? \")\nprint(\"Schön, dich zu sehen,\", name)",
+"in": [
+"Sophia"
+],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Mehrere <code>input()</code>-Aufrufe lesen nacheinander mehrere Eingaben ein – die erste Eingabe gehört zum ersten <code>input</code>, die zweite zum zweiten usw.</p>"
+},
+{
+"t": "c",
+"code": "vorname = input()\nnachname = input()\nprint(vorname, nachname)",
+"in": [
+"Anna",
+"Berg"
+],
+"err": false
+},
+{
+"t": "warn",
+"h": "<b>Wichtig:</b> <code>input()</code> liefert <b>immer Text</b> – auch wenn jemand eine Zahl eintippt! Rechnen kann man damit erst nach einer Umwandlung (nächster Abschnitt)."
+}
+],
+"quiz": [
+{
+"q": "Was macht <code>name = input()</code>?",
+"o": [
+"Gibt name auf dem Bildschirm aus",
+"Wartet auf eine Eingabe und speichert sie in name",
+"Löscht die Variable name"
+],
+"a": 1,
+"why": "input() liest eine Eingabe ein; die Zuweisung speichert sie."
+},
+{
+"q": "Welchen Typ hat das Ergebnis von <code>input()</code>?",
+"o": [
+"Immer Text",
+"Immer eine ganze Zahl",
+"Das hängt von der Eingabe ab"
+],
+"a": 0,
+"why": "input() gibt immer Text zurück, auch bei „42“."
+}
+],
+"tasks": [
+"a033",
+"a034",
+"a039",
+"a044",
+"a045"
+]
+},
+{
+"id": "l09",
+"kap": 3,
+"titel": "Datentypen: Text, ganze Zahlen, Kommazahlen",
+"min": 5,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Jeder Wert in Python hat einen <b>Typ</b>. Die wichtigsten drei:</p><table class=\"gt\"><tr><td><code>int</code></td><td>ganze Zahl</td><td><code>5</code>, <code>-3</code>, <code>1000</code></td></tr><tr><td><code>float</code></td><td>Kommazahl (mit Punkt!)</td><td><code>5.0</code>, <code>3.14</code></td></tr><tr><td><code>str</code></td><td>Text (englisch „string“)</td><td><code>\"5\"</code>, <code>\"Hallo\"</code></td></tr></table>"
+},
+{
+"t": "c",
+"code": "print(type(5))\nprint(type(5.0))\nprint(type(\"5\"))",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Der Typ entscheidet, was ein Rechenzeichen tut. Mit Zahlen wird gerechnet – mit Text wird <b>aneinandergehängt</b>:</p>"
+},
+{
+"t": "c",
+"code": "print(3 + 4)\nprint(\"3\" + \"4\")\nprint(\"ha\" * 3)",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Ein <code>\"7\"</code> in Anführungszeichen ist <b>kein</b> Zahlenwert, sondern ein Text, der zufällig aus einer Ziffer besteht. Das ist der Grund, warum eine eingelesene Zahl (die ja ein Text ist) nicht einfach zum Rechnen taugt.</p>"
+},
+{
+"t": "tip",
+"h": "<b>Merke:</b> Anführungszeichen = Text (<code>str</code>). Mit Punkt = Kommazahl (<code>float</code>). Sonst eine ganze Zahl (<code>int</code>). Mit <code>type(x)</code> kannst du den Typ jederzeit abfragen."
+}
+],
+"quiz": [
+{
+"q": "Welchen Typ hat <code>\"12\"</code>?",
+"o": [
+"int",
+"str",
+"float"
+],
+"a": 1,
+"why": "Wegen der Anführungszeichen ist es ein Text."
+},
+{
+"q": "Was ergibt <code>\"3\" + \"4\"</code>?",
+"o": [
+"7",
+"34",
+"Fehler"
+],
+"a": 1,
+"why": "Bei Text bedeutet + aneinanderhängen: \"34\"."
+},
+{
+"q": "Welchen Typ hat <code>2.0</code>?",
+"o": [
+"int",
+"str",
+"float"
+],
+"a": 2,
+"why": "Ein Punkt macht daraus eine Kommazahl (float)."
+}
+],
+"tasks": [
+"a036"
+]
+},
+{
+"id": "l10",
+"kap": 3,
+"titel": "Umwandeln mit int(), float(), str() und round()",
+"min": 5,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Mit <b>Umwandlungsfunktionen</b> machst du aus einem Typ einen anderen:</p><ul><li><code>int(x)</code> – ganze Zahl</li><li><code>float(x)</code> – Kommazahl</li><li><code>str(x)</code> – Text</li></ul>"
+},
+{
+"t": "c",
+"code": "print(int(\"7\") + 1)\nprint(float(\"2.5\") * 2)\nprint(str(12) + \" Jahre\")",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p><b>Der Standard-Trick für Eingaben:</b> Zahl einlesen und sofort umwandeln.</p>"
+},
+{
+"t": "c",
+"code": "zahl = int(input())\nprint(zahl * 2)",
+"in": [
+"21"
+],
+"err": false
+},
+{
+"t": "c",
+"code": "preis = float(input())\nprint(preis * 3)",
+"in": [
+"1.5"
+],
+"err": false
+},
+{
+"t": "t",
+"h": "<p><b>round(zahl, stellen)</b> rundet auf eine bestimmte Anzahl Nachkommastellen:</p>"
+},
+{
+"t": "c",
+"code": "print(round(3.14159, 2))\nprint(round(2.5678, 1))\nprint(round(7.4))",
+"in": [],
+"err": false
+},
+{
+"t": "warn",
+"h": "<b>Achtung:</b> <code>int(\"abc\")</code> oder <code>int(\"3,5\")</code> geht nicht – dann gibt es einen <b>ValueError</b>. Kommazahlen schreibt man in Python mit <b>Punkt</b>. Und <code>int(3.9)</code> ergibt <code>3</code> (Nachkommastellen werden abgeschnitten, nicht gerundet)."
+}
+],
+"quiz": [
+{
+"q": "Wie liest du eine ganze Zahl ein?",
+"o": [
+"zahl = input()",
+"zahl = int(input())",
+"zahl = str(input())"
+],
+"a": 1,
+"why": "input() liefert Text, int() macht daraus eine ganze Zahl."
+},
+{
+"q": "Was gibt <code>round(3.14159, 2)</code> aus?",
+"o": [
+"3.1",
+"3.14",
+"3.15"
+],
+"a": 1,
+"why": "Auf zwei Nachkommastellen gerundet: 3.14."
+},
+{
+"q": "Was ergibt <code>int(\"7\") + int(\"5\")</code>?",
+"o": [
+"12",
+"75",
+"Fehler"
+],
+"a": 0,
+"why": "Beide Texte werden in Zahlen umgewandelt und dann addiert."
+}
+],
+"tasks": [
+"a035",
+"a037",
+"a038",
+"a040",
+"a046",
+"a047",
+"a048",
+"a049"
+]
+},
+{
+"id": "l11",
+"kap": 3,
+"titel": "Typische Fehler mit Eingaben",
+"min": 4,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Die zwei häufigsten Fehler bei Eingaben kommen beide vom Thema „<code>input()</code> liefert Text“.</p>"
+},
+{
+"t": "t",
+"h": "<p><b>Fehler 1: TypeError.</b> Text und Zahl lassen sich nicht addieren:</p>"
+},
+{
+"t": "c",
+"code": "zahl = input()\nprint(zahl + 1)",
+"in": [
+"5"
+],
+"err": true
+},
+{
+"t": "t",
+"h": "<p>Die Lösung: die Eingabe mit <code>int()</code> umwandeln.</p>"
+},
+{
+"t": "c",
+"code": "zahl = int(input())\nprint(zahl + 1)",
+"in": [
+"5"
+],
+"err": false
+},
+{
+"t": "t",
+"h": "<p><b>Fehler 2: Es läuft, aber das Ergebnis ist komisch.</b> Zwei Eingaben werden als Text „addiert“ – also aneinandergehängt:</p>"
+},
+{
+"t": "c",
+"code": "a = input()\nb = input()\nprint(a + b)",
+"in": [
+"3",
+"4"
+],
+"err": false
+},
+{
+"t": "c",
+"code": "a = int(input())\nb = int(input())\nprint(a + b)",
+"in": [
+"3",
+"4"
+],
+"err": false
+},
+{
+"t": "t",
+"h": "<p><b>Fehler 3: Syntaxfehler</b> – z. B. das <code>+</code> beim Verbinden von Text vergessen:</p>"
+},
+{
+"t": "c",
+"code": "name = input()\nprint(\"Hallo, \" + name)",
+"in": [
+"Felix"
+],
+"err": false
+},
+{
+"t": "tip",
+"h": "<b>Merke:</b> Rechnest du mit einer Eingabe? Dann <code>int()</code> oder <code>float()</code>! Bei reinem Text brauchst du keine Umwandlung."
+}
+],
+"quiz": [
+{
+"q": "Du liest <code>a</code> und <code>b</code> mit <code>input()</code> ein und gibst <code>a + b</code> aus. Bei den Eingaben 3 und 4 erscheint …",
+"o": [
+"7",
+"34",
+"ein Fehler"
+],
+"a": 1,
+"why": "Beide sind Text, + hängt sie aneinander."
+},
+{
+"q": "Wie bekommst du bei den Eingaben 3 und 4 das Ergebnis 7?",
+"o": [
+"int vor jede Eingabe schreiben: int(input())",
+"Ein Leerzeichen einfügen",
+"print(a, b) benutzen"
+],
+"a": 0,
+"why": "Beide Eingaben müssen in Zahlen umgewandelt werden."
+}
+],
+"tasks": [
+"a041",
+"a042",
+"a043"
+]
+},
+{
+"id": "l12",
+"kap": 4,
+"titel": "Vergleiche und Wahrheitswerte",
+"min": 4,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Bisher hat dein Programm immer alle Zeilen ausgeführt. Mit <b>Bedingungen</b> entscheidet es selbst, was es tut. Dazu braucht es Fragen, auf die es mit „ja“ (<code>True</code>) oder „nein“ (<code>False</code>) antworten kann – <b>Vergleiche</b>:</p><table class=\"gt\"><tr><td><code>==</code></td><td>gleich</td></tr><tr><td><code>!=</code></td><td>ungleich</td></tr><tr><td><code>&lt;</code> &nbsp; <code>&gt;</code></td><td>kleiner, größer</td></tr><tr><td><code>&lt;=</code> &nbsp; <code>&gt;=</code></td><td>kleiner/gleich, größer/gleich</td></tr></table>"
+},
+{
+"t": "c",
+"code": "print(5 > 3)\nprint(5 == 6)\nprint(5 != 6)\nprint(4 <= 4)\nprint(\"a\" == \"a\")",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Das Ergebnis eines Vergleichs ist ein <b>Wahrheitswert</b>: <code>True</code> (wahr) oder <code>False</code> (falsch).</p>"
+},
+{
+"t": "warn",
+"h": "<b>Der häufigste Fehler:</b> Ein <b>einzelnes</b> <code>=</code> speichert einen Wert in einer Variablen (<code>x = 5</code>). Zum <b>Vergleichen</b> brauchst du <b>zwei</b> Gleichheitszeichen: <code>x == 5</code>."
+},
+{
+"t": "c",
+"code": "x = 5\nprint(x == 5)\nprint(x == 6)\nprint(x > 10)",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Auch Texte kann man vergleichen – aber Groß-/Kleinschreibung zählt: <code>\"Ja\" == \"ja\"</code> ist <code>False</code>.</p>"
+}
+],
+"quiz": [
+{
+"q": "Welches Zeichen prüft, ob zwei Werte gleich sind?",
+"o": [
+"=",
+"==",
+"!="
+],
+"a": 1,
+"why": "Zwei Gleichheitszeichen vergleichen; eins weist einen Wert zu."
+},
+{
+"q": "Was ergibt <code>7 != 7</code>?",
+"o": [
+"True",
+"False",
+"Fehler"
+],
+"a": 1,
+"why": "!= bedeutet „ungleich“ – 7 ist aber gleich 7."
+},
+{
+"q": "Was ergibt <code>\"Ja\" == \"ja\"</code>?",
+"o": [
+"True",
+"False",
+"Fehler"
+],
+"a": 1,
+"why": "Groß- und Kleinschreibung zählen, die Texte sind verschieden."
+}
+],
+"tasks": [
+"a051",
+"a055",
+"a059"
+]
+},
+{
+"id": "l13",
+"kap": 4,
+"titel": "if und else",
+"min": 5,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Mit <code>if</code> („falls“) führst du Code nur aus, <b>wenn eine Bedingung stimmt</b>. Mit <code>else</code> („sonst“) legst du fest, was passiert, wenn sie nicht stimmt.</p>"
+},
+{
+"t": "c",
+"code": "zahl = 12\nif zahl > 10:\n    print(\"groß\")\nelse:\n    print(\"klein\")",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Zwei Dinge sind entscheidend:</p><ol><li>Hinter der Bedingung (und hinter <code>else</code>) steht ein <b>Doppelpunkt</b>.</li><li>Was zum <code>if</code> oder <code>else</code> gehört, wird <b>eingerückt</b> (4 Leerzeichen, die Tab-Taste macht das). Die Einrückung ist in Python kein Schmuck – sie zeigt, was zusammengehört!</li></ol>"
+},
+{
+"t": "c",
+"code": "zahl = 3\nif zahl > 10:\n    print(\"groß\")\n    print(\"das ist auch im if-Block\")\nprint(\"das läuft immer\")",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Probiere <code>zahl = 3</code> und <code>zahl = 30</code> aus: Die zwei eingerückten Zeilen laufen nur bei 30, die letzte Zeile (nicht eingerückt) läuft immer.</p>"
+},
+{
+"t": "t",
+"h": "<p>Mit Eingaben wird es spannend – das Programm reagiert auf den Benutzer:</p>"
+},
+{
+"t": "c",
+"code": "alter = int(input())\nif alter >= 18:\n    print(\"volljährig\")\nelse:\n    print(\"minderjährig\")",
+"in": [
+"15"
+],
+"err": false
+},
+{
+"t": "warn",
+"h": "<b>Typische Fehler:</b> Doppelpunkt vergessen · Einrückung vergessen · <code>=</code> statt <code>==</code> · ein <code>else</code>, das nicht auf der gleichen Höhe wie das <code>if</code> steht. Ein <code>print</code> <b>ohne</b> <code>else</code> läuft immer – nutze <code>else</code>, wenn nur eines von beiden passieren soll."
+}
+],
+"quiz": [
+{
+"q": "Welche Zeilen gehören zum if-Block?",
+"o": [
+"Alle Zeilen darunter",
+"Die direkt darunter, die eingerückt sind",
+"Nur die erste Zeile darunter"
+],
+"a": 1,
+"why": "Die Einrückung bestimmt, was zum Block gehört."
+},
+{
+"q": "Was steht hinter <code>if zahl > 3</code>?",
+"o": [
+"Ein Semikolon",
+"Ein Doppelpunkt",
+"Nichts"
+],
+"a": 1,
+"why": "Jede if-Zeile endet mit einem Doppelpunkt."
+},
+{
+"q": "Wann läuft der else-Zweig?",
+"o": [
+"Immer",
+"Wenn die if-Bedingung nicht stimmt",
+"Wenn die Bedingung stimmt"
+],
+"a": 1,
+"why": "else bedeutet „sonst“."
+}
+],
+"tasks": [
+"a050",
+"a056",
+"a058",
+"a060",
+"a062"
+]
+},
+{
+"id": "l14",
+"kap": 4,
+"titel": "Mehrere Fälle mit elif",
+"min": 4,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Manchmal gibt es mehr als zwei Möglichkeiten. Dann hängst du an das <code>if</code> beliebig viele <code>elif</code> („sonst falls“) an – und zum Schluss ein <code>else</code> für alles andere.</p>"
+},
+{
+"t": "c",
+"code": "note = 2\nif note == 1:\n    print(\"sehr gut\")\nelif note == 2:\n    print(\"gut\")\nelif note == 3:\n    print(\"befriedigend\")\nelse:\n    print(\"das üben wir noch\")",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p><b>Wichtig:</b> Python prüft die Bedingungen <b>von oben nach unten</b> und führt nur den <b>ersten</b> passenden Zweig aus. Die restlichen werden übersprungen. Deshalb kommt es auf die <b>Reihenfolge</b> an:</p>"
+},
+{
+"t": "c",
+"code": "alter = 14\nif alter < 12:\n    print(\"Kind\")\nelif alter < 18:\n    print(\"Jugendlicher\")\nelse:\n    print(\"Erwachsener\")",
+"in": [],
+"err": false
+},
+{
+"t": "tip",
+"h": "<b>Merke:</b> Immer von „klein nach groß“ (oder „streng nach eng“) prüfen. Beim Alter 14 ist <code>alter &lt; 18</code> auch wahr – aber der Zweig <code>alter &lt; 12</code> kam zuerst und war falsch, also landet 14 im zweiten Zweig."
+},
+{
+"t": "warn",
+"h": "Mehrere einzelne <code>if</code> (ohne <code>elif</code>) werden alle geprüft und können mehrfach ausgeführt werden. Mit <code>elif</code> wird höchstens ein Zweig genommen."
+}
+],
+"quiz": [
+{
+"q": "Bei <code>note = 1</code> und einer Kette if note == 1 / elif note <= 3 / else – welche Zweige laufen?",
+"o": [
+"Nur der erste",
+"Der erste und der zweite",
+"Alle"
+],
+"a": 0,
+"why": "Der erste passende Zweig wird ausgeführt, danach ist die Kette beendet."
+},
+{
+"q": "Wofür steht <code>elif</code>?",
+"o": [
+"„sonst falls“ – eine weitere Bedingung",
+"Das Ende des Programms",
+"Eine Wiederholung"
+],
+"a": 0,
+"why": "elif = else + if."
+}
+],
+"tasks": [
+"a052",
+"a063"
+]
+},
+{
+"id": "l15",
+"kap": 4,
+"titel": "and, or, not und der Rest-Trick",
+"min": 5,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Mit <code>and</code>, <code>or</code> und <code>not</code> verknüpfst du Bedingungen:</p><ul><li><code>a and b</code> – <b>beide</b> müssen stimmen</li><li><code>a or b</code> – <b>mindestens eine</b> muss stimmen</li><li><code>not a</code> – das <b>Gegenteil</b></li></ul>"
+},
+{
+"t": "c",
+"code": "zahl = 7\nprint(zahl > 5 and zahl < 10)\nprint(zahl < 5 or zahl > 20)\nprint(not zahl == 7)",
+"in": [],
+"err": false
+},
+{
+"t": "c",
+"code": "alter = 15\nif alter >= 12 and alter < 18:\n    print(\"Jugendlicher\")\nelse:\n    print(\"kein Jugendlicher\")",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p><b>Der Rest-Trick:</b> Mit <code>%</code> findest du heraus, ob eine Zahl durch eine andere teilbar ist: Bleibt Rest 0, geht es auf.</p>"
+},
+{
+"t": "c",
+"code": "zahl = 14\nif zahl % 2 == 0:\n    print(\"gerade\")\nelse:\n    print(\"ungerade\")\nprint(zahl % 7 == 0)",
+"in": [],
+"err": false
+},
+{
+"t": "tip",
+"h": "<b>Gerade:</b> <code>zahl % 2 == 0</code> · <b>durch 5 teilbar:</b> <code>zahl % 5 == 0</code> · <b>durch 3 und 5 teilbar:</b> <code>zahl % 3 == 0 and zahl % 5 == 0</code>."
+},
+{
+"t": "warn",
+"h": "Schreibe beide Seiten ganz aus: <code>zahl &gt; 5 and zahl &lt; 10</code> – nicht <code>zahl &gt; 5 and &lt; 10</code>. Bei zusammengesetzten Bedingungen helfen <b>Klammern</b>: <code>(a and b) or c</code>."
+}
+],
+"quiz": [
+{
+"q": "Wann ist <code>a and b</code> wahr?",
+"o": [
+"Wenn mindestens eine wahr ist",
+"Wenn beide wahr sind",
+"Wenn keine wahr ist"
+],
+"a": 1,
+"why": "and verlangt, dass beide Teile stimmen."
+},
+{
+"q": "Wie prüfst du, ob <code>x</code> gerade ist?",
+"o": [
+"x / 2 == 0",
+"x % 2 == 0",
+"x // 2 == 0"
+],
+"a": 1,
+"why": "Gerade Zahlen lassen beim Teilen durch 2 den Rest 0."
+},
+{
+"q": "Was ist <code>not (3 > 5)</code>?",
+"o": [
+"True",
+"False",
+"Fehler"
+],
+"a": 0,
+"why": "3 > 5 ist False, not macht daraus True."
+}
+],
+"tasks": [
+"a053",
+"a054",
+"a057",
+"a061",
+"a064",
+"a065"
+]
+},
+{
+"id": "l16",
+"kap": 5,
+"titel": "for und range: Wiederholen",
+"min": 5,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Willst du etwas mehrmals tun, schreibst du es nicht mehrmals auf – du benutzt eine <b>Schleife</b>. Die <code>for</code>-Schleife zählt mit:</p>"
+},
+{
+"t": "c",
+"code": "for i in range(5):\n    print(\"Hallo\", i)",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>So liest du das: „Für jedes <code>i</code> aus <code>range(5)</code> mach Folgendes …“ Die Variable <code>i</code> bekommt nacheinander die Werte <code>0, 1, 2, 3, 4</code>. Wichtig: <code>range(5)</code> beginnt bei <b>0</b> und hört <b>vor</b> 5 auf – es sind also 5 Durchläufe.</p>"
+},
+{
+"t": "t",
+"h": "<p>Wieder gilt: Doppelpunkt hinter dem Schleifenkopf, und der <b>Schleifenkörper ist eingerückt</b>. Alles Eingerückte wird bei jedem Durchlauf wiederholt, die nicht eingerückte Zeile danach nur einmal:</p>"
+},
+{
+"t": "c",
+"code": "for i in range(3):\n    print(\"Wiederholt!\")\nprint(\"Fertig\")",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p><b>Von 1 bis n:</b> Gib Start und Ende an: <code>range(1, 6)</code> liefert 1, 2, 3, 4, 5 – das Ende (6) gehört <b>nicht</b> mehr dazu.</p>"
+},
+{
+"t": "c",
+"code": "for i in range(1, 6):\n    print(i)",
+"in": [],
+"err": false
+},
+{
+"t": "warn",
+"h": "<b>Typischer Fehler:</b> „Von 1 bis 5“ heißt <code>range(1, 6)</code>, nicht <code>range(1, 5)</code>. Das Ende von range wird nie erreicht. Und: Vergisst du die Einrückung, meldet Python einen <b>IndentationError</b>."
+}
+],
+"quiz": [
+{
+"q": "Wie viele Durchläufe hat <code>for i in range(4)</code>?",
+"o": [
+"3",
+"4",
+"5"
+],
+"a": 1,
+"why": "i läuft von 0 bis 3 – das sind vier Werte."
+},
+{
+"q": "Welche Zahlen liefert <code>range(1, 4)</code>?",
+"o": [
+"1, 2, 3",
+"1, 2, 3, 4",
+"0, 1, 2, 3"
+],
+"a": 0,
+"why": "Start 1, das Ende 4 wird nicht mehr erreicht."
+},
+{
+"q": "Wie gibst du die Zahlen 1 bis 10 aus?",
+"o": [
+"range(1, 10)",
+"range(1, 11)",
+"range(10)"
+],
+"a": 1,
+"why": "Das Ende 11 wird nicht erreicht – also kommt 10 gerade noch dazu."
+}
+],
+"tasks": [
+"a066",
+"a067",
+"a072",
+"a075",
+"a079",
+"a080",
+"a081"
+]
+},
+{
+"id": "l17",
+"kap": 5,
+"titel": "range mit Schrittweite",
+"min": 3,
+"blocks": [
+{
+"t": "t",
+"h": "<p><code>range</code> kann bis zu drei Angaben haben: <code>range(start, ende, schritt)</code>. Der Schritt sagt, um wie viel jedes Mal weitergezählt wird.</p>"
+},
+{
+"t": "c",
+"code": "for i in range(0, 10, 2):\n    print(i)",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Mit einem <b>negativen Schritt</b> zählst du rückwärts – dann muss der Start größer sein als das Ende:</p>"
+},
+{
+"t": "c",
+"code": "for i in range(10, 0, -3):\n    print(i)",
+"in": [],
+"err": false
+},
+{
+"t": "tip",
+"h": "<b>Merke:</b> <code>range(10)</code> = 0 bis 9 · <code>range(2, 7)</code> = 2 bis 6 · <code>range(1, 10, 3)</code> = 1, 4, 7 · <code>range(5, 0, -1)</code> = 5, 4, 3, 2, 1. Das Ende wird <b>nie</b> erreicht."
+},
+{
+"t": "warn",
+"h": "Bei <b>Summen bis n</b> musst du auf den Endwert achten: Soll n mitgezählt werden, schreibe <code>range(1, n + 1)</code>."
+},
+{
+"t": "c",
+"code": "n = 5\nsumme = 0\nfor i in range(1, n + 1):\n    summe = summe + i\nprint(summe)",
+"in": [],
+"err": false
+}
+],
+"quiz": [
+{
+"q": "Welche Zahlen liefert <code>range(2, 10, 3)</code>?",
+"o": [
+"2, 5, 8",
+"2, 5, 8, 11",
+"3, 6, 9"
+],
+"a": 0,
+"why": "Start 2, immer +3, kleiner als 10 bleiben: 2, 5, 8."
+},
+{
+"q": "Wie zählst du von 5 auf 1 herunter?",
+"o": [
+"range(5, 1)",
+"range(5, 0, -1)",
+"range(1, 5, -1)"
+],
+"a": 1,
+"why": "Mit Schritt -1 und Ende 0 (das nicht mehr erreicht wird)."
+}
+],
+"tasks": [
+"a070",
+"a077"
+]
+},
+{
+"id": "l18",
+"kap": 5,
+"titel": "while: Wiederholen, solange …",
+"min": 5,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Die <code>while</code>-Schleife wiederholt, <b>solange eine Bedingung stimmt</b>. Du nutzt sie, wenn du vorher nicht weißt, wie oft etwas passiert.</p>"
+},
+{
+"t": "c",
+"code": "zahl = 3\nwhile zahl > 0:\n    print(zahl)\n    zahl = zahl - 1\nprint(\"Start!\")",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>So läuft das ab: Python prüft die Bedingung (<code>zahl &gt; 0</code>). Stimmt sie, läuft der eingerückte Block, danach wird <b>wieder geprüft</b> – bis die Bedingung nicht mehr stimmt.</p>"
+},
+{
+"t": "warn",
+"h": "<b>Endlosschleife!</b> Verändert sich in der Schleife nichts, das die Bedingung irgendwann falsch macht, läuft sie ewig. Lass deshalb in jeder while-Schleife die Variable aus der Bedingung <b>verändern</b> (<code>zahl = zahl - 1</code>). Die App bricht Endlosschleifen nach 5 Sekunden ab – aber lieber gar nicht erst bauen!"
+},
+{
+"t": "t",
+"h": "<p>Ein Klassiker: so lange fragen, bis die Antwort stimmt.</p>"
+},
+{
+"t": "c",
+"code": "geheim = 7\ntipp = 0\nwhile tipp != geheim:\n    tipp = int(input())\nprint(\"Gefunden!\")",
+"in": [
+"3",
+"9",
+"7"
+],
+"err": false
+},
+{
+"t": "t",
+"h": "<p><b>for oder while?</b> <code>for</code>, wenn du die Anzahl der Durchläufe kennst (oder eine Liste durchgehst) – <code>while</code>, wenn „bis etwas passiert“.</p>"
+}
+],
+"quiz": [
+{
+"q": "Was passiert bei <code>while True:</code> ohne Veränderung im Block?",
+"o": [
+"Die Schleife läuft nie",
+"Die Schleife läuft endlos",
+"Die Schleife läuft einmal"
+],
+"a": 1,
+"why": "True bleibt immer wahr – die Schleife endet nie."
+},
+{
+"q": "Wie oft läuft die Schleife: <code>zahl = 3</code>, <code>while zahl > 0:</code>, <code>zahl = zahl - 1</code>?",
+"o": [
+"2-mal",
+"3-mal",
+"4-mal"
+],
+"a": 1,
+"why": "zahl wird 3, 2, 1 – dann ist 0 > 0 falsch."
+}
+],
+"tasks": [
+"a068",
+"a073",
+"a076",
+"a078"
+]
+},
+{
+"id": "l19",
+"kap": 5,
+"titel": "Schleifen-Muster: Summe, Zähler, Filter",
+"min": 6,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Mit Schleifen löst du viele typische Aufgaben. Dafür gibt es drei Grundmuster.</p><p><b>1. Summe bilden:</b> Starte mit 0 und addiere in jeder Runde etwas dazu.</p>"
+},
+{
+"t": "c",
+"code": "summe = 0\nfor i in range(1, 6):\n    summe = summe + i\nprint(summe)",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Kürzer schreibt man <code>summe += i</code> („addiere i zu summe“). Für ein <b>Produkt</b> startest du mit 1.</p><p><b>2. Zählen:</b> Ein Zähler beginnt bei 0 und wird nur erhöht, wenn eine Bedingung stimmt (Schleife + <code>if</code>).</p>"
+},
+{
+"t": "c",
+"code": "anzahl = 0\nfor i in range(1, 21):\n    if i % 3 == 0:\n        anzahl += 1\nprint(anzahl)",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p><b>3. Filtern/Ausgeben:</b> Nur das ausgeben, was zu einer Bedingung passt.</p>"
+},
+{
+"t": "c",
+"code": "for i in range(1, 11):\n    if i % 2 == 0:\n        print(i, \"ist gerade\")",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Das <b>Teiler</b>-Muster: Probiere alle Zahlen von 1 bis n durch und gib die aus, bei denen <code>n % i == 0</code> gilt.</p>"
+},
+{
+"t": "c",
+"code": "n = 12\nfor i in range(1, n + 1):\n    if n % i == 0:\n        print(i)",
+"in": [],
+"err": false
+},
+{
+"t": "tip",
+"h": "<b>Merke:</b> Variable <b>vor</b> der Schleife anlegen (0 oder 1), in der Schleife verändern, <b>nach</b> der Schleife ausgeben. Steht das <code>print</code> in der Schleife, kommt es bei jedem Durchlauf."
+},
+{
+"t": "c",
+"code": "for i in range(1, 4):\n    print(\"*\" * i)",
+"in": [],
+"err": false
+}
+],
+"quiz": [
+{
+"q": "Womit startest du eine Summe, womit ein Produkt?",
+"o": [
+"Summe 1, Produkt 0",
+"Summe 0, Produkt 1",
+"Beide mit 0"
+],
+"a": 1,
+"why": "Zum Addieren ist 0 neutral, zum Multiplizieren 1."
+},
+{
+"q": "Wohin gehört <code>print(summe)</code>, wenn nur das Endergebnis erscheinen soll?",
+"o": [
+"In die Schleife",
+"Hinter die Schleife (nicht eingerückt)",
+"Vor die Schleife"
+],
+"a": 1,
+"why": "Nach der Schleife ausgeben – dann kommt es nur einmal."
+},
+{
+"q": "Wie zählst du, wie viele Zahlen von 1 bis 20 gerade sind?",
+"o": [
+"Zähler + if i % 2 == 0 in der Schleife",
+"Nur print(20 / 2)",
+"Eine while-Schleife ohne Bedingung"
+],
+"a": 0,
+"why": "Ein Zähler, der nur bei passenden Zahlen erhöht wird."
+}
+],
+"tasks": [
+"a069",
+"a071",
+"a074",
+"a082",
+"a083",
+"a084",
+"a085"
+]
+},
+{
+"id": "l20",
+"kap": 6,
+"titel": "Listen anlegen und Index",
+"min": 5,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Eine <b>Liste</b> speichert viele Werte unter einem Namen – wie ein Regal mit nummerierten Fächern. Eine Liste steht in <b>eckigen Klammern</b>, die Elemente sind durch Kommas getrennt:</p>"
+},
+{
+"t": "c",
+"code": "zahlen = [10, 20, 30, 40]\nnamen = [\"Felix\", \"Sophia\", \"Anna\"]\nprint(zahlen)\nprint(namen)",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Jedes Element hat einen <b>Index</b> (eine Nummer). Wichtig: Der Index zählt <b>ab 0</b>! Das erste Element hat den Index 0, das zweite den Index 1 usw.</p>"
+},
+{
+"t": "c",
+"code": "tiere = [\"Hund\", \"Katze\", \"Maus\"]\nprint(tiere[0])\nprint(tiere[1])\nprint(tiere[2])\nprint(len(tiere))",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p><code>len(liste)</code> verrät, wie viele Elemente drin sind. Das letzte Element hat deshalb den Index <code>len(liste) - 1</code> – oder du schreibst kurz <code>liste[-1]</code>.</p>"
+},
+{
+"t": "c",
+"code": "tiere = [\"Hund\", \"Katze\", \"Maus\"]\nprint(tiere[-1])\nprint(tiere[-2])",
+"in": [],
+"err": false
+},
+{
+"t": "warn",
+"h": "<b>IndexError:</b> Einen Index, den es nicht gibt, kennt Python nicht. Bei 3 Elementen sind 0, 1 und 2 erlaubt – <code>liste[3]</code> ist ein Fehler."
+},
+{
+"t": "tip",
+"h": "<b>Merke:</b> Index ab 0 · <code>-1</code> = letztes Element · <code>len()</code> = Anzahl · Eine leere Liste ist <code>[]</code>."
+}
+],
+"quiz": [
+{
+"q": "Welchen Index hat das erste Element einer Liste?",
+"o": [
+"0",
+"1",
+"-1"
+],
+"a": 0,
+"why": "Python zählt ab 0."
+},
+{
+"q": "Was gibt <code>[5, 8, 13][1]</code> aus?",
+"o": [
+"5",
+"8",
+"13"
+],
+"a": 1,
+"why": "Index 1 ist das zweite Element."
+},
+{
+"q": "Wie greifst du auf das letzte Element zu?",
+"o": [
+"liste[len(liste)]",
+"liste[-1]",
+"liste[last]"
+],
+"a": 1,
+"why": "Der Index -1 bedeutet „von hinten das erste“."
+}
+],
+"tasks": [
+"a086",
+"a087",
+"a095",
+"a100"
+]
+},
+{
+"id": "l21",
+"kap": 6,
+"titel": "Listen verändern",
+"min": 5,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Listen kann man ändern – anders als Texte. Die wichtigsten Befehle (die „Methoden“ schreibt man mit Punkt hinter den Listennamen):</p>"
+},
+{
+"t": "c",
+"code": "liste = [1, 2, 3]\nliste.append(4)        # hinten anhängen\nprint(liste)\nliste[0] = 99          # ein Element ändern\nprint(liste)\nliste.remove(2)        # einen Wert entfernen\nprint(liste)",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p><code>append</code> hängt <b>ein</b> Element hinten an. So baust du eine Liste schrittweise auf: erst eine <b>leere Liste</b> anlegen, dann in einer Schleife füllen.</p>"
+},
+{
+"t": "c",
+"code": "quadrate = []\nfor i in range(1, 6):\n    quadrate.append(i * i)\nprint(quadrate)",
+"in": [],
+"err": false
+},
+{
+"t": "c",
+"code": "z = [5, 2, 9, 1]\nz.sort()                # sortiert die Liste\nprint(z)\nprint(len(z), sum(z), max(z), min(z))",
+"in": [],
+"err": false
+},
+{
+"t": "warn",
+"h": "Listen haben <code>append</code>, nicht <code>add</code>! Und <code>append</code> verändert die Liste selbst – es gibt keinen Rückgabewert (<code>x = liste.append(3)</code> macht x zu <code>None</code>)."
+},
+{
+"t": "t",
+"h": "<p>Mit <code>in</code> prüfst du, ob etwas in der Liste steckt:</p>"
+},
+{
+"t": "c",
+"code": "farben = [\"rot\", \"gelb\"]\nprint(\"rot\" in farben)\nprint(\"blau\" in farben)",
+"in": [],
+"err": false
+}
+],
+"quiz": [
+{
+"q": "Wie hängst du <code>5</code> an die Liste <code>z</code> an?",
+"o": [
+"z.add(5)",
+"z.append(5)",
+"z + 5"
+],
+"a": 1,
+"why": "Die Methode heißt append."
+},
+{
+"q": "Womit startest du, um eine Liste in einer Schleife zu füllen?",
+"o": [
+"liste = 0",
+"liste = []",
+"liste = \"\""
+],
+"a": 1,
+"why": "Mit einer leeren Liste."
+},
+{
+"q": "Was liefert <code>len([4, 8, 15])</code>?",
+"o": [
+"2",
+"3",
+"15"
+],
+"a": 1,
+"why": "Die Liste hat drei Elemente."
+}
+],
+"tasks": [
+"a088",
+"a092",
+"a096",
+"a098",
+"a101",
+"a102"
+]
+},
+{
+"id": "l22",
+"kap": 6,
+"titel": "Listen durchlaufen und Ausschnitte",
+"min": 5,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Mit <code>for</code> kannst du direkt <b>über die Elemente</b> einer Liste laufen – ganz ohne Index:</p>"
+},
+{
+"t": "c",
+"code": "namen = [\"Felix\", \"Sophia\", \"Anna\"]\nfor name in namen:\n    print(\"Hallo\", name)",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Die Variable (<code>name</code>) nimmt nacheinander jedes Element an. Damit lassen sich die Schleifenmuster aus Kapitel 5 leicht auf Listen anwenden, z. B. eine Summe:</p>"
+},
+{
+"t": "c",
+"code": "zahlen = [3, 5, 7]\nsumme = 0\nfor z in zahlen:\n    summe += z\nprint(summe)",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p><b>Ausschnitte (Slicing):</b> Mit <code>liste[a:b]</code> holst du die Elemente ab Index <code>a</code> bis <b>vor</b> Index <code>b</code>. Lässt du eine Angabe weg, geht der Ausschnitt bis zum Anfang bzw. Ende.</p>"
+},
+{
+"t": "c",
+"code": "z = [10, 20, 30, 40, 50]\nprint(z[1:3])\nprint(z[:2])\nprint(z[3:])\nprint(z[-2:])",
+"in": [],
+"err": false
+},
+{
+"t": "tip",
+"h": "<b>Merke:</b> Das Ende beim Slicing wird – wie bei <code>range</code> – <b>nicht</b> mitgenommen. <code>z[1:3]</code> sind die Elemente mit Index 1 und 2."
+},
+{
+"t": "t",
+"h": "<p>Das größte Element findest du auch von Hand mit einer Schleife: Merke dir den bisher größten Wert und ersetze ihn, wenn du einen größeren siehst.</p>"
+},
+{
+"t": "c",
+"code": "zahlen = [4, 9, 2, 7]\ngroesste = zahlen[0]\nfor z in zahlen:\n    if z > groesste:\n        groesste = z\nprint(groesste)",
+"in": [],
+"err": false
+}
+],
+"quiz": [
+{
+"q": "Was liefert <code>[10, 20, 30, 40][1:3]</code>?",
+"o": [
+"[10, 20]",
+"[20, 30]",
+"[20, 30, 40]"
+],
+"a": 1,
+"why": "Index 1 und 2 – die 3 ist nicht mehr dabei."
+},
+{
+"q": "Was ist <code>x</code> in jeder Runde von <code>for x in liste:</code>?",
+"o": [
+"Der Index",
+"Das jeweilige Element",
+"Die Länge"
+],
+"a": 1,
+"why": "x nimmt nacheinander jedes Element an."
+}
+],
+"tasks": [
+"a089",
+"a090",
+"a094",
+"a097"
+]
+},
+{
+"id": "l23",
+"kap": 6,
+"titel": "Listen-Muster: Summe, Größte, Zählen, Filtern",
+"min": 5,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Python hat eingebaute Hilfen für Listen von Zahlen:</p>"
+},
+{
+"t": "c",
+"code": "z = [3, 8, 5, 12]\nprint(sum(z))\nprint(max(z))\nprint(min(z))\nprint(sum(z) / len(z))",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Der <b>Durchschnitt</b> ist die Summe geteilt durch die Anzahl: <code>sum(z) / len(z)</code>.</p><p><b>Zählen:</b> <code>liste.count(x)</code> zählt, wie oft x vorkommt.</p>"
+},
+{
+"t": "c",
+"code": "z = [2, 5, 2, 7, 2]\nprint(z.count(2))\nprint(z.count(9))",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p><b>Filtern:</b> Schleife und <code>if</code> – gib nur die Elemente aus, die passen.</p>"
+},
+{
+"t": "c",
+"code": "z = [3, 8, 5, 12, 7, 20]\nfor x in z:\n    if x % 2 == 0:\n        print(x)",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p><b>Die zweitgrößte Zahl:</b> Sortiere die Liste – dann steht die größte hinten, die zweitgrößte davor.</p>"
+},
+{
+"t": "c",
+"code": "z = [4, 9, 2, 7]\nz.sort()\nprint(z)\nprint(z[-2])",
+"in": [],
+"err": false
+},
+{
+"t": "tip",
+"h": "<b>Merke:</b> <code>sum</code>, <code>max</code>, <code>min</code>, <code>len</code>, <code>count</code>, <code>sort</code> – damit sparst du dir oft die Schleife. Brauchst du eine Bedingung (z. B. nur gerade Zahlen), bleibt es bei Schleife + <code>if</code>."
+}
+],
+"quiz": [
+{
+"q": "Wie berechnest du den Durchschnitt der Liste <code>z</code>?",
+"o": [
+"sum(z) * len(z)",
+"sum(z) / len(z)",
+"max(z) / min(z)"
+],
+"a": 1,
+"why": "Summe durch Anzahl."
+},
+{
+"q": "Welche Zahl steht nach <code>z.sort()</code> bei <code>[4, 9, 2, 7]</code> an letzter Stelle?",
+"o": [
+"2",
+"9",
+"7"
+],
+"a": 1,
+"why": "Sortiert wird aufsteigend – die größte Zahl steht hinten."
+}
+],
+"tasks": [
+"a091",
+"a093",
+"a099",
+"a103",
+"a104",
+"a105"
+]
+},
+{
+"id": "l24",
+"kap": 7,
+"titel": "Eigene Funktionen: def und Aufruf",
+"min": 5,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Eine <b>Funktion</b> ist ein benannter Programmteil, den du immer wieder benutzen kannst – wie ein Rezept, das du nur einmal aufschreibst und dann beliebig oft kochst. Du kennst schon eingebaute Funktionen: <code>print</code>, <code>len</code>, <code>input</code>. Jetzt baust du eigene.</p>"
+},
+{
+"t": "c",
+"code": "def hallo():\n    print(\"Hallo!\")\n    print(\"Schön, dich zu sehen.\")\n\nhallo()\nhallo()",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p><code>def</code> („define“, festlegen) <b>legt die Funktion nur fest</b> – ausgeführt wird sie erst, wenn du sie <b>aufrufst</b>: <code>hallo()</code>. Du kannst sie beliebig oft aufrufen.</p><p>Aufbau: <code>def name():</code> – mit Doppelpunkt – und darunter der <b>eingerückte</b> Funktionskörper.</p>"
+},
+{
+"t": "c",
+"code": "def zeige_rahmen():\n    print(\"**********\")\n\nzeige_rahmen()\nprint(\"Mitte\")\nzeige_rahmen()",
+"in": [],
+"err": false
+},
+{
+"t": "warn",
+"h": "<b>Reihenfolge:</b> Die Funktion muss <b>vor</b> dem Aufruf definiert sein. Und vergiss nicht die Klammern beim Aufruf: <code>hallo</code> ohne <code>()</code> ruft nichts auf."
+},
+{
+"t": "tip",
+"h": "<b>Warum Funktionen?</b> Du schreibst etwas nur einmal, vermeidest Wiederholungen und kannst Programme in kleine, verständliche Teile zerlegen."
+}
+],
+"quiz": [
+{
+"q": "Wann wird der Code in einer Funktion ausgeführt?",
+"o": [
+"Sobald die def-Zeile steht",
+"Wenn die Funktion aufgerufen wird",
+"Nie"
+],
+"a": 1,
+"why": "def legt sie nur fest, der Aufruf führt sie aus."
+},
+{
+"q": "Was steht hinter dem Kopf einer Funktion <code>def hallo()</code>?",
+"o": [
+"Ein Doppelpunkt",
+"Ein Semikolon",
+"Nichts"
+],
+"a": 0,
+"why": "Wie bei if und for: Doppelpunkt und dann eingerückt."
+},
+{
+"q": "Wie ruft man <code>hallo</code> auf?",
+"o": [
+"hallo",
+"hallo()",
+"def hallo()"
+],
+"a": 1,
+"why": "Mit Klammern."
+}
+],
+"tasks": [
+"a106",
+"a112",
+"a115",
+"a120"
+]
+},
+{
+"id": "l25",
+"kap": 7,
+"titel": "Parameter: Funktionen etwas mitgeben",
+"min": 5,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Eine Funktion wird flexibler, wenn du ihr beim Aufruf etwas <b>mitgibst</b>. Das schreibst du in die Klammern – als <b>Parameter</b>:</p>"
+},
+{
+"t": "c",
+"code": "def gruss(name):\n    print(\"Hallo\", name)\n\ngruss(\"Felix\")\ngruss(\"Sophia\")",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Der Parameter <code>name</code> ist eine Variable, die nur in der Funktion lebt; beim Aufruf bekommt sie den Wert in den Klammern (das <b>Argument</b>). Du kannst auch <b>mehrere</b> Parameter angeben – beim Aufruf in der gleichen Reihenfolge:</p>"
+},
+{
+"t": "c",
+"code": "def vorstellen(name, alter):\n    print(name, \"ist\", alter, \"Jahre alt\")\n\nvorstellen(\"Felix\", 13)\nvorstellen(\"Sophia\", 11)",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p><b>Standardwerte:</b> Einem Parameter kannst du einen Wert „für den Notfall“ geben. Lässt man ihn beim Aufruf weg, gilt der Standardwert:</p>"
+},
+{
+"t": "c",
+"code": "def potenz(basis, exponent=2):\n    print(basis ** exponent)\n\npotenz(5)\npotenz(2, 10)",
+"in": [],
+"err": false
+},
+{
+"t": "warn",
+"h": "<b>TypeError:</b> Ruft man eine Funktion mit der falschen Anzahl Argumente auf (<code>vorstellen(\"Felix\")</code> bei zwei Parametern), meldet Python einen Fehler: Es fehlt ein Argument."
+}
+],
+"quiz": [
+{
+"q": "Was ist <code>name</code> in <code>def gruss(name):</code>?",
+"o": [
+"Ein Parameter",
+"Eine Liste",
+"Ein Text"
+],
+"a": 0,
+"why": "Parameter stehen in der Klammer der def-Zeile."
+},
+{
+"q": "Was passiert bei <code>def f(a, b):</code> und dem Aufruf <code>f(1)</code>?",
+"o": [
+"Ein Fehler (Argument fehlt)",
+"b wird 0",
+"Es funktioniert normal"
+],
+"a": 0,
+"why": "Ohne Standardwert müssen alle Parameter angegeben werden."
+},
+{
+"q": "Was gibt <code>def potenz(b, e=2)</code> bei <code>potenz(3)</code> zurück/aus?",
+"o": [
+"3 hoch 2 = 9",
+"3 hoch 3",
+"Fehler"
+],
+"a": 0,
+"why": "e hat den Standardwert 2."
+}
+],
+"tasks": [
+"a107",
+"a110",
+"a114",
+"a117",
+"a118",
+"a122"
+]
+},
+{
+"id": "l26",
+"kap": 7,
+"titel": "return: Ergebnisse zurückgeben",
+"min": 6,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Funktionen können nicht nur etwas ausgeben, sondern auch ein <b>Ergebnis zurückliefern</b>. Das macht <code>return</code>. Das Ergebnis kannst du speichern oder weiterverwenden:</p>"
+},
+{
+"t": "c",
+"code": "def quadrat(x):\n    return x * x\n\nprint(quadrat(5))\nergebnis = quadrat(4) + quadrat(3)\nprint(ergebnis)",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p><b>print oder return?</b> <code>print</code> <i>zeigt</i> etwas auf dem Bildschirm an – danach ist es weg. <code>return</code> <i>gibt</i> den Wert an die Stelle, wo die Funktion aufgerufen wurde – dort kannst du damit weiterrechnen.</p>"
+},
+{
+"t": "c",
+"code": "def f_print(x):\n    print(x + 1)\n\ndef f_return(x):\n    return x + 1\n\na = f_print(5)\nb = f_return(5)\nprint(\"a ist\", a)\nprint(\"b ist\", b)",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Eine Funktion ohne <code>return</code> liefert den Wert <code>None</code> („nichts“) zurück – damit kann man nicht rechnen (<code>None + 1</code> ist ein <code>TypeError</code>).</p>"
+},
+{
+"t": "t",
+"h": "<p><b>return beendet die Funktion sofort.</b> Das nutzt man oft mit <code>if</code>:</p>"
+},
+{
+"t": "c",
+"code": "def groesser(a, b):\n    if a > b:\n        return a\n    return b\n\nprint(groesser(3, 9))\nprint(groesser(10, 4))",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Auch Wahrheitswerte kann man zurückgeben – praktisch für Fragen:</p>"
+},
+{
+"t": "c",
+"code": "def ist_gerade(zahl):\n    return zahl % 2 == 0\n\nprint(ist_gerade(4))\nprint(ist_gerade(7))",
+"in": [],
+"err": false
+},
+{
+"t": "tip",
+"h": "<b>Faustregel:</b> Soll die Funktion nur etwas anzeigen → <code>print</code>. Soll sie ein Ergebnis liefern, mit dem man weiterarbeitet → <code>return</code>."
+}
+],
+"quiz": [
+{
+"q": "Was liefert eine Funktion ohne <code>return</code> zurück?",
+"o": [
+"0",
+"None",
+"Einen Fehler"
+],
+"a": 1,
+"why": "Der Wert None – „nichts“."
+},
+{
+"q": "Wann sollte eine Funktion <code>return</code> benutzen?",
+"o": [
+"Wenn sie nur etwas anzeigt",
+"Wenn man mit dem Ergebnis weiterrechnen will",
+"Nie"
+],
+"a": 1,
+"why": "return gibt den Wert zurück, print zeigt ihn nur an."
+},
+{
+"q": "Was passiert nach einem <code>return</code> in der Funktion?",
+"o": [
+"Sie läuft weiter",
+"Sie wird sofort beendet",
+"Das Programm stoppt"
+],
+"a": 1,
+"why": "return beendet die Funktion und gibt den Wert zurück."
+}
+],
+"tasks": [
+"a108",
+"a109",
+"a113",
+"a116",
+"a121",
+"a123"
+]
+},
+{
+"id": "l27",
+"kap": 7,
+"titel": "Lokale Variablen und Funktionen planen",
+"min": 5,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Variablen, die du <b>in</b> einer Funktion anlegst (und die Parameter), sind <b>lokal</b>: Sie leben nur, solange die Funktion läuft. Außerhalb kennt Python sie nicht.</p>"
+},
+{
+"t": "c",
+"code": "x = 10\n\ndef f():\n    x = 5          # ein neues, lokales x\n    return x\n\nprint(f())\nprint(x)",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Das x in der Funktion und das x draußen sind <b>zwei verschiedene Variablen</b>. Das ist gut so: Du kannst in jeder Funktion beliebige Namen benutzen, ohne dass sich Funktionen gegenseitig stören.</p>"
+},
+{
+"t": "c",
+"code": "def addiere(a, b):\n    summe = a + b\n    return summe\n\nprint(addiere(3, 4))\nprint(summe)",
+"in": [],
+"err": true
+},
+{
+"t": "t",
+"h": "<p>Die letzte Zeile gibt einen <b>NameError</b>: <code>summe</code> gibt es nur in der Funktion. Willst du ein Ergebnis nach draußen holen, benutze <code>return</code>.</p>"
+},
+{
+"t": "t",
+"h": "<p><b>Funktionen planen – so gehst du vor:</b></p><ol><li>Was soll reinkommen (Parameter)? Was soll rauskommen (<code>return</code>)?</li><li>Beispiele von Hand durchrechnen: <code>fakultaet(4)</code> ist 4 · 3 · 2 · 1 = 24.</li><li>Funktion schreiben und mit mehreren Aufrufen <b>testen</b> – auch mit Sonderfällen wie 0 oder 1.</li></ol>"
+},
+{
+"t": "c",
+"code": "def fakultaet(n):\n    ergebnis = 1\n    for i in range(1, n + 1):\n        ergebnis = ergebnis * i\n    return ergebnis\n\nprint(fakultaet(4))\nprint(fakultaet(5))\nprint(fakultaet(0))",
+"in": [],
+"err": false
+}
+],
+"quiz": [
+{
+"q": "Was passiert bei <code>print(summe)</code> außerhalb der Funktion, wenn <code>summe</code> nur in der Funktion angelegt wurde?",
+"o": [
+"Es wird der Wert ausgegeben",
+"NameError",
+"Es wird 0 ausgegeben"
+],
+"a": 1,
+"why": "Lokale Variablen kennt man nur in der Funktion."
+},
+{
+"q": "Wie holst du ein Ergebnis aus einer Funktion heraus?",
+"o": [
+"Mit return",
+"Mit global print",
+"Gar nicht"
+],
+"a": 0,
+"why": "return gibt den Wert zurück."
+}
+],
+"tasks": [
+"a111",
+"a119",
+"a124",
+"a125"
+]
+},
+{
+"id": "l28",
+"kap": 8,
+"titel": "Texte sind Folgen von Zeichen",
+"min": 5,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Ein Text (<code>str</code>) besteht aus einzelnen <b>Zeichen</b> – und funktioniert ganz ähnlich wie eine Liste: Du kannst die Länge abfragen, einzelne Zeichen über den <b>Index</b> holen (ab 0!) und mit <code>for</code> jedes Zeichen durchgehen.</p>"
+},
+{
+"t": "c",
+"code": "wort = \"Python\"\nprint(len(wort))\nprint(wort[0])\nprint(wort[3])\nprint(wort[-1])",
+"in": [],
+"err": false
+},
+{
+"t": "c",
+"code": "for buchstabe in \"Hallo\":\n    print(buchstabe)",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Auch Leerzeichen und Satzzeichen sind Zeichen – <code>len(\"Hallo Welt\")</code> ist 10.</p><p>Damit lässt sich viel anfangen: Zeichen zählen, Wörter umdrehen, Buchstaben suchen.</p>"
+},
+{
+"t": "c",
+"code": "wort = \"Zebra\"\numgekehrt = \"\"\nfor b in wort:\n    umgekehrt = b + umgekehrt\nprint(umgekehrt)",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Mit <code>in</code> prüfst du, ob ein Zeichen (oder Teiltext) enthalten ist:</p>"
+},
+{
+"t": "c",
+"code": "print(\"a\" in \"Banane\")\nprint(\"x\" in \"Banane\")\nprint(\"nan\" in \"Banane\")",
+"in": [],
+"err": false
+},
+{
+"t": "warn",
+"h": "<b>Index-Falle:</b> Das letzte Zeichen hat den Index <code>len(wort) - 1</code>, nicht <code>len(wort)</code>. Kürzer und sicherer: <code>wort[-1]</code>."
+}
+],
+"quiz": [
+{
+"q": "Was ist <code>\"Katze\"[1]</code>?",
+"o": [
+"K",
+"a",
+"t"
+],
+"a": 1,
+"why": "Index 1 ist das zweite Zeichen."
+},
+{
+"q": "Was ist <code>len(\"Hi du\")</code>?",
+"o": [
+"4",
+"5",
+"2"
+],
+"a": 1,
+"why": "Auch das Leerzeichen zählt als Zeichen."
+},
+{
+"q": "Wie holst du den letzten Buchstaben von <code>wort</code>?",
+"o": [
+"wort[len(wort)]",
+"wort[-1]",
+"wort[last]"
+],
+"a": 1,
+"why": "Der Index -1 ist das letzte Zeichen."
+}
+],
+"tasks": [
+"a126",
+"a127",
+"a134",
+"a137",
+"a138"
+]
+},
+{
+"id": "l29",
+"kap": 8,
+"titel": "Ausschnitte im Text – und Texte lassen sich nicht ändern",
+"min": 5,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Wie bei Listen holst du mit <code>text[a:b]</code> einen <b>Ausschnitt</b>: ab Index <code>a</code> bis <b>vor</b> Index <code>b</code>.</p>"
+},
+{
+"t": "c",
+"code": "wort = \"Programmieren\"\nprint(wort[0:4])\nprint(wort[4:])\nprint(wort[:3])\nprint(wort[-3:])",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Rückwärts: <code>text[::-1]</code> dreht einen Text um.</p>"
+},
+{
+"t": "c",
+"code": "print(\"Python\"[::-1])",
+"in": [],
+"err": false
+},
+{
+"t": "warn",
+"h": "<b>Texte sind unveränderlich!</b> Du kannst ein einzelnes Zeichen nicht überschreiben – <code>wort[0] = \"J\"</code> gibt einen <b>TypeError</b>. Stattdessen baust du einen <b>neuen Text</b> zusammen:"
+},
+{
+"t": "c",
+"code": "wort = \"Hallo\"\nwort = \"J\" + wort[1:]\nprint(wort)",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Texte lassen sich mit <code>+</code> verketten und mit einer Zahl vervielfachen:</p>"
+},
+{
+"t": "c",
+"code": "print(\"Ha\" + \"llo\")\nprint(\"ha\" * 3)\nprint(\"-\" * 20)",
+"in": [],
+"err": false
+}
+],
+"quiz": [
+{
+"q": "Was ist <code>\"Schule\"[1:4]</code>?",
+"o": [
+"chu",
+"chul",
+"Sch"
+],
+"a": 0,
+"why": "Index 1, 2 und 3: c, h, u."
+},
+{
+"q": "Wie änderst du das erste Zeichen von <code>\"Hallo\"</code> in ein J?",
+"o": [
+"wort[0] = \"J\"",
+"wort = \"J\" + wort[1:]",
+"wort.change(\"J\")"
+],
+"a": 1,
+"why": "Text lässt sich nicht ändern – man baut einen neuen."
+},
+{
+"q": "Was ergibt <code>\"ab\" * 3</code>?",
+"o": [
+"ababab",
+"ab3",
+"Fehler"
+],
+"a": 0,
+"why": "Text mal Zahl wiederholt den Text."
+}
+],
+"tasks": [
+"a129",
+"a135",
+"a141"
+]
+},
+{
+"id": "l30",
+"kap": 8,
+"titel": "Textmethoden: upper, lower, count, replace",
+"min": 5,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Texte haben viele nützliche <b>Methoden</b> (Funktionen, die man mit Punkt hinter den Text schreibt). Die wichtigsten:</p>"
+},
+{
+"t": "c",
+"code": "text = \"Hallo Welt\"\nprint(text.upper())\nprint(text.lower())\nprint(len(text))",
+"in": [],
+"err": false
+},
+{
+"t": "c",
+"code": "print(\"Mississippi\".count(\"s\"))\nprint(\"Banane\".replace(\"a\", \"o\"))\nprint(\"  Hallo  \".strip())",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<table class=\"gt\"><tr><td><code>text.upper()</code></td><td>alles groß</td></tr><tr><td><code>text.lower()</code></td><td>alles klein</td></tr><tr><td><code>text.count(\"a\")</code></td><td>wie oft kommt \"a\" vor?</td></tr><tr><td><code>text.replace(\"a\", \"o\")</code></td><td>ersetzt jedes a durch o</td></tr><tr><td><code>text.strip()</code></td><td>entfernt Leerzeichen am Rand</td></tr></table>"
+},
+{
+"t": "t",
+"h": "<p><b>Groß-/Kleinschreibung vergleichen:</b> <code>\"JA\" == \"ja\"</code> ist falsch. Wandle vorher mit <code>lower()</code> um – dann ist es egal, wie der Benutzer tippt:</p>"
+},
+{
+"t": "c",
+"code": "eingabe = \"JA\"\nif eingabe.lower() == \"ja\":\n    print(\"ok\")\nelse:\n    print(\"nein\")",
+"in": [],
+"err": false
+},
+{
+"t": "warn",
+"h": "Methoden <b>verändern den Text nicht</b>, sondern liefern einen neuen. <code>text.upper()</code> allein ändert nichts – speichere das Ergebnis: <code>text = text.upper()</code> oder gib es direkt mit <code>print</code> aus."
+}
+],
+"quiz": [
+{
+"q": "Was gibt <code>\"Hallo\".upper()</code> zurück?",
+"o": [
+"hallo",
+"HALLO",
+"Hallo"
+],
+"a": 1,
+"why": "upper macht alles groß."
+},
+{
+"q": "Was liefert <code>\"banane\".count(\"n\")</code>?",
+"o": [
+"1",
+"2",
+"3"
+],
+"a": 1,
+"why": "Zwei n: ba-n-a-n-e."
+},
+{
+"q": "Warum ist <code>text.lower()</code> beim Vergleichen nützlich?",
+"o": [
+"Damit Groß-/Kleinschreibung egal ist",
+"Damit der Text kürzer wird",
+"Damit der Text sortiert wird"
+],
+"a": 0,
+"why": "Beide Seiten in Kleinbuchstaben – dann stimmt der Vergleich unabhängig von der Schreibweise."
+}
+],
+"tasks": [
+"a128",
+"a130",
+"a132",
+"a133",
+"a136",
+"a140",
+"a142"
+]
+},
+{
+"id": "l31",
+"kap": 8,
+"titel": "split, join und Muster mit Texten",
+"min": 6,
+"blocks": [
+{
+"t": "t",
+"h": "<p><code>split()</code> zerlegt einen Text in eine <b>Liste von Wörtern</b> (getrennt an Leerzeichen). <code>\"-\".join(liste)</code> macht den umgekehrten Weg.</p>"
+},
+{
+"t": "c",
+"code": "satz = \"ich lerne python gern\"\nwoerter = satz.split()\nprint(woerter)\nprint(len(woerter))\nprint(woerter[2])\nprint(\"-\".join(woerter))",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>So zählst du <b>Wörter</b>: <code>len(satz.split())</code>.</p><p><b>Vokale zählen</b> verbindet vieles aus diesem Kapitel: eine Schleife über die Zeichen, ein <code>if</code> mit <code>in</code> und ein Zähler.</p>"
+},
+{
+"t": "c",
+"code": "satz = input().lower()\nanzahl = 0\nfor b in satz:\n    if b in \"aeiou\":\n        anzahl += 1\nprint(anzahl)",
+"in": [
+"Hallo Welt"
+],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Ein <b>Palindrom</b> liest sich vorwärts und rückwärts gleich („Anna“, „Otto“). Prüfen: Text kleinschreiben und mit dem umgedrehten vergleichen.</p>"
+},
+{
+"t": "c",
+"code": "wort = \"Anna\".lower()\nif wort == wort[::-1]:\n    print(\"Palindrom\")\nelse:\n    print(\"kein Palindrom\")",
+"in": [],
+"err": false
+},
+{
+"t": "tip",
+"h": "<b>Merke:</b> Texte durchlaufen (for), Zeichen prüfen (in), zählen (Zähler), umdrehen ([::-1]), zerlegen (split), zusammenfügen (join). Mit diesen Bausteinen löst du die meisten Textaufgaben."
+}
+],
+"quiz": [
+{
+"q": "Was liefert <code>\"a b c\".split()</code>?",
+"o": [
+"[\"a\", \"b\", \"c\"]",
+"\"abc\"",
+"3"
+],
+"a": 0,
+"why": "split zerlegt an Leerzeichen in eine Liste."
+},
+{
+"q": "Wie zählst du die Wörter in <code>satz</code>?",
+"o": [
+"len(satz)",
+"len(satz.split())",
+"satz.count()"
+],
+"a": 1,
+"why": "Zerlegen und dann die Anzahl der Elemente zählen."
+},
+{
+"q": "Wie prüfst du, ob <code>w</code> ein Palindrom ist?",
+"o": [
+"w == w[::-1]",
+"w == w[0]",
+"w in w"
+],
+"a": 0,
+"why": "Der umgedrehte Text muss dem Original gleichen."
+}
+],
+"tasks": [
+"a131",
+"a139",
+"a143",
+"a144"
+]
+},
+{
+"id": "l32",
+"kap": 9,
+"titel": "Dictionaries: Schlüssel und Werte",
+"min": 5,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Ein <b>Dictionary</b> (Wörterbuch) speichert <b>Paare</b>: zu einem <b>Schlüssel</b> gehört ein <b>Wert</b> – wie in einem Telefonbuch (Name → Nummer) oder Vokabelheft (Wort → Übersetzung). Es steht in <b>geschweiften Klammern</b>, die Paare haben die Form <code>schlüssel: wert</code>.</p>"
+},
+{
+"t": "c",
+"code": "alter = {\"Felix\": 13, \"Sophia\": 11}\nprint(alter)\nprint(alter[\"Felix\"])\nprint(alter[\"Sophia\"])",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>In Listen suchst du über die Nummer (Index), im Dictionary über den <b>Schlüssel</b>. Das ist praktisch, wenn die Nummer keine Bedeutung hat – oder wenn du „nachschlagen“ willst.</p>"
+},
+{
+"t": "c",
+"code": "englisch = {\"Hund\": \"dog\", \"Katze\": \"cat\", \"Haus\": \"house\"}\nprint(englisch[\"Katze\"])",
+"in": [],
+"err": false
+},
+{
+"t": "tip",
+"h": "<b>Merke:</b> <code>{ }</code> mit <code>schlüssel: wert</code> · Wert holen: <code>d[schlüssel]</code> · Ein leeres Dictionary ist <code>{}</code>. Schlüssel sind eindeutig – jeder Schlüssel kommt nur einmal vor."
+},
+{
+"t": "t",
+"h": "<p>Als Schlüssel nimmt man meist Texte oder Zahlen; als Werte ist (fast) alles erlaubt – auch Listen:</p>"
+},
+{
+"t": "c",
+"code": "noten = {\"Mathe\": [2, 1, 3], \"Latein\": [1, 2]}\nprint(noten[\"Mathe\"])\nprint(noten[\"Latein\"][0])",
+"in": [],
+"err": false
+}
+],
+"quiz": [
+{
+"q": "Wie holst du den Wert zum Schlüssel <code>\"Felix\"</code> aus dem Dictionary <code>d</code>?",
+"o": [
+"d(Felix)",
+"d[\"Felix\"]",
+"d.Felix"
+],
+"a": 1,
+"why": "Mit dem Schlüssel in eckigen Klammern."
+},
+{
+"q": "Welche Klammern benutzt man für ein Dictionary?",
+"o": [
+"Geschweifte { }",
+"Eckige [ ]",
+"Runde ( )"
+],
+"a": 0,
+"why": "Dictionaries stehen in geschweiften Klammern."
+}
+],
+"tasks": [
+"a145",
+"a151",
+"a158"
+]
+},
+{
+"id": "l33",
+"kap": 9,
+"titel": "Einträge ändern, ergänzen und prüfen",
+"min": 5,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Einen <b>neuen Eintrag</b> legst du an, indem du einem neuen Schlüssel einen Wert zuweist. Gibt es den Schlüssel schon, wird sein Wert <b>überschrieben</b>.</p>"
+},
+{
+"t": "c",
+"code": "d = {\"a\": 1}\nd[\"b\"] = 2        # neu\nd[\"a\"] = 10       # überschrieben\nprint(d)",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Mit <code>in</code> prüfst du, ob ein <b>Schlüssel</b> vorhanden ist; <code>len</code> zählt die Einträge:</p>"
+},
+{
+"t": "c",
+"code": "preise = {\"Apfel\": 2, \"Birne\": 3}\nprint(\"Apfel\" in preise)\nprint(\"Kiwi\" in preise)\nprint(len(preise))",
+"in": [],
+"err": false
+},
+{
+"t": "warn",
+"h": "<b>KeyError:</b> Greifst du auf einen Schlüssel zu, den es nicht gibt, bricht Python mit einem KeyError ab. Auch Groß-/Kleinschreibung zählt: <code>d[\"felix\"]</code> ist nicht <code>d[\"Felix\"]</code>."
+},
+{
+"t": "c",
+"code": "alter = {\"Felix\": 13}\nprint(alter[\"felix\"])",
+"in": [],
+"err": true
+},
+{
+"t": "t",
+"h": "<p>Vorher prüfen verhindert den Fehler:</p>"
+},
+{
+"t": "c",
+"code": "alter = {\"Felix\": 13}\nname = \"felix\"\nif name in alter:\n    print(alter[name])\nelse:\n    print(\"unbekannt\")",
+"in": [],
+"err": false
+}
+],
+"quiz": [
+{
+"q": "Was passiert bei <code>d[\"x\"] = 5</code>, wenn es den Schlüssel <code>\"x\"</code> schon gibt?",
+"o": [
+"Fehler",
+"Der alte Wert wird überschrieben",
+"Es entsteht ein zweiter Eintrag"
+],
+"a": 1,
+"why": "Jeder Schlüssel kommt nur einmal vor – der Wert wird ersetzt."
+},
+{
+"q": "Wie prüfst du, ob der Schlüssel <code>\"a\"</code> in <code>d</code> ist?",
+"o": [
+"\"a\" in d",
+"d.has(\"a\")",
+"d == \"a\""
+],
+"a": 0,
+"why": "Mit dem Operator in."
+},
+{
+"q": "Was löst <code>d[\"fehlt\"]</code> aus, wenn es den Schlüssel nicht gibt?",
+"o": [
+"None",
+"Einen KeyError",
+"Eine leere Zeile"
+],
+"a": 1,
+"why": "Ein nicht vorhandener Schlüssel ist ein KeyError."
+}
+],
+"tasks": [
+"a146",
+"a147",
+"a152",
+"a154",
+"a155"
+]
+},
+{
+"id": "l34",
+"kap": 9,
+"titel": "get, Schleifen und items",
+"min": 5,
+"blocks": [
+{
+"t": "t",
+"h": "<p><b>get</b> holt einen Wert – und liefert einen Ersatzwert (statt eines Fehlers), wenn der Schlüssel fehlt:</p>"
+},
+{
+"t": "c",
+"code": "d = {\"rot\": 1, \"gelb\": 2}\nprint(d.get(\"rot\"))\nprint(d.get(\"blau\", 0))\nprint(d.get(\"blau\"))",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Ohne Ersatzwert gibt <code>get</code> <code>None</code> zurück. Perfekt für ein <b>Telefonbuch</b> mit „unbekannt“:</p>"
+},
+{
+"t": "c",
+"code": "nummern = {\"Felix\": \"123\", \"Sophia\": \"456\"}\nname = input()\nprint(nummern.get(name, \"unbekannt\"))",
+"in": [
+"Anna"
+],
+"err": false
+},
+{
+"t": "t",
+"h": "<p><b>Schleife über ein Dictionary:</b> Eine <code>for</code>-Schleife läuft über die <b>Schlüssel</b>:</p>"
+},
+{
+"t": "c",
+"code": "noten = {\"Mathe\": 2, \"Latein\": 1}\nfor fach in noten:\n    print(fach, noten[fach])",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Mit <code>.items()</code> bekommst du <b>Schlüssel und Wert gleichzeitig</b>:</p>"
+},
+{
+"t": "c",
+"code": "noten = {\"Mathe\": 2, \"Latein\": 1}\nfor fach, note in noten.items():\n    print(fach, \"->\", note)",
+"in": [],
+"err": false
+},
+{
+"t": "tip",
+"h": "<b>Merke:</b> <code>d.get(k, ersatz)</code> = sicher nachschlagen · <code>for k in d</code> = alle Schlüssel · <code>for k, v in d.items()</code> = Schlüssel und Wert."
+}
+],
+"quiz": [
+{
+"q": "Was liefert <code>{\"a\": 1}.get(\"b\", 0)</code>?",
+"o": [
+"0",
+"None",
+"Einen Fehler"
+],
+"a": 0,
+"why": "Den Ersatzwert, weil „b“ fehlt."
+},
+{
+"q": "Worüber läuft <code>for x in d</code>?",
+"o": [
+"Über die Werte",
+"Über die Schlüssel",
+"Über Schlüssel und Werte"
+],
+"a": 1,
+"why": "Standardmäßig über die Schlüssel."
+},
+{
+"q": "Welche Methode liefert Schlüssel und Wert zusammen?",
+"o": [
+"d.items()",
+"d.pairs()",
+"d.all()"
+],
+"a": 0,
+"why": "items() gibt Paare aus Schlüssel und Wert."
+}
+],
+"tasks": [
+"a148",
+"a149",
+"a153",
+"a157",
+"a159",
+"a160"
+]
+},
+{
+"id": "l35",
+"kap": 9,
+"titel": "Dictionary als Zähler",
+"min": 5,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Ein sehr häufiges Muster: <b>zählen, wie oft etwas vorkommt</b> – etwa jeden Buchstaben in einem Wort. Das Dictionary merkt sich für jedes Zeichen den Zählerstand.</p>"
+},
+{
+"t": "c",
+"code": "zaehler = {}\nfor b in \"hallo\":\n    if b in zaehler:\n        zaehler[b] += 1\n    else:\n        zaehler[b] = 1\nprint(zaehler)",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>So funktioniert es: Kommt ein Buchstabe <b>zum ersten Mal</b> vor, gibt es noch keinen Schlüssel – wir legen ihn mit dem Wert 1 an. Kommt er wieder vor, erhöhen wir den Zähler.</p>"
+},
+{
+"t": "warn",
+"h": "<b>KeyError!</b> Ohne die Prüfung <code>if b in zaehler</code> würde <code>zaehler[b] += 1</code> beim ersten Vorkommen abstürzen – denn der Schlüssel existiert noch nicht."
+},
+{
+"t": "t",
+"h": "<p>Danach kannst du die Zähler schön ausgeben:</p>"
+},
+{
+"t": "c",
+"code": "zaehler = {\"h\": 1, \"a\": 1, \"l\": 2, \"o\": 1}\nfor b in zaehler:\n    print(b + \": \" + str(zaehler[b]))",
+"in": [],
+"err": false
+},
+{
+"t": "tip",
+"h": "<b>Merke:</b> „<b>if schlüssel in d</b>: erhöhen – <b>else</b>: mit 1 anlegen“. Mit <code>d.get(k, 0) + 1</code> geht es auch in einer Zeile: <code>d[k] = d.get(k, 0) + 1</code>."
+},
+{
+"t": "c",
+"code": "z = {}\nfor b in \"banane\":\n    z[b] = z.get(b, 0) + 1\nprint(z)",
+"in": [],
+"err": false
+}
+],
+"quiz": [
+{
+"q": "Warum braucht der Zähler die Prüfung <code>if b in zaehler</code>?",
+"o": [
+"Damit es schneller läuft",
+"Damit beim ersten Vorkommen kein KeyError entsteht",
+"Weil Python es verlangt, auch wenn es nichts bringt"
+],
+"a": 1,
+"why": "Der Schlüssel existiert beim ersten Mal noch nicht."
+},
+{
+"q": "Was steht in <code>z</code> nach <code>z = {}</code> und zweimal <code>z[\"a\"] = z.get(\"a\", 0) + 1</code>?",
+"o": [
+"{\"a\": 1}",
+"{\"a\": 2}",
+"{}"
+],
+"a": 1,
+"why": "Erst 0 + 1, dann 1 + 1."
+}
+],
+"tasks": [
+"a150",
+"a156",
+"a161",
+"a162"
+]
+},
+{
+"id": "l36",
+"kap": 10,
+"titel": "Wie plant man ein Programm?",
+"min": 5,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Aus vielen kleinen Bausteinen wird ein richtiges Programm. Aber wo fängst du an? So geht es Schritt für Schritt:</p><ol><li><b>Verstehen:</b> Was soll das Programm tun? Was kommt rein (Eingabe), was soll raus? Rechne ein Beispiel von Hand.</li><li><b>Zerlegen:</b> Welche Schritte sind nötig? (Einlesen → rechnen/prüfen → ausgeben)</li><li><b>Klein anfangen:</b> Schreibe den ersten Schritt, teste ihn mit „Ausprobieren“, dann den nächsten.</li><li><b>Prüfen:</b> Funktioniert es auch bei 0, 1, sehr großen Zahlen, leeren Eingaben?</li></ol>"
+},
+{
+"t": "t",
+"h": "<p><b>Beispiel Zahlenraten (Auswertung):</b> Die Geheimzahl ist 42. Das Programm liest einen Tipp ein und sagt, ob er zu klein, zu groß oder richtig ist.</p><p>Planung: einlesen → drei Fälle unterscheiden (kleiner, größer, gleich) → passenden Text ausgeben. Drei Fälle? Das sind <code>if</code>, <code>elif</code>, <code>else</code>:</p>"
+},
+{
+"t": "c",
+"code": "tipp = int(input())\nif tipp < 42:\n    print(\"zu klein\")\nelif tipp > 42:\n    print(\"zu groß\")\nelse:\n    print(\"richtig\")",
+"in": [
+"10"
+],
+"err": false
+},
+{
+"t": "t",
+"h": "<p><b>Beispiel Taschenrechner:</b> Zwei Zahlen und ein Rechenzeichen einlesen und das Ergebnis ausgeben. Das Rechenzeichen ist ein <b>Text</b> – vergleiche es mit <code>==</code>:</p>"
+},
+{
+"t": "c",
+"code": "a = int(input())\nb = int(input())\nz = input()\nif z == \"+\":\n    print(a + b)\nelif z == \"-\":\n    print(a - b)\nelif z == \"*\":\n    print(a * b)\nelse:\n    print(a / b)",
+"in": [
+"6",
+"3",
+"*"
+],
+"err": false
+},
+{
+"t": "tip",
+"h": "<b>Tipp:</b> Teste dein Programm immer mit mehreren Eingaben – auch mit den „Randfällen“ (kleinste, größte, gleiche Werte). Die Aufgaben prüfen genau das!"
+}
+],
+"quiz": [
+{
+"q": "Was ist der erste Schritt bei einer neuen Programmieraufgabe?",
+"o": [
+"Sofort alles tippen",
+"Verstehen, was rein- und rauskommt – am besten mit einem Beispiel von Hand",
+"Eine Funktion mit dem Namen programm anlegen"
+],
+"a": 1,
+"why": "Erst verstehen und ein Beispiel durchrechnen, dann programmieren."
+},
+{
+"q": "Warum sollte man mit mehreren Eingaben testen?",
+"o": [
+"Weil Python sonst abstürzt",
+"Damit Sonder- und Randfälle auffallen",
+"Das ist unnötig"
+],
+"a": 1,
+"why": "Viele Fehler zeigen sich nur bei besonderen Werten."
+}
+],
+"tasks": [
+"a163",
+"a164",
+"a165",
+"a166"
+]
+},
+{
+"id": "l37",
+"kap": 10,
+"titel": "Bewährte Muster",
+"min": 5,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Viele Programme bestehen aus denselben <b>Mustern</b>, die du jetzt alle kennst. Hier die wichtigsten im Überblick:</p><p><b>Zähler:</b> zählt, wie oft etwas passiert.</p>"
+},
+{
+"t": "c",
+"code": "anzahl = 0\nfor i in range(1, 51):\n    if i % 7 == 0:\n        anzahl += 1\nprint(anzahl)",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p><b>Merker (Flag):</b> eine Variable mit <code>True</code>/<code>False</code>, die sich merkt, ob etwas aufgetreten ist – z. B. beim Primzahltest: Hat die Zahl einen Teiler gefunden?</p>"
+},
+{
+"t": "c",
+"code": "n = 13\nprim = True\nfor t in range(2, n):\n    if n % t == 0:\n        prim = False\nif prim:\n    print(\"Primzahl\")\nelse:\n    print(\"keine Primzahl\")",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p><b>Zwei Werte weiterschieben:</b> bei der Fibonacci-Folge ist jede Zahl die Summe der beiden davor:</p>"
+},
+{
+"t": "c",
+"code": "a = 1\nb = 1\nfor i in range(8):\n    print(a, end=\" \")\n    a, b = b, a + b\nprint()",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p><b>Mehrere Bedingungen:</b> FizzBuzz prüft zuerst den Fall „durch beide teilbar“:</p>"
+},
+{
+"t": "c",
+"code": "for i in range(1, 16):\n    if i % 15 == 0:\n        print(\"FizzBuzz\")\n    elif i % 3 == 0:\n        print(\"Fizz\")\n    elif i % 5 == 0:\n        print(\"Buzz\")\n    else:\n        print(i)",
+"in": [],
+"err": false
+},
+{
+"t": "tip",
+"h": "<b>Quersumme, Zeichen zählen, Passwort prüfen …</b> – meist hilft: Text als Zeichenfolge durchlaufen (<code>for b in text:</code>) und einen Zähler/Merker nutzen."
+}
+],
+"quiz": [
+{
+"q": "Wofür braucht man einen „Merker“ (Flag)?",
+"o": [
+"Um sich zu merken, ob etwas aufgetreten ist",
+"Um Variablen zu löschen",
+"Um die Schleife zu beschleunigen"
+],
+"a": 0,
+"why": "Er wird auf True/False gesetzt, wenn ein Ereignis vorkommt."
+},
+{
+"q": "Warum steht bei FizzBuzz der Fall „durch 15 teilbar“ zuerst?",
+"o": [
+"Weil 15 die größte Zahl ist",
+"Weil sonst schon der Fall „durch 3“ greift und die Kette endet",
+"Das ist beliebig"
+],
+"a": 1,
+"why": "Bei elif-Ketten gewinnt der erste passende Zweig – der allgemeinste Fall muss vorne stehen."
+}
+],
+"tasks": [
+"a167",
+"a168",
+"a169",
+"a170",
+"a171",
+"a173"
+]
+},
+{
+"id": "l38",
+"kap": 10,
+"titel": "Fehler suchen und Programme überdenken",
+"min": 5,
+"blocks": [
+{
+"t": "t",
+"h": "<p>Auch geübte Programmierer machen Fehler – wichtig ist, sie systematisch zu finden („Debugging“). Es gibt zwei Sorten:</p><ul><li><b>Fehlermeldung:</b> Python bricht ab und sagt dir Zeile und Fehlerart (<code>SyntaxError</code>, <code>NameError</code>, <code>TypeError</code>, <code>IndexError</code>, <code>KeyError</code> …).</li><li><b>Falsches Ergebnis ohne Fehlermeldung:</b> Das Programm läuft, tut aber nicht, was du willst. Hier musst du selbst nachdenken.</li></ul>"
+},
+{
+"t": "t",
+"h": "<p><b>Trick 1: Zwischenwerte ausgeben.</b> Baue <code>print</code> ein, um zu sehen, was in den Variablen steht:</p>"
+},
+{
+"t": "c",
+"code": "n = 5\nergebnis = 0\nfor i in range(1, n + 1):\n    ergebnis = ergebnis * i\n    print(\"i =\", i, \"ergebnis =\", ergebnis)\nprint(ergebnis)",
+"in": [],
+"err": false
+},
+{
+"t": "t",
+"h": "<p>Man sieht sofort: <code>ergebnis</code> bleibt immer 0 – weil das Produkt mit <b>0</b> startet. Es muss mit <b>1</b> beginnen.</p>"
+},
+{
+"t": "t",
+"h": "<p><b>Trick 2: Beispiel von Hand durchrechnen</b> und mit der Ausgabe vergleichen. <b>Trick 3: Verdächtige Stellen prüfen</b> – häufige Fehlerquellen sind:</p><ul><li>falscher Startwert (0 statt 1)</li><li>„Eins daneben“ bei <code>range</code> (Ende nicht erreicht)</li><li><code>=</code> statt <code>==</code></li><li>falsche Einrückung (gehört die Zeile in die Schleife?)</li><li>Eingaben nicht umgewandelt (<code>int()</code>)</li></ul>"
+},
+{
+"t": "c",
+"code": "zahl = 5\nwhile zahl > 0:\n    print(zahl)\n    zahl = zahl - 1\nprint(\"Fertig\")",
+"in": [],
+"err": false
+},
+{
+"t": "tip",
+"h": "<b>Merke:</b> Bleibe ruhig, lies die Fehlermeldung, grenze die Fehlerstelle ein (mit <code>print</code>), ändere <b>eine</b> Sache und teste erneut. So wirst du schnell sicher."
+}
+],
+"quiz": [
+{
+"q": "Was hilft, wenn ein Programm ohne Fehlermeldung ein falsches Ergebnis liefert?",
+"o": [
+"Zwischenwerte mit print ausgeben und ein Beispiel von Hand durchrechnen",
+"Das Programm neu starten",
+"Alles löschen und neu schreiben"
+],
+"a": 0,
+"why": "So findest du heraus, wo die Werte vom Erwarteten abweichen."
+},
+{
+"q": "Womit startet man ein Produkt in einer Schleife?",
+"o": [
+"0",
+"1",
+"None"
+],
+"a": 1,
+"why": "Mit 0 wäre das Ergebnis immer 0."
+}
+],
+"tasks": [
+"a172",
+"a174",
+"a175",
+"a176"
+]
+}
+]
