@@ -3,3 +3,4 @@ backups/
 __pycache__/
 python-trainer.html
 pyodide/
+._*
